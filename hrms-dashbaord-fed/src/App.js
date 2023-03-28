@@ -1,10 +1,12 @@
 import logo from "./logo.svg";
 import "./App.css";
+import DashboardRoutes from "./routes/dashboardRoutes";
+import RouteCheck from './routes/RouteCheck'
 
 function App() {
   return (
-    <div className="container">
-      <h1>HRMS</h1>
+    <div>
+      <RouteCheck />
     </div>
   );
 }
