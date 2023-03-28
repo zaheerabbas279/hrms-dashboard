@@ -5,20 +5,17 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './header.scss'
 
-export const Header = () => {
-    const [isAuth, setIsAuth] = useState(true)
+export const Header = (props) => {
+    const { isAuth } = props
     return (
         <div>
-            <Navbar bg="light" expand="md" className='fixed-top'>
+            <Navbar className='header_style' expand="md">
                 <Container fluid>
-                    <Navbar.Brand href="/"><h4>HRMS</h4></Navbar.Brand>
+                    <Navbar.Brand href="/"><h4 className='text-light'>HRMS</h4></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
                             {isAuth ? <>
-                                <a href="https://dollarbirdinc.com" target="_blank">dollarbird</a>
-                            </> : <>
-                                <Nav.Link href="/">Home</Nav.Link>
                                 <Nav.Link href="#link">Link</Nav.Link>
                                 <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -30,7 +27,10 @@ export const Header = () => {
                                     <NavDropdown.Item href="#action/3.4">
                                         Separated link
                                     </NavDropdown.Item>
-                                </NavDropdown></>}
+                                </NavDropdown>
+                            </> : <>
+                                {/* <a href="https://dollarbirdinc.com" target="_blank">dollarbird</a> */}
+                            </>}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

@@ -8,6 +8,7 @@ export const SignIn = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("form submitted syccessfully")
+
     }
     return (
         <div className='formsignin_width'>
