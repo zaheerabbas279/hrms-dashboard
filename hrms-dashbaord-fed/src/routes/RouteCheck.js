@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import AdminRoutes from "./adminRoutes";
-import DashboardRoutes from "./dashboardRoutes";
 import { Outlet, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Dashboard from "../pages/Dashboard/Dashboard";

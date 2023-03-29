@@ -9,19 +9,20 @@ const Dashboard = () => {
   const navigatetoCreateSubAdmin = () => {
     navigate("subAdminSignUp");
   };
-  const {isAuth} = useSelector(state => state.UIStore)
+  const { isAuth } = useSelector((state) => state.UIStore);
 
-  return (
-    isAuth ? 
-      <div className="container dashbaord-body my-4 text-end">
+  return isAuth ? (
+    <div className="container dashbaord-body my-4">
+      <div className="text-end w-100">
         <CreateButton
           name="Create a new user"
           handleClick={navigatetoCreateSubAdmin}
         />
-        <Outlet />
       </div>
-    : 
-    <Navigate to={"/auth"}/>
+      <Outlet />
+    </div>
+  ) : (
+    <Navigate to={"/auth"} />
   );
 };
 
