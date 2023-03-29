@@ -5,9 +5,11 @@ import { Input_element } from "../../../components/input_field/Input_element";
 import { useDispatch } from "react-redux";
 import { setIsAuth } from "../../../store/reducers/ui.reducer";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 import "./SignIn.scss";
 
 export const SignIn = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -18,6 +20,7 @@ export const SignIn = () => {
     onSubmit: (values) => {
       console.log("the form values are", values);
       dispatch(setIsAuth(true));
+      navigate("/");
     },
     validate: (values) => {
       let errors = {};
@@ -71,7 +74,7 @@ export const SignIn = () => {
         </Button>
       </Form>
       <div className="text-end mt-2">
-        <Link to="/forgotpassword" className="forgot_link">
+        <Link to="/auth/forgotpassword" className="forgot_link">
           Forgot Password?
         </Link>
       </div>
@@ -79,7 +82,7 @@ export const SignIn = () => {
       <div className="text-center">
         <p className="text-light m-0">
           Not a customer yet?{" "}
-          <Link to="/signup" className="login_link">
+          <Link to="signup" className="login_link">
             Sign Up!
           </Link>
         </p>

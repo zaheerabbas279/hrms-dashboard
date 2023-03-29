@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../../components/Button/Button";
-import { Header } from "../../components/header/Header";
+import { Header } from "../../components/Header/Header";
 import Form from "react-bootstrap/Form";
 import "./styles.scss";
 import { useFormik } from "formik";
@@ -42,17 +42,12 @@ const CreateSubAdmin = () => {
   });
   console.log("formik errors", formik.errors);
 
-  const createUser = (e) => {
-    console.log("clicked form", formik.values);
-  };
-
   const goToDashboard = () => {
     navigate("/");
   };
 
   return (
     <>
-
       <div className="subAdminDiv text-center w-100 d-flex justify-content-center">
         <div className="card p-4 m-3 subAdminCard">
           <div className="mt-2 mb-4">

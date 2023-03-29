@@ -41,7 +41,7 @@ export const ForgotPassword = () => {
             <div className="text-center mt-4">
               <p className="text-light m-0">
                 Back to{" "}
-                <Link to="/" className="forgot_link">
+                <Link to="/auth" className="forgot_link">
                   login
                 </Link>
               </p>

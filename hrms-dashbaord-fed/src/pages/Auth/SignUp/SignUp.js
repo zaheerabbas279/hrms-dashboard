@@ -193,7 +193,7 @@ export const SignUp = () => {
         <div className="text-center">
           <p className="text-light m-0">
             Already have an account with us?{" "}
-            <Link to="/" className="login_link">
+            <Link to="/auth" className="login_link">
               Login
             </Link>
           </p>

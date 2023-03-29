@@ -1,12 +1,13 @@
 import { useState } from "react";
 import "./App.css";
-import DashboardRoutes from "./routes/dashboardRoutes";
-import RouteCheck from './routes/RouteCheck'
+import RouteCheck from "./routes/RouteCheck";
+import { Header } from "./components/Header/Header";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false)
   return (
     <div>
+      <Header />
       <RouteCheck />
     </div>
   );
