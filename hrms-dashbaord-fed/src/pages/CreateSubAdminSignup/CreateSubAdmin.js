@@ -42,20 +42,12 @@ const CreateSubAdmin = () => {
   });
   console.log("formik errors", formik.errors);
 
-  const createUser = (e) => {
-    console.log("clicked form", formik.values);
-  };
-
   const goToDashboard = () => {
     navigate("/");
   };
 
   return (
     <>
-      <div>
-        <Header />
-      </div>
-
       <div className="subAdminDiv text-center w-100 d-flex justify-content-center">
         <div className="card p-4 m-3 subAdminCard">
           <div className="mt-2 mb-4">
@@ -76,7 +68,7 @@ const CreateSubAdmin = () => {
               placeholder="Enter your username"
               className="mb-3 subAdminInp"
               onChange={formik.handleChange}
-              onBlur={formik.handleBlur}  
+              onBlur={formik.handleBlur}
               value={formik.values.username}
             />
 

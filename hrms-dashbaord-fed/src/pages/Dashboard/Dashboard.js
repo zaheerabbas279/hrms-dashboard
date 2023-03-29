@@ -1,26 +1,27 @@
 import React from "react";
 import CreateButton from "../../components/CreateButton/CreateButton";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, Navigate } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
+import { useSelector } from "react-redux";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const navigatetoCreateSubAdmin = () => {
-    navigate("/subAdminSignUp");
+    navigate("subAdminSignUp");
   };
-  return (
-    <>
-      <div>
-        <Header />
-      </div>
+  const {isAuth} = useSelector(state => state.UIStore)
 
+  return (
+    isAuth ? 
       <div className="container dashbaord-body my-4 text-end">
         <CreateButton
           name="Create a new user"
           handleClick={navigatetoCreateSubAdmin}
         />
+        <Outlet />
       </div>
-    </>
+    : 
+    <Navigate to={"/auth"}/>
   );
 };
 
