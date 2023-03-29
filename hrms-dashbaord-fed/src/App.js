@@ -1,10 +1,14 @@
-import logo from "./logo.svg";
+import { useState } from "react";
 import "./App.css";
+import RouteCheck from "./routes/RouteCheck";
+import { Header } from "./components/Header/Header";
 
 function App() {
+  const [isLogin, setIsLogin] = useState(false)
   return (
-    <div className="container">
-      <h1>HRMS</h1>
+    <div>
+      <Header />
+      <RouteCheck />
     </div>
   );
 }
