@@ -76,7 +76,7 @@ const CreateSubAdmin = () => {
               placeholder="Enter your username"
               className="mb-3 subAdminInp"
               onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+              onBlur={formik.handleBlur}  
               value={formik.values.username}
             />
 
