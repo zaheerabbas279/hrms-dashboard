@@ -8,8 +8,11 @@ import { SignIn } from "../pages/Auth/SignIn/SignIn";
 import { SignUp } from "../pages/Auth/SignUp/SignUp";
 import { ForgotPassword } from "../pages/Auth/ForgotPassword/ForgotPassword";
 import { RouteStrings } from "../utils/common";
-import { Attendance } from "../components/Attendance/Attendance";
+import { Attendance } from "../pages/Attendance/Attendance";
 import { DashBoardhome } from "../components/Dashboard_Home/DashBoardhome";
+import { SettingsPage } from "../pages/Settings/SettingsPage";
+import { Createuser } from "../pages/CreateUser/Createuser";
+import { CreateRole } from "../pages/CreateRole/CreateRole";
 
 const RouteCheck = () => {
   // const { isAuth } = useSelector((state) => state.UIStore);
@@ -48,6 +51,18 @@ const RouteCheck = () => {
         <Route
           path={RouteStrings.attendance}
           element={<Attendance />}
+        />
+        <Route
+          path={RouteStrings.settings}
+          element={<SettingsPage />}
+        />
+        <Route
+          path={RouteStrings.createuser}
+          element={<Createuser />}
+        />
+        <Route
+          path={RouteStrings.createrole}
+          element={<CreateRole />}
         />
       </Route>
     </Routes>

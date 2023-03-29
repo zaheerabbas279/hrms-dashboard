@@ -10,10 +10,11 @@ export const Input_element = (props) => {
     handleBlur,
     handleChange,
     value,
+    lableClass
   } = props;
   return (
-    <Form.Group className="">
-      <Form.Label className="text-light">{input_label}</Form.Label>
+    <Form.Group className="mb-2">
+      <Form.Label className={lableClass}>{input_label}</Form.Label>
       <Form.Control
         type={type}
         className="form-control"

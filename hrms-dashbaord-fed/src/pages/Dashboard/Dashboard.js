@@ -10,7 +10,7 @@ const Dashboard = () => {
   return (
     isAuth ?
       <>
-        <div className="row no-gutters">
+        <div className="row g-0">
           <div className="col-md-2">
             <Sidebar />
           </div>
