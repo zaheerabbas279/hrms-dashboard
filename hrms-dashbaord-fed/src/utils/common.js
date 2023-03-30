@@ -5,7 +5,11 @@ export const RouteStrings = {
   dashboard: "/",
   subAdminSignUp: "subAdminSignUp",
   companydetails: "companydetails",
-  attendance: "attendance",
+
   createUser: "createUser",
   payslips: "payslips",
+  leaves: "leaves",
+  settings: "settings",
+
+  createrole: "createrole",
 };

@@ -1,7 +1,7 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { RouteStrings } from '../../utils/common'
 import "./Sidebar.scss";
-import { RouteStrings } from "../../utils/common";
 
 export const Sidebar = () => {
   return (
@@ -34,5 +34,8 @@ export const Sidebar = () => {
         </li>
       </ul>
     </div>
-  );
-};
+  )
+}
+
+
+

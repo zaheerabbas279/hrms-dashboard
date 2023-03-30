@@ -5,6 +5,7 @@ import { Input_element } from "../../../components/input_field/Input_element";
 import { ModalComponent } from "../../../components/modal/ModalComponent";
 import { useFormik } from "formik";
 import "./SignUp.scss";
+import { Selectelement } from "../../../components/Select_field/Selectelement";
 
 export const SignUp = () => {
   const employeeSelect = ["1-5", "6-30", "31-50", "51-100"];
@@ -52,11 +53,15 @@ export const SignUp = () => {
 
   return (
     <>
+      <div className="my-4 text-center">
+        <h3 className="text-light">SignUp</h3>
+      </div>
       <div className="form_width">
         <Form onSubmit={formik.handleSubmit} autoComplete="off">
           <Input_element
             input_label="Full Name"
             type="text"
+            lableClass="text-light"
             name="fullName"
             handleChange={formik.handleChange}
             value={formik.values.fullName}
@@ -73,6 +78,7 @@ export const SignUp = () => {
           <Input_element
             input_label="Organization Name"
             type="text"
+            lableClass="text-light"
             name="organizationName"
             handleChange={formik.handleChange}
             handleBlur={formik.handleBlur}
@@ -89,6 +95,7 @@ export const SignUp = () => {
           <Input_element
             input_label="Work Email Address"
             type="email"
+            lableClass="text-light"
             name="email"
             handleChange={formik.handleChange}
             handleBlur={formik.handleBlur}
@@ -103,6 +110,7 @@ export const SignUp = () => {
           <Input_element
             input_label="Phone Number"
             type="number"
+            lableClass="text-light"
             name="phone"
             handleChange={formik.handleChange}
             handleBlur={formik.handleBlur}
@@ -114,25 +122,21 @@ export const SignUp = () => {
               <span className="text-danger small">{formik.errors.phone}</span>
             </>
           ) : null}
-          <Form.Group className="">
-            <Form.Label className="text-light">Number of Employees</Form.Label>
-            <Form.Select
-              aria-label="Default select example"
-              name="numOfEmp"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-              value={formik.values.numOfEmp}
-            >
-              <option value=""></option>
-              {employeeSelect.map((value) => {
-                return (
-                  <option key={`${value}`} value={`${value}`}>
-                    {value}
-                  </option>
-                );
-              })}
-            </Form.Select>
-          </Form.Group>
+
+          <Selectelement
+            select_Label="Number of Employees"
+            lableClass="text-light"
+            name="numOfEmp"
+            handleBlur={formik.handleBlur}
+            handleChange={formik.handleChange}
+            value={formik.values.numOfEmp}
+            optionArray={employeeSelect.map((value) => {
+              return (
+                <option key={`${value}`} value={`${value}`}>
+                  {value}
+                </option>
+              );
+            })} />
           {formik.touched.numOfEmp && formik.errors.numOfEmp ? (
             <>
               <span className="text-danger small">
@@ -140,25 +144,20 @@ export const SignUp = () => {
               </span>
             </>
           ) : null}
-          <Form.Group className="">
-            <Form.Label className="text-light">Your Title</Form.Label>
-            <Form.Select
-              aria-label="Default select example"
-              name="title"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-              value={formik.values.title}
-            >
-              <option value=""></option>
-              {designation.map((value) => {
-                return (
-                  <option key={`${value}`} value={`${value}`}>
-                    {value}
-                  </option>
-                );
-              })}
-            </Form.Select>
-          </Form.Group>
+          <Selectelement
+            select_Label="Your Title"
+            lableClass="text-light"
+            name="title"
+            handleBlur={formik.handleBlur}
+            handleChange={formik.handleChange}
+            value={formik.values.title}
+            optionArray={designation.map((value) => {
+              return (
+                <option key={`${value}`} value={`${value}`}>
+                  {value}
+                </option>
+              );
+            })} />
           {formik.touched.title && formik.errors.title ? (
             <>
               <span className="text-danger small">{formik.errors.title}</span>
