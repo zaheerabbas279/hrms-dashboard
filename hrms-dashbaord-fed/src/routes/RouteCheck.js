@@ -11,7 +11,7 @@ import { RouteStrings } from "../utils/common";
 import { Leaves, leaves } from "../pages/Leaves/Leaves";
 import { DashBoardhome } from "../components/Dashboard_Home/DashBoardhome";
 import { SettingsPage } from "../pages/Settings/SettingsPage";
-import { Createuser } from "../pages/CreateUser/Createuser";
+import { CreateUser } from "../pages/CreateUser/CreateUser";
 import { CreateRole } from "../pages/CreateRole/CreateRole";
 
 const RouteCheck = () => {
@@ -58,7 +58,7 @@ const RouteCheck = () => {
         />
         <Route
           path={RouteStrings.createuser}
-          element={<Createuser />}
+          element={<CreateUser />}
         />
         <Route
           path={RouteStrings.createrole}
