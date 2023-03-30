@@ -10,10 +10,12 @@ export const Input_element = (props) => {
     handleBlur,
     handleChange,
     value,
+    lableClass,
+    formikValidation
   } = props;
   return (
-    <Form.Group className="">
-      <Form.Label className="text-light">{input_label}</Form.Label>
+    <Form.Group className="mb-2">
+      <Form.Label className={lableClass}>{input_label}</Form.Label>
       <Form.Control
         type={type}
         className="form-control"
@@ -23,6 +25,7 @@ export const Input_element = (props) => {
         onChange={handleChange}
         value={value}
       />
+      {formikValidation}
     </Form.Group>
   );
 };

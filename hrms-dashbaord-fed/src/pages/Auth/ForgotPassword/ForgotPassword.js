@@ -52,13 +52,14 @@ export const ForgotPassword = () => {
       ) : (
         <>
           <div className="my-4 text-center">
-            <h3>Forgot Password?</h3>
+            <h3 className="text-light">Forgot Password?</h3>
           </div>
           <div className="formsignin_width">
             <Form onSubmit={formik.handleSubmit} autoComplete="off">
               <Input_element
                 input_label="Email Address"
                 type="email"
+                lableClass="text-light"
                 name="email"
                 handleBlur={formik.handleBlur}
                 handleChange={formik.handleChange}

@@ -1,0 +1,15 @@
+@import "../../style/theme.style";
+
+.setting_style {
+  background-color: transparent;
+  max-width: 500px;
+  margin: 30px auto;
+  .acchead {
+    .accordion-button {
+      box-shadow: none !important;
+      color: #000;
+      font-weight: 600;
+      font-size: 20px;
+    }
+  }
+}
