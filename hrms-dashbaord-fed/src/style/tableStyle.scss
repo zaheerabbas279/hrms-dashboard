@@ -1,0 +1,121 @@
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+// table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {
+  // background-color: #ddd;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  color: #495057;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+table td {
+  // padding-top: 12px;
+  // padding-bottom: 12px;
+  // text-align: center;
+  color: #e9ecef;
+  // background-color: #e9ecef;
+  // border-color: #dee2e6;
+}
+
+.searchInput {
+  border: none;
+  // border-bottom: 2px solid #f3f3f3;
+  outline: none;
+  width: 80%;
+  z-index: 2;
+  color: #ddd;
+  position: relative;
+  background: transparent;
+}
+
+.selectTagTableOrders {
+  border: 1px solid #f3f3f3 !important;
+  width: 60px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  text-align: center !important;
+  margin-top: 10px;
+}
+
+.pageNumber {
+  background-color: #5a99e8;
+  padding: 15px 25px;
+  border-radius: 5px;
+  text-align: center;
+  color: #ffffff;
+  margin: 0px;
+}
+
+.actionBtn {
+  height: 35px;
+  width: 70px;
+  background: #5a99e8;
+
+  color: #ffffff;
+  border: 1px solid #5a99e8;
+}
+
+.actionBtn:disabled {
+  background: #f3f3f3;
+  color: lightgray;
+  border: 2px solid lightgray;
+}
+
+.skipToBtn {
+  border: none;
+  background: none;
+  color: #5a99e8;
+  font-weight: 900;
+}
+
+.skipToBtn:disabled {
+  background: none;
+  color: lightgray;
+}
+
+.searchDiv {
+  width: 16%;
+  border-bottom: 2px solid #f3f3f3;
+}
+
+.searchIcon {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  right: 0px;
+  bottom: 8px;
+}
+
+.deleteIcon {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  right: 20px;
+  bottom: 8px;
+  cursor: pointer;
+}
+
+.editIcon {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}

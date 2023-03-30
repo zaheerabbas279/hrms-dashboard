@@ -10,6 +10,7 @@ import { ForgotPassword } from "../pages/Auth/ForgotPassword/ForgotPassword";
 import { RouteStrings } from "../utils/common";
 import { Attendance } from "../components/Attendance/Attendance";
 import { DashBoardhome } from "../components/Dashboard_Home/DashBoardhome";
+import { CreateUser } from "../pages/CreateUser/CreateUser";
 
 const RouteCheck = () => {
   // const { isAuth } = useSelector((state) => state.UIStore);
@@ -45,10 +46,8 @@ const RouteCheck = () => {
           path={RouteStrings.companydetails}
           element={<CompanyDetails />}
         />
-        <Route
-          path={RouteStrings.attendance}
-          element={<Attendance />}
-        />
+        <Route path={RouteStrings.attendance} element={<Attendance />} />
+        <Route path={RouteStrings.createUser} element={<CreateUser />} />
       </Route>
     </Routes>
   );

@@ -1,14 +1,33 @@
 @import "../../style/theme.style";
 
 .companyDetails {
-    background-color: $card_background;
+    // background-color: $card_background;
     padding: 10px 10px;
     margin: 10px 0px;
 }
 
-.goback{
+.goback {
     cursor: pointer;
 }
-.editBtn{
+
+.editBtn {
     cursor: pointer;
+}
+
+.editCompLogo {
+    cursor: pointer;
+}
+
+.companydetailsDiv {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.companyCard {
+    background-color: $card_background !important;
+    border: 1px solid $card_background !important;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 0 auto;
 }
