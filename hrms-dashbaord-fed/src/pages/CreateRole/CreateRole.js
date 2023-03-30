@@ -4,8 +4,7 @@ import { Button, Form, Table } from 'react-bootstrap'
 import { ModalComponent } from '../../components/modal/ModalComponent'
 import { Input_element } from '../../components/input_field/Input_element'
 import { Selectelement } from '../../components/Select_field/Selectelement'
-import { Link } from 'react-router-dom'
-import { RouteStrings } from '../../utils/common'
+import { useFormik } from 'formik'
 
 export const CreateRole = () => {
     const [viewRole, setViewRole] = useState(false)
@@ -15,15 +14,42 @@ export const CreateRole = () => {
     const employees = ['01', '02', '03', '04', '05']
     const roles = ['admin', 'subadmin', 'employe']
 
-    const handleRoleSubmit = (e) => {
-        e.preventDefault()
-        console.log("role created");
-        roles.push("ex-employee")
-    }
-    const handleAssignSubmit = (e) => {
-        e.preventDefault()
-        console.log("role assigned");
-    }
+    const formikRole = useFormik({
+        initialValues: {
+            role_name: ""
+        },
+        onSubmit: (value) => {
+            console.log(value);
+        },
+        validate: (values) => {
+            let errors = {}
+            if (!values.role_name) {
+                errors.role_name = "Required"
+            }
+            return errors
+        }
+    })
+
+    const formik = useFormik({
+        initialValues: {
+            selected_employee: "",
+            selected_role: ""
+        },
+        validate: (values) => {
+            let errors = {}
+            if (!values.selected_employee) {
+                errors.selected_employee = "select employee"
+            }
+            if (!values.selected_role) {
+                errors.selected_role = "select role"
+            }
+            return errors
+        },
+        onSubmit: (value) => {
+            console.log(value);
+        }
+    })
+
     return (
         <div className="createrole_style">
             <div className="d-flex justify-content-end mb-4">
@@ -78,29 +104,17 @@ export const CreateRole = () => {
                 </div>}
             </div>
 
-            {/* View role Modals */}
-            {/* <ModalComponent
-                show={viewRole}
-                onHide={() => setViewRole(false)}
-                modal_header="Roles"
-                modal_body={<>
-                    <ul>
-                        {roles.map((value) => {
-                            return (
-                                <li key={`${value}`}>{value}</li>
-                            );
-                        })}
-                    </ul>
-                </>
-                }
-            />*/}
             <ModalComponent
                 show={createwRole}
                 onHide={() => setCreateRole(false)}
                 modal_header="Create Role"
                 modal_body={<>
-                    <Form onSubmit={handleRoleSubmit}>
-                        <Input_element input_label="Role Name" type="text" placeholder="Enter Role" />
+                    <Form onSubmit={formikRole.handleSubmit}>
+                        <Input_element input_label="Role Name" name="role_name" handleChange={formikRole.handleChange}
+                            handleBlur={formikRole.handleBlur} value={formikRole.values.role_name} type="text" placeholder="Enter Role"
+                            formikValidation={formikRole.touched.role_name && formikRole.errors.role_name ?
+                                <small className='text-danger'>{formikRole.errors.role_name}</small> : null}
+                        />
                         <div className='text-end mt-4'><Button type="submit">Submit</Button></div>
                     </Form>
                 </>}
@@ -109,21 +123,27 @@ export const CreateRole = () => {
                 show={assignRole}
                 onHide={() => setAssignRole(false)}
                 modal_header="Assign Role"
-                modal_body={<Form onSubmit={handleAssignSubmit}>
-                    <Selectelement select_Label="Emp. Id" optionArray={employees.map((value) => {
-                        return (
-                            <option key={`${value}`} value={`${value}`}>
-                                {value}
-                            </option>
-                        );
-                    })} />
-                    <Selectelement select_Label="Role" optionArray={roles.map((value) => {
-                        return (
-                            <option key={`${value}`} value={`${value}`}>
-                                {value}
-                            </option>
-                        );
-                    })} />
+                modal_body={<Form onSubmit={formik.handleSubmit}>
+                    <Selectelement select_Label="Emp. Id" name="selected_employee" handleChange={formik.handleChange} handleBlur={formik.handleBlur}
+                        optionArray={employees.map((value) => {
+                            return (
+                                <option key={`${value}`} value={`${value}`}>
+                                    {value}
+                                </option>
+                            );
+                        })}
+                        formikValidation={formik.touched.selected_employee && formik.errors.selected_employee ? <small className='text-danger'>{formik.errors.selected_employee}</small> : null}
+                    />
+                    <Selectelement select_Label="Role" name="selected_role" handleChange={formik.handleChange} handleBlur={formik.handleBlur}
+                        optionArray={roles.map((value) => {
+                            return (
+                                <option key={`${value}`} value={`${value}`}>
+                                    {value}
+                                </option>
+                            );
+                        })}
+                        formikValidation={formik.touched.selected_role && formik.errors.selected_role ? <small className='text-danger'>{formik.errors.selected_role}</small> : null}
+                    />
                     <div className='text-end mt-4'><Button type="submit">Submit</Button></div>
                 </Form>}
             />

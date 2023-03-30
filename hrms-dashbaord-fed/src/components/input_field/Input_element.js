@@ -10,7 +10,8 @@ export const Input_element = (props) => {
     handleBlur,
     handleChange,
     value,
-    lableClass
+    lableClass,
+    formikValidation
   } = props;
   return (
     <Form.Group className="mb-2">
@@ -24,6 +25,7 @@ export const Input_element = (props) => {
         onChange={handleChange}
         value={value}
       />
+      {formikValidation}
     </Form.Group>
   );
 };

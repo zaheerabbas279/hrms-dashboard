@@ -8,7 +8,7 @@ import { SignIn } from "../pages/Auth/SignIn/SignIn";
 import { SignUp } from "../pages/Auth/SignUp/SignUp";
 import { ForgotPassword } from "../pages/Auth/ForgotPassword/ForgotPassword";
 import { RouteStrings } from "../utils/common";
-import { Attendance } from "../pages/Attendance/Attendance";
+import { Leaves, leaves } from "../pages/Leaves/Leaves";
 import { DashBoardhome } from "../components/Dashboard_Home/DashBoardhome";
 import { SettingsPage } from "../pages/Settings/SettingsPage";
 import { Createuser } from "../pages/CreateUser/Createuser";
@@ -49,8 +49,8 @@ const RouteCheck = () => {
           element={<CompanyDetails />}
         />
         <Route
-          path={RouteStrings.attendance}
-          element={<Attendance />}
+          path={RouteStrings.leaves}
+          element={<Leaves />}
         />
         <Route
           path={RouteStrings.settings}

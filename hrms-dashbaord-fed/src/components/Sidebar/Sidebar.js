@@ -8,7 +8,7 @@ export const Sidebar = () => {
         <div className='sidebar'>
             <ul className='sidebar_options'>
                 <li><Link to={RouteStrings.dashboard} className='sidebar_link'>Dashboard</Link></li>
-                <li><Link to={RouteStrings.attendance} className='sidebar_link'>Attendance</Link> </li>
+                <li><Link to={RouteStrings.leaves} className='sidebar_link'>Leaves</Link> </li>
                 <li><Link to={RouteStrings.createuser} className='sidebar_link'>Create User</Link> </li>
                 <li><Link to={RouteStrings.createrole} className='sidebar_link'>Roles</Link> </li>
                 <li><Link to={RouteStrings.settings} className='sidebar_link'>Settings</Link> </li>
