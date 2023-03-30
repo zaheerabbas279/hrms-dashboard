@@ -11,6 +11,7 @@ import { RouteStrings } from "../utils/common";
 import { Attendance } from "../components/Attendance/Attendance";
 import { DashBoardhome } from "../components/Dashboard_Home/DashBoardhome";
 import { CreateUser } from "../pages/CreateUser/CreateUser";
+import { Payslips } from "../pages/Payslips/Payslips";
 
 const RouteCheck = () => {
   // const { isAuth } = useSelector((state) => state.UIStore);
@@ -48,6 +49,7 @@ const RouteCheck = () => {
         />
         <Route path={RouteStrings.attendance} element={<Attendance />} />
         <Route path={RouteStrings.createUser} element={<CreateUser />} />
+        <Route path={RouteStrings.payslips} element={<Payslips />} />
       </Route>
     </Routes>
   );

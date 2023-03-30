@@ -7,4 +7,5 @@ export const RouteStrings = {
   companydetails: "companydetails",
   attendance: "attendance",
   createUser: "createUser",
+  payslips: "payslips",
 };

@@ -14,7 +14,7 @@ export const Sidebar = () => {
         </li>
         <li>
           <Link to={RouteStrings.attendance} className="sidebar_link">
-            Attendance
+            Leaves
           </Link>
         </li>
         <li>
@@ -25,6 +25,11 @@ export const Sidebar = () => {
         <li>
           <Link to={RouteStrings.createUser} className="sidebar_link">
             Users
+          </Link>
+        </li>
+        <li>
+          <Link to={RouteStrings.payslips} className="sidebar_link">
+            Payslips
           </Link>
         </li>
       </ul>
