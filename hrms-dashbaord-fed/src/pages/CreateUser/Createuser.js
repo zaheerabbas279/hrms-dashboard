@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./CreateUser.scss";
+import "./createuser.scss";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";

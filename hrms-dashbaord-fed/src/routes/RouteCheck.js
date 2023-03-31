@@ -13,6 +13,7 @@ import { DashBoardhome } from "../components/Dashboard_Home/DashBoardhome";
 import { SettingsPage } from "../pages/Settings/SettingsPage";
 import { CreateUser } from "../pages/CreateUser/CreateUser";
 import { CreateRole } from "../pages/CreateRole/CreateRole";
+import { Payslips } from "../pages/Payslips/Payslips";
 
 const RouteCheck = () => {
   // const { isAuth } = useSelector((state) => state.UIStore);
@@ -48,22 +49,11 @@ const RouteCheck = () => {
           path={RouteStrings.companydetails}
           element={<CompanyDetails />}
         />
-        <Route
-          path={RouteStrings.leaves}
-          element={<Leaves />}
-        />
-        <Route
-          path={RouteStrings.settings}
-          element={<SettingsPage />}
-        />
-        <Route
-          path={RouteStrings.createuser}
-          element={<CreateUser />}
-        />
-        <Route
-          path={RouteStrings.createrole}
-          element={<CreateRole />}
-        />
+        <Route path={RouteStrings.leaves} element={<Leaves />} />
+        <Route path={RouteStrings.settings} element={<SettingsPage />} />
+        <Route path={RouteStrings.createuser} element={<CreateUser />} />
+        <Route path={RouteStrings.createrole} element={<CreateRole />} />
+        <Route path={RouteStrings.payslips} element={<Payslips />} />
       </Route>
     </Routes>
   );
