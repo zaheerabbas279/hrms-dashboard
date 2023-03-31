@@ -10,4 +10,5 @@ export const RouteStrings = {
   createuser: "createuser",
   createrole: "createrole",
   payslips: "payslips",
+  fields: "fields",
 };

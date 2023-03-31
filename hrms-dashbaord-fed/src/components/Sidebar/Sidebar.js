@@ -42,6 +42,11 @@ export const Sidebar = () => {
             Payslips
           </Link>
         </li>
+        <li>
+          <Link to={RouteStrings.fields} className="sidebar_link">
+            Fields
+          </Link>
+        </li>
       </ul>
     </div>
   );

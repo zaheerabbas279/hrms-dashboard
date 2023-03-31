@@ -14,6 +14,7 @@ import { SettingsPage } from "../pages/Settings/SettingsPage";
 import { CreateUser } from "../pages/CreateUser/CreateUser";
 import { CreateRole } from "../pages/CreateRole/CreateRole";
 import { Payslips } from "../pages/Payslips/Payslips";
+import { Fields } from "../pages/Fields/Fields";
 
 const RouteCheck = () => {
   // const { isAuth } = useSelector((state) => state.UIStore);
@@ -54,6 +55,7 @@ const RouteCheck = () => {
         <Route path={RouteStrings.createuser} element={<CreateUser />} />
         <Route path={RouteStrings.createrole} element={<CreateRole />} />
         <Route path={RouteStrings.payslips} element={<Payslips />} />
+        <Route path={RouteStrings.fields} element={<Fields />} />
       </Route>
     </Routes>
   );
