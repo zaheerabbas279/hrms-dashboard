@@ -1,5 +1,7 @@
+@import "./../../style/theme.style";
+
 .sidebar {
-  background-color: #175592;
+  background-color: $card_background;
   padding: 30px 0;
   min-height: 100vh;
   position: sticky;
@@ -12,7 +14,7 @@
       margin: 10px 15px;
       .sidebar_link {
         font-size: 18px;
-        color: #fff;
+        color: $default_white;
         text-decoration: none;
         font-weight: 600;
       }

@@ -1,5 +1,7 @@
+@import "../../style/theme.style";
+
 .header_style {
-  background-color: #175592;
-  box-shadow: 0px 0px 4px #000;
+  background-color: $card_background;
+  box-shadow: 0px 0px 4px $default_black;
   z-index: 1030;
 }

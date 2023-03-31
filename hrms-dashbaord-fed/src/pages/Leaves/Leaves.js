@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './leaves.scss'
 import Chip from '@mui/material/Chip';
-import { useFormik, useFormikContext } from 'formik';
+import { useFormik } from 'formik';
 
 export const Leaves = () => {
     const [holidays, setHolidays] = useState(true)

@@ -1,13 +1,15 @@
+@import "../../style/theme.style";
+
 .attendance_style {
   max-width: 750px;
   margin: 30px auto;
 }
 .react-datepicker__day--selected {
   background-color: transparent !important;
-  color: #000 !important;
+  color: $date_color !important;
 }
 .react-datepicker__day--selected.react-datepicker__day--highlighted,
 .react-datepicker__day--highlighted {
-  background-color: #32be3f !important;
-  color: #fff !important;
+  background-color: $date_bgselect !important;
+  color: $default_white !important;
 }
