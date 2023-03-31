@@ -1,0 +1,22 @@
+.fieldsDetails {
+    // background-color: $card_background;
+    padding: 10px 10px;
+    margin: 10px 0px;
+}
+
+.goback {
+    cursor: pointer;
+}
+
+.tableName {
+    text-transform: capitalize;
+}
+
+.tableData{
+    th {
+        color: #f3f3f3;
+    }
+    td{
+        color: #f3f3f3;
+    }
+}
