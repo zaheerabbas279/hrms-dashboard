@@ -29,7 +29,7 @@ export const Header = (props) => {
                 <>
                   <Nav.Link href="#link">Link</Nav.Link>
 
-                  <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                  <NavDropdown title="Dropdown" id="basic-nav-dropdown" >
                     <NavDropdown.Item href="#action/3.1">
                       Action
                     </NavDropdown.Item>
