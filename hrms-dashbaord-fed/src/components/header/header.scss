@@ -6,16 +6,28 @@
   z-index: 1030;
 }
 
-
-
 .dprdwn {
   .dropdown-menu {
     right: 0 !important;
     left: auto !important;
   }
-
   .dropdown-toggle {
-    background-color: aqua;
-    background-image: url("../../assets/profile.png");
+    padding: 0;
+  }
+  .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0;
+    vertical-align: 0;
+    content: "";
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    width: 45px;
+    height: 45px;
+    background-image: url(../../assets/profile.png);
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
