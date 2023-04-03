@@ -5,3 +5,17 @@
   box-shadow: 0px 0px 4px $default_black;
   z-index: 1030;
 }
+
+
+
+.dprdwn {
+  .dropdown-menu {
+    right: 0 !important;
+    left: auto !important;
+  }
+
+  .dropdown-toggle {
+    background-color: aqua;
+    background-image: url("../../assets/profile.png");
+  }
+}

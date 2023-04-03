@@ -8,24 +8,26 @@ import Modal from "react-bootstrap/Modal";
 import { Formik, Form, FieldArray, ErrorMessage } from "formik";
 import CustomInput from "./CustomInput";
 import * as yup from "yup";
-import { ModalComponent } from '../../components/modal/ModalComponent'
+import { ModalComponent } from "../../components/modal/ModalComponent";
 import { Input_element } from "../../components/input_field/Input_element";
-
+import { Images } from "../../utils/images";
 
 const handleValidation = yup.object().shape({
   info: yup.array().of(
     yup.object().shape({
-      name: yup.string().required("This field is required")
+      name: yup.string().required("This field is required"),
+      type: yup.string().required("Please enter the type"),
     })
-  )
+  ),
 });
 
 const initialValues = {
   info: [
     {
-      name: ""
-    }
-  ]
+      name: "",
+      type: "",
+    },
+  ],
 };
 
 const removeFromList = (i, values, setValues) => {
@@ -37,13 +39,14 @@ const removeFromList = (i, values, setValues) => {
 const updateForm = (values, setValues) => {
   const info = [...values.info];
   info.push({
-    name: ""
+    name: "",
+    type: "",
   });
   setValues({ ...values, info });
 };
 
 const handleSubmit = (values) => {
-  console.log(values);
+  console.log(values.info);
 };
 
 const AdminFields = ({ data }) => {
@@ -86,70 +89,92 @@ const AdminFields = ({ data }) => {
         </div>
 
         {/* //!!!!!!!!!!!!!!!!!!!!!!!!!!!! modal for add end edit the fields !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
-        <ModalComponent show={show} onHide={handleClose} modal_header="Add / Edit Fields"
-          modal_body={<>
-            <Formik
-              validationSchema={handleValidation}
-              initialValues={initialValues}
-              onSubmit={handleSubmit}
-            >
-              {({ values, setValues }) => (
-                <Form>
-                  <FieldArray name="info">
-                    {() =>
-                      values.info.map((item, i) => {
-                        return (
-
-                          <div key={i}>
-                            <div className="d-flex">
-                              {/* <CustomInput
+        <ModalComponent
+          show={show}
+          onHide={handleClose}
+          modal_header="Add / Edit Fields"
+          modal_body={
+            <>
+              <Formik
+                validationSchema={handleValidation}
+                initialValues={initialValues}
+                onSubmit={handleSubmit}
+              >
+                {({ values, setValues }) => (
+                  <Form>
+                    <FieldArray name="info">
+                      {() =>
+                        values.info.map((item, i) => {
+                          return (
+                            <div key={i}>
+                              <div className="d-flex align-items-center">
+                                {/* <CustomInput
                                 label=""
                                 name={`info.${i}.name`}
                                 placeholder="Type"
                               /> */}
-                              {/* <Input_element type="text" name={`info.${i}.name`} input_label="Field Name"
+                                {/* <Input_element type="text" name={`info.${i}.name`} input_label="Field Name"
                               // formikValidation={<ErrorMessage component="div" name={`info.${i}.name`} style={errorMessage} />}
                               /> */}
-                              {/* <ErrorMessage component="div" name={`info.${i}.name`} style={errorMessage} /> */}
-                              <CustomInput
-                                label="Field Name : "
-                                name={`info.${i}.name`}
-                                placeholder="Field name"
-                              />
-                              {values.info.length > 1 && (
-                                <button
-                                  className="pointer"
-                                  onClick={() => removeFromList(i, values, setValues)}
-                                >
-                                  delete
-                                </button>
-                              )}
+                                {/* <ErrorMessage component="div" name={`info.${i}.name`} style={errorMessage} /> */}
+                                <CustomInput
+                                  label="Field Name : "
+                                  name={`info.${i}.name`}
+                                  placeholder="Field name"
+                                />
+                                <CustomInput
+                                  label="Field Type : "
+                                  name={`info.${i}.type`}
+                                  placeholder="Field type"
+                                />
+                                {values.info.length > 1 && (
+                                  <img
+                                    src={Images.deleteLogo}
+                                    alt=""
+                                    onClick={() =>
+                                      removeFromList(i, values, setValues)
+                                    }
+                                    className="deleteLogo"
+                                  />
+                                  // <button
+                                  //   className="pointer btn-danger"
+                                  //   onClick={() =>
+                                  //     removeFromList(i, values, setValues)
+                                  //   }
+                                  // >
+                                  //   delete
+                                  // </button>
+                                )}
+                              </div>
                             </div>
-                          </div>
+                          );
+                        })
+                      }
+                    </FieldArray>
 
-                        );
-                      })
-                    }
-                  </FieldArray>
+                    <div className="d-flex align-items-center">
+                      <button
+                        // style={{ margin: "25px 10px 10px 0" }}
+                        className="btn btn-info text-light mx-2"
+                        type="button"
+                        onClick={(e) => updateForm(values, setValues)}
+                      >
+                        Add more fields
+                      </button>
 
-                  <button
-                    style={{ margin: "25px 10px 10px 0" }}
-                    className="pointer"
-                    type="button"
-                    onClick={(e) => updateForm(values, setValues)}
-                  >
-                    Click to add information
-                  </button>
-
-                  <button className="pointer" type="submit">
-                    Submit
-                  </button>
-                </Form>
-              )}
-            </Formik>
-          </>}
+                      <button
+                        className="btn btn-primary text-light mx-2"
+                        type="submit"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </Form>
+                )}
+              </Formik>
+            </>
+          }
         />
-
       </div>
     </>
   );
@@ -173,7 +198,7 @@ const Settings = () => {
 
 export const Fields = () => {
   // console.log("the mock data is", Data);
-  const gotodashboard = () => { };
+  const gotodashboard = () => {};
 
   const [tableName, setTableName] = useState("");
 
@@ -195,11 +220,12 @@ export const Fields = () => {
         <div className="fieldsmaindiv my-4">
           <div className="formchilddiv w-50">
             <label htmlFor="" className="text-light">
-              Select the table name
+              Select the table name :
             </label>
             <select
               aria-label="Default select example"
               onChange={setTableNamefun}
+              className="mx-2 dropdownTable"
             >
               <option disabled selected>
                 Select table
@@ -235,5 +261,5 @@ export const Fields = () => {
 const errorMessage = {
   color: "red",
   // position: "absolute",
-  fontSize: "11px"
+  fontSize: "11px",
 };

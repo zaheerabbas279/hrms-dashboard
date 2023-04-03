@@ -18,13 +18,36 @@
   th {
     color: #f3f3f3;
   }
+
   td {
     color: #f3f3f3;
   }
 }
+
 .modal-content {
   background-color: $card_background !important;
 }
+
 .modal-header {
   background-color: $default_white;
+}
+
+.deleteLogo {
+  height: 25px;
+  width: 25px;
+  margin: 3px;
+  cursor: pointer;
+}
+
+.customInp {
+  height: 40px;
+  outline: none;
+  border: 1px solid #f3f3f3;
+  
+}
+
+.dropdownTable{
+  height: 40px;
+  outline: none;
+  border: 1px solid #f3f3f3f3;
 }
