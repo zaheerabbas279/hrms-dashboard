@@ -1,10 +1,50 @@
 import React, { useState } from "react";
 import "./Fields.scss";
-import Form from "react-bootstrap/Form";
+// import Form from "react-bootstrap/Form";
 import Data from "./MOCK_DATA.json";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { Formik, Form, FieldArray, ErrorMessage } from "formik";
+import CustomInput from "./CustomInput";
+import * as yup from "yup";
+import { ModalComponent } from '../../components/modal/ModalComponent'
+import { Input_element } from "../../components/input_field/Input_element";
+
+
+const handleValidation = yup.object().shape({
+  info: yup.array().of(
+    yup.object().shape({
+      name: yup.string().required("This field is required")
+    })
+  )
+});
+
+const initialValues = {
+  info: [
+    {
+      name: ""
+    }
+  ]
+};
+
+const removeFromList = (i, values, setValues) => {
+  const info = [...values.info];
+  info.splice(i, 1);
+  setValues({ ...values, info });
+};
+
+const updateForm = (values, setValues) => {
+  const info = [...values.info];
+  info.push({
+    name: ""
+  });
+  setValues({ ...values, info });
+};
+
+const handleSubmit = (values) => {
+  console.log(values);
+};
 
 const AdminFields = ({ data }) => {
   const [show, setShow] = useState(false);
@@ -46,22 +86,70 @@ const AdminFields = ({ data }) => {
         </div>
 
         {/* //!!!!!!!!!!!!!!!!!!!!!!!!!!!! modal for add end edit the fields !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Add / Edit Fields</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <h5>Add / Edit Fields</h5>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
+        <ModalComponent show={show} onHide={handleClose} modal_header="Add / Edit Fields"
+          modal_body={<>
+            <Formik
+              validationSchema={handleValidation}
+              initialValues={initialValues}
+              onSubmit={handleSubmit}
+            >
+              {({ values, setValues }) => (
+                <Form>
+                  <FieldArray name="info">
+                    {() =>
+                      values.info.map((item, i) => {
+                        return (
+
+                          <div key={i}>
+                            <div className="d-flex">
+                              {/* <CustomInput
+                                label=""
+                                name={`info.${i}.name`}
+                                placeholder="Type"
+                              /> */}
+                              {/* <Input_element type="text" name={`info.${i}.name`} input_label="Field Name"
+                              // formikValidation={<ErrorMessage component="div" name={`info.${i}.name`} style={errorMessage} />}
+                              /> */}
+                              {/* <ErrorMessage component="div" name={`info.${i}.name`} style={errorMessage} /> */}
+                              <CustomInput
+                                label="Field Name : "
+                                name={`info.${i}.name`}
+                                placeholder="Field name"
+                              />
+                              {values.info.length > 1 && (
+                                <button
+                                  className="pointer"
+                                  onClick={() => removeFromList(i, values, setValues)}
+                                >
+                                  delete
+                                </button>
+                              )}
+                            </div>
+                          </div>
+
+                        );
+                      })
+                    }
+                  </FieldArray>
+
+                  <button
+                    style={{ margin: "25px 10px 10px 0" }}
+                    className="pointer"
+                    type="button"
+                    onClick={(e) => updateForm(values, setValues)}
+                  >
+                    Click to add information
+                  </button>
+
+                  <button className="pointer" type="submit">
+                    Submit
+                  </button>
+                </Form>
+              )}
+            </Formik>
+          </>}
+        />
+
       </div>
     </>
   );
@@ -85,7 +173,7 @@ const Settings = () => {
 
 export const Fields = () => {
   // console.log("the mock data is", Data);
-  const gotodashboard = () => {};
+  const gotodashboard = () => { };
 
   const [tableName, setTableName] = useState("");
 
@@ -109,7 +197,7 @@ export const Fields = () => {
             <label htmlFor="" className="text-light">
               Select the table name
             </label>
-            <Form.Select
+            <select
               aria-label="Default select example"
               onChange={setTableNamefun}
             >
@@ -119,7 +207,7 @@ export const Fields = () => {
               <option value="admin">Admin Fields</option>
               <option value="company">Company Details Fields</option>
               <option value="settings">Settings Fields</option>
-            </Form.Select>
+            </select>
           </div>
         </div>
 
@@ -143,4 +231,9 @@ export const Fields = () => {
       </div>
     </>
   );
+};
+const errorMessage = {
+  color: "red",
+  // position: "absolute",
+  fontSize: "11px"
 };

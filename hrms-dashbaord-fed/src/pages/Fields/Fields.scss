@@ -1,22 +1,30 @@
+@import "../../style/theme.style";
+
 .fieldsDetails {
-    // background-color: $card_background;
-    padding: 10px 10px;
-    margin: 10px 0px;
+  // background-color: $card_background;
+  padding: 10px 10px;
+  margin: 10px 0px;
 }
 
 .goback {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .tableName {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
-.tableData{
-    th {
-        color: #f3f3f3;
-    }
-    td{
-        color: #f3f3f3;
-    }
+.tableData {
+  th {
+    color: #f3f3f3;
+  }
+  td {
+    color: #f3f3f3;
+  }
+}
+.modal-content {
+  background-color: $card_background !important;
+}
+.modal-header {
+  background-color: $default_white;
 }

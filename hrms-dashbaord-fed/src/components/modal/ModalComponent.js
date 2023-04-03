@@ -6,7 +6,7 @@ export const ModalComponent = (props) => {
   return (
     <Modal size="lg" show={show} onHide={onHide}>
       <Modal.Header closeButton>
-        <Modal.Title id="example-modal-sizes-title-lg">
+        <Modal.Title>
           {modal_header}
         </Modal.Title>
       </Modal.Header>
