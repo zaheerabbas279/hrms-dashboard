@@ -10,13 +10,18 @@ import CustomInput from "./CustomInput";
 import * as yup from "yup";
 import { ModalComponent } from "../../components/modal/ModalComponent";
 import { Input_element } from "../../components/input_field/Input_element";
+
 import { Images } from "../../utils/images";
+import { FieldsTable } from "./FieldsTable";
 
 const handleValidation = yup.object().shape({
   info: yup.array().of(
     yup.object().shape({
       name: yup.string().required("This field is required"),
       type: yup.string().required("Please enter the type"),
+      length: yup
+        .number()
+        .required("Please enter the length of the string here"),
     })
   ),
 });
@@ -26,6 +31,7 @@ const initialValues = {
     {
       name: "",
       type: "",
+      length: "",
     },
   ],
 };
@@ -41,6 +47,7 @@ const updateForm = (values, setValues) => {
   info.push({
     name: "",
     type: "",
+    length: "",
   });
   setValues({ ...values, info });
 };
@@ -60,12 +67,13 @@ const AdminFields = ({ data }) => {
         <div className="d-flex align-items-center justify-content-between">
           <h5 className="text-light">Admin fields</h5>
           <button className="btn btn-danger" onClick={handleShow}>
-            Add / Edit Fields
+            Add Fields
           </button>
         </div>
         <div className="w-100 d-flex justify-content-center">
           <div className="fieldsDetails w-50">
-            <Table bordered className="tableData">
+            <FieldsTable />
+            {/* <Table bordered className="tableData">
               <>
                 <thead>
                   <tr>
@@ -84,7 +92,7 @@ const AdminFields = ({ data }) => {
                   })}
                 </tbody>
               </>
-            </Table>
+            </Table> */}
           </div>
         </div>
 
@@ -92,7 +100,7 @@ const AdminFields = ({ data }) => {
         <ModalComponent
           show={show}
           onHide={handleClose}
-          modal_header="Add / Edit Fields"
+          modal_header="Add Fields"
           modal_body={
             <>
               <Formik
@@ -107,7 +115,7 @@ const AdminFields = ({ data }) => {
                         values.info.map((item, i) => {
                           return (
                             <div key={i}>
-                              <div className="d-flex align-items-center">
+                              <div className="d-flex flex-column align-items-center">
                                 {/* <CustomInput
                                 label=""
                                 name={`info.${i}.name`}
@@ -127,6 +135,11 @@ const AdminFields = ({ data }) => {
                                   name={`info.${i}.type`}
                                   placeholder="Field type"
                                 />
+                                <CustomInput
+                                  label="Field Length : "
+                                  name={`info.${i}.length`}
+                                  placeholder="Field Length"
+                                />
                                 {values.info.length > 1 && (
                                   <img
                                     src={Images.deleteLogo}
@@ -136,14 +149,6 @@ const AdminFields = ({ data }) => {
                                     }
                                     className="deleteLogo"
                                   />
-                                  // <button
-                                  //   className="pointer btn-danger"
-                                  //   onClick={() =>
-                                  //     removeFromList(i, values, setValues)
-                                  //   }
-                                  // >
-                                  //   delete
-                                  // </button>
                                 )}
                               </div>
                             </div>
@@ -152,7 +157,7 @@ const AdminFields = ({ data }) => {
                       }
                     </FieldArray>
 
-                    <div className="d-flex align-items-center">
+                    <div className="d-flex align-items-center justify-content-center">
                       <button
                         // style={{ margin: "25px 10px 10px 0" }}
                         className="btn btn-info text-light mx-2"
