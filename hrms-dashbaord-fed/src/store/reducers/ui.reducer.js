@@ -7,7 +7,7 @@ const initialState = {
 export const uiReducer = createSlice({
   name: "uiReducer",
   initialState: {
-    isAuth: true,
+    isAuth: false,
   },
   reducers: {
     increment: (state) => {
