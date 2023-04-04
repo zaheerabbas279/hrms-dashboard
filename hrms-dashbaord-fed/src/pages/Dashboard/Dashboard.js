@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet, useNavigate, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
+import { RouteStrings } from "../../utils/common";
 
 const Dashboard = () => {
 
@@ -15,15 +16,15 @@ const Dashboard = () => {
             <Sidebar />
           </div>
           <div className="col-md-10">
-
-            <Outlet />
-
+            <div className="px-3">
+              <Outlet />
+            </div>
           </div>
         </div>
 
       </>
       :
-      <Navigate to={"/auth"} />
+      <Navigate to={RouteStrings.login} />
   );
 };
 

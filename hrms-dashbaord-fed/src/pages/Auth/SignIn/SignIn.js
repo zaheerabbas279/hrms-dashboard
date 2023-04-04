@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Input_element } from "../../../components/input_field/Input_element";
@@ -12,13 +12,13 @@ export const SignIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
     onSubmit: (values) => {
-      console.log("the form values are", values);
       dispatch(setIsAuth(true));
       navigate("/");
     },

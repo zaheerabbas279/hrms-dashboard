@@ -1,10 +1,12 @@
-.createSubAdminBtn{
-    background-color: #5a99e8;
-    height: 50px;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 0px;
-    color: #ffffff;
-    border: 1px solid #5a99e8;
-    padding: 0px 30px;
+@import "../../style/theme.style";
+
+.createSubAdminBtn {
+  background-color: $button_color;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 0px;
+  color: $default_white;
+  border: 1px solid $button_color;
+  padding: 0px 30px;
 }

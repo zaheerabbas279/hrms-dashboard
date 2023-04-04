@@ -1,0 +1,52 @@
+[
+    {
+        "field_name": "tdavis0",
+        "type": "jcb",
+        "length": "20"
+    },
+    {
+        "field_name": "chubback1",
+        "type": "jcb",
+        "length": "20"
+    },
+    {
+        "field_name": "briach2",
+        "type": "jcb",
+        "length": "20"
+    },
+    {
+        "field_name": "bchamperlen3",
+        "type": "switch",
+        "length": "20"
+    },
+    {
+        "field_name": "gtrundell4",
+        "type": "jcb",
+        "length": "20"
+    },
+    {
+        "field_name": "jalvarado5",
+        "type": "jcb",
+        "length": "20"
+    },
+    {
+        "field_name": "okembry6",
+        "type": "switch",
+        "length": "20"
+    },
+    {
+        "field_name": "sodd7",
+        "type": "americanexpress",
+        "length": "20"
+    },
+    {
+        "field_name": "ftreat8",
+        "type": "bankcard",
+        "length": "20"
+    },
+    {
+        "field_name": "ckibbye9",
+        "type": "mastercard",
+        "length": "20"
+    }
+]

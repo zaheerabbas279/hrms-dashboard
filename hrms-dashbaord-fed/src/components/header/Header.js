@@ -27,9 +27,9 @@ export const Header = (props) => {
             <Nav className="ms-auto">
               {isAuth ? (
                 <>
-                  <Nav.Link href="#link">Link</Nav.Link>
+                  <Nav.Link href="#link" className="text-light">Notifications</Nav.Link>
 
-                  <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                  <NavDropdown id="basic-nav-dropdown" className="dprdwn">
                     <NavDropdown.Item href="#action/3.1">
                       Action
                     </NavDropdown.Item>
@@ -40,14 +40,10 @@ export const Header = (props) => {
                       Something
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">
-                      Separated link
+                    <NavDropdown.Item onClick={logout} >
+                      Logout
                     </NavDropdown.Item>
                   </NavDropdown>
-
-                  <button className="btn btn-danger" onClick={logout}>
-                    Logout
-                  </button>
                 </>
               ) : (
                 <>

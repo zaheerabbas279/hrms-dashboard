@@ -1,37 +1,39 @@
+@import "../../../style/theme.style";
+
 .formsignin_width {
-    max-width: 500px;
-    margin: 30px auto 30px auto;
-    background-color: #175592;
-    padding: 30px;
+  max-width: 500px;
+  margin: 30px auto 30px auto;
+  background-color: $card_background;
+  padding: 30px;
+  border-radius: 6px;
+
+  .form-control {
+    border: 0 !important;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .btn_submit {
+    background-color: $button_color;
+    color: $default_white;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 30px;
+    border: 0;
     border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+  }
 
-    .form-control {
-        border: 0 !important;
-        box-shadow: none;
-        border-radius: 0;
-    }
+  .login_link {
+    color: $button_color;
+    font-weight: 600;
+    text-decoration: none;
+  }
 
-    .btn_submit {
-        background-color: #5a99e8;
-        color: #f3f3f3;
-        width: 100%;
-        padding: 10px 0;
-        margin-top: 30px;
-        border: 0;
-        border-radius: 6px;
-        font-size: 16px;
-        font-weight: 600;
-    }
-
-    .login_link {
-        color: #5a99e8;
-        font-weight: 600;
-        text-decoration: none;
-    }
-
-    .forgot_link {
-        color: #fff;
-        font-weight: 600;
-        text-decoration: none;
-    }
+  .forgot_link {
+    color: $default_white;
+    font-weight: 600;
+    text-decoration: none;
+  }
 }
