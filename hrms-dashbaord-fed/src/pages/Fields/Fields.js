@@ -115,19 +115,23 @@ const AdminFields = ({ data }) => {
                         values.info.map((item, i) => {
                           return (
                             <div key={i}>
+<<<<<<< HEAD
                               <div className="d-flex flex-column align-items-center">
+=======
+                              <div className="d-flex align-items-center justify-content-between">
+>>>>>>> b0116ec3d5799f2d56aa168e32b1b53c6e589cfb
                                 <CustomInput
-                                  label="Field Name : "
+                                  label="Field Name"
                                   name={`info.${i}.name`}
                                   placeholder="Field name"
                                 />
                                 <CustomInput
-                                  label="Field Type : "
+                                  label="Field Type"
                                   name={`info.${i}.type`}
                                   placeholder="Field type"
                                 />
                                 <CustomInput
-                                  label="Field Length : "
+                                  label="Field Length"
                                   name={`info.${i}.length`}
                                   placeholder="Field Length"
                                 />
@@ -193,13 +197,16 @@ const Settings = () => {
 };
 
 export const Fields = () => {
+<<<<<<< HEAD
   // console.log("the mock data is", Data);
   const gotodashboard = () => { };
+=======
+  const gotodashboard = () => {};
+>>>>>>> b0116ec3d5799f2d56aa168e32b1b53c6e589cfb
 
   const [tableName, setTableName] = useState("");
 
   const setTableNamefun = (e) => {
-    // console.log("the table name is", e.target.value);
     setTableName(e.target.value);
   };
 
