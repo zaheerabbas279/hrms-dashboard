@@ -9,18 +9,19 @@ const Dashboard = () => {
   const { isAuth } = useSelector((state) => state.UIStore);
 
   const items = [
-    { name: "home", label: "Home" },
+    { name: "home", label: "Home", routeLink: "/testlink" },
     {
       name: "billing",
       label: "Billing",
       items: [
-        { name: "statements", label: "Statements" },
-        { name: "reports", label: "Reports" },
+        { name: "statements", label: "Statements", routeLink: "/testlink" },
+        { name: "reports", label: "Reports", routeLink: "/testlink" },
       ],
     },
     {
       name: "settings",
       label: "Settings",
+      routeLink: "/testlink",
     },
   ];
 
@@ -28,8 +29,8 @@ const Dashboard = () => {
     <>
       <div className="row g-0">
         <div className="col-md-2">
-          <Sidebar />
-          {/* <TestSidebar items={items} /> */}
+          {/* <Sidebar /> */}
+          <TestSidebar items={items} />
         </div>
         <div className="col-md-10">
           <div className="px-3">

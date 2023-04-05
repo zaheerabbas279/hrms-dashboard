@@ -33,6 +33,7 @@ function SidebarItem({ label, items, depthStep = 10, depth = 0, ...rest }) {
 }
 
 export default function TestSidebar({ items, depthStep, depth }) {
+  console.log("🚀 ~ file: testSidebar.js:36 ~ TestSidebar ~ items:", items);
   return (
     <Box sx={{ width: "100%", maxWidth: 240, bgcolor: "background.paper" }}>
       <nav aria-label="main mailbox folders">
