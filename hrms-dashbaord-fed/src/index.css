@@ -1,9 +1,5 @@
 @import "./style/_theme.style.scss";
 
 body {
-  background-image: linear-gradient(
-    90deg,
-    #000000 70%,
-    #000000bd 100%
-  ) !important;
+  background-image: linear-gradient(90deg, #fff 70%, #ffffffbd 100%) !important;
 }

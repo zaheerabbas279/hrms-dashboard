@@ -67,14 +67,14 @@ export const SettingsPage = () => {
 
     return (
         <div className='setting_style'>
-            <h3 className='text-light my-4'>Settings</h3>
+            <h3 className='header_color my-4'>Settings</h3>
             <Form onSubmit={formik.handleSubmit}>
                 <Accordion defaultActiveKey={['0']} alwaysOpen>
                     <AccordionItem accordionKey="0" acordion_head="Basic Information" acordion_data={
                         <>
                             <Input_element input_label="Role" name="role_name" handleChange={formik.handleChange}
                                 value={formik.values.role_name}
-                                handleBlur={formik.handleBlur} lableClass="text-light" type="text" placeholder="enter field"
+                                handleBlur={formik.handleBlur} lableClass="font_color" type="text" placeholder="enter field"
                                 formikValidation={formik.touched.role_name && formik.errors.role_name ? <>
                                     <small className="text-danger">{formik.errors.role_name}</small>
                                 </>
@@ -82,7 +82,7 @@ export const SettingsPage = () => {
                             />
                             <Input_element input_label="Name" name="name" handleChange={formik.handleChange}
                                 value={formik.values.name}
-                                handleBlur={formik.handleBlur} type="text" lableClass="text-light" placeholder="enter field"
+                                handleBlur={formik.handleBlur} type="text" lableClass="font_color" placeholder="enter field"
                                 formikValidation={formik.touched.name && formik.errors.name ? <>
                                     <small className="text-danger">{formik.errors.name}</small>
                                 </>
@@ -90,7 +90,7 @@ export const SettingsPage = () => {
                             />
                             <Input_element input_label="Email" name="email" handleChange={formik.handleChange}
                                 value={formik.values.email}
-                                handleBlur={formik.handleBlur} type="email" lableClass="text-light" placeholder="enter field"
+                                handleBlur={formik.handleBlur} type="email" lableClass="font_color" placeholder="enter field"
                                 formikValidation={formik.touched.email && formik.errors.email ? <>
                                     <small className="text-danger">{formik.errors.email}</small>
                                 </>
@@ -98,7 +98,7 @@ export const SettingsPage = () => {
                             />
                             <Input_element input_label="Employee ID" name="emp_id" handleChange={formik.handleChange}
                                 value={formik.values.emp_id}
-                                handleBlur={formik.handleBlur} type="text" lableClass="text-light" placeholder="enter field"
+                                handleBlur={formik.handleBlur} type="text" lableClass="font_color" placeholder="enter field"
                                 formikValidation={formik.touched.emp_id && formik.errors.emp_id ? <>
                                     <small className="text-danger">{formik.errors.emp_id}</small>
                                 </>
@@ -110,7 +110,7 @@ export const SettingsPage = () => {
                         <>
                             <Input_element input_label="Phone Number" name="ph_no" handleChange={formik.handleChange}
                                 value={formik.values.ph_no}
-                                handleBlur={formik.handleBlur} type="number" lableClass="text-light" placeholder="enter field"
+                                handleBlur={formik.handleBlur} type="number" lableClass="font_color" placeholder="enter field"
                                 formikValidation={formik.touched.ph_no && formik.errors.ph_no ? <>
                                     <small className="text-danger">{formik.errors.ph_no}</small>
                                 </>
@@ -119,7 +119,7 @@ export const SettingsPage = () => {
 
                             <Input_element input_label="Gender" name="gender" handleChange={formik.handleChange}
                                 value={formik.values.gender}
-                                handleBlur={formik.handleBlur} type="text" lableClass="text-light" placeholder="enter field"
+                                handleBlur={formik.handleBlur} type="text" lableClass="font_color" placeholder="enter field"
                                 formikValidation={formik.touched.gender && formik.errors.gender ? <>
                                     <small className="text-danger">{formik.errors.gender}</small>
                                 </>
@@ -127,7 +127,7 @@ export const SettingsPage = () => {
                             />
                             <Input_element input_label="Date of Birth" name="dateofbirth" handleChange={formik.handleChange}
                                 value={formik.values.dateofbirth}
-                                handleBlur={formik.handleBlur} type="date" lableClass="text-light" placeholder="enter field"
+                                handleBlur={formik.handleBlur} type="date" lableClass="font_color" placeholder="enter field"
                                 formikValidation={formik.touched.dateofbirth && formik.errors.dateofbirth ? <>
                                     <small className="text-danger">{formik.errors.dateofbirth}</small>
                                 </>
@@ -139,7 +139,7 @@ export const SettingsPage = () => {
                         <>
                             <Input_element input_label="PAN" name="pan" handleChange={formik.handleChange}
                                 value={formik.values.pan}
-                                handleBlur={formik.handleBlur} type="text" lableClass="text-light" placeholder="enter field"
+                                handleBlur={formik.handleBlur} type="text" lableClass="font_color" placeholder="enter field"
                                 formikValidation={formik.touched.pan && formik.errors.pan ? <>
                                     <small className="text-danger">{formik.errors.pan}</small>
                                 </>
@@ -147,7 +147,7 @@ export const SettingsPage = () => {
                             />
                             <Input_element input_label="IFSC Code" name="ifsc" handleChange={formik.handleChange}
                                 value={formik.values.ifsc}
-                                handleBlur={formik.handleBlur} type="text" lableClass="text-light" placeholder="enter field"
+                                handleBlur={formik.handleBlur} type="text" lableClass="font_color" placeholder="enter field"
                                 formikValidation={formik.touched.ifsc && formik.errors.ifsc ? <>
                                     <small className="text-danger">{formik.errors.ifsc}</small>
                                 </>
@@ -155,7 +155,7 @@ export const SettingsPage = () => {
                             />
                             <Input_element input_label="Account Number" name="acc_no" handleChange={formik.handleChange}
                                 value={formik.values.acc_no}
-                                handleBlur={formik.handleBlur} type="text" lableClass="text-light" placeholder="enter field"
+                                handleBlur={formik.handleBlur} type="text" lableClass="font_color" placeholder="enter field"
                                 formikValidation={formik.touched.acc_no && formik.errors.acc_no ? <>
                                     <small className="text-danger">{formik.errors.acc_no}</small>
                                 </>
@@ -163,7 +163,7 @@ export const SettingsPage = () => {
                             />
                             <Input_element input_label="Beneficiary Name" name="benef_name" handleChange={formik.handleChange}
                                 value={formik.values.benef_name}
-                                handleBlur={formik.handleBlur} type="text" lableClass="text-light" placeholder="enter field"
+                                handleBlur={formik.handleBlur} type="text" lableClass="font_color" placeholder="enter field"
                                 formikValidation={formik.touched.benef_name && formik.errors.benef_name ? <>
                                     <small className="text-danger">{formik.errors.benef_name}</small>
                                 </>

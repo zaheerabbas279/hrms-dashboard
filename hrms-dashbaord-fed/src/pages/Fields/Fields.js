@@ -65,7 +65,7 @@ const AdminFields = ({ data }) => {
     <>
       <div className="container">
         <div className="d-flex align-items-center justify-content-between">
-          <h5 className="text-light">Admin fields</h5>
+          <h5 className="header_color">Admin fields</h5>
           <button className="btn btn-danger" onClick={handleShow}>
             Add Fields
           </button>
@@ -116,15 +116,6 @@ const AdminFields = ({ data }) => {
                           return (
                             <div key={i}>
                               <div className="d-flex flex-column align-items-center">
-                                {/* <CustomInput
-                                label=""
-                                name={`info.${i}.name`}
-                                placeholder="Type"
-                              /> */}
-                                {/* <Input_element type="text" name={`info.${i}.name`} input_label="Field Name"
-                              // formikValidation={<ErrorMessage component="div" name={`info.${i}.name`} style={errorMessage} />}
-                              /> */}
-                                {/* <ErrorMessage component="div" name={`info.${i}.name`} style={errorMessage} /> */}
                                 <CustomInput
                                   label="Field Name : "
                                   name={`info.${i}.name`}
@@ -160,7 +151,7 @@ const AdminFields = ({ data }) => {
                     <div className="d-flex align-items-center justify-content-center">
                       <button
                         // style={{ margin: "25px 10px 10px 0" }}
-                        className="btn btn-info text-light mx-2"
+                        className="btn btn-info mx-2"
                         type="button"
                         onClick={(e) => updateForm(values, setValues)}
                       >
@@ -168,7 +159,7 @@ const AdminFields = ({ data }) => {
                       </button>
 
                       <button
-                        className="btn btn-primary text-light mx-2"
+                        className="btn btn-primary mx-2"
                         type="submit"
                       >
                         Submit
@@ -188,7 +179,7 @@ const AdminFields = ({ data }) => {
 const CompanyFields = () => {
   return (
     <>
-      <h5 className="text-light">Company Fields are</h5>
+      <h5>Company Fields are</h5>
     </>
   );
 };
@@ -196,14 +187,14 @@ const CompanyFields = () => {
 const Settings = () => {
   return (
     <>
-      <h5 className="text-light">Settings Feilds are</h5>
+      <h5>Settings Feilds are</h5>
     </>
   );
 };
 
 export const Fields = () => {
   // console.log("the mock data is", Data);
-  const gotodashboard = () => {};
+  const gotodashboard = () => { };
 
   const [tableName, setTableName] = useState("");
 
@@ -215,16 +206,16 @@ export const Fields = () => {
   return (
     <>
       <div className="fieldsDetails">
-        <small className="text-light goback" onClick={gotodashboard}>
+        <small className="goback" onClick={gotodashboard}>
           Back to Dashboard
         </small>
-        <p className="mb-0 text-light">
+        <p className="mb-0">
           <strong>Configure Fields</strong>
         </p>
 
         <div className="fieldsmaindiv my-4">
           <div className="formchilddiv w-50">
-            <label htmlFor="" className="text-light">
+            <label htmlFor="">
               Select the table name :
             </label>
             <select
@@ -243,7 +234,6 @@ export const Fields = () => {
         </div>
 
         <div className="tableDetailsDiv">
-          {/* <h4 className="text-light tableName">{tableName}</h4> */}
 
           {tableName === "admin" ? (
             <>

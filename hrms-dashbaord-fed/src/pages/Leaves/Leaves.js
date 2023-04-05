@@ -102,15 +102,15 @@ export const Leaves = () => {
     return (
         <div className='attendance_style'>
             <div className="mb-4">
-                <h3 className="text-light">Leave Management</h3>
+                <h3 className="header_color">Leave Management</h3>
             </div>
             <Form onSubmit={formik.handleSubmit} autoComplete="off">
-                <Input_element type="text" name="emp_id" lableClass="text-light" input_label="Emp. Id" placeholder="Enter field"
+                <Input_element type="text" name="emp_id" input_label="Emp. Id" placeholder="Enter field"
                     handleBlur={formik.handleBlur} handleChange={formik.handleChange}
                     formikValidation={formik.touched.emp_id && formik.errors.emp_id ? <small className='text-danger'>{formik.errors.emp_id}</small> : null}
                 />
                 <Form.Group className="mb-2">
-                    <Form.Label className='text-light'>Reason for Leave</Form.Label>
+                    <Form.Label>Reason for Leave</Form.Label>
                     <Form.Control
                         as="textarea"
                         placeholder="Enter field"
@@ -123,16 +123,16 @@ export const Leaves = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-2">
-                    <Form.Label className='text-light'>Select leave Dates</Form.Label>
+                    <Form.Label>Select leave Dates</Form.Label>
                     <div className="mb-2 d-flex">
-                        <Form.Label className='text-light me-3'>Half Day</Form.Label>
+                        <Form.Label className='me-3'>Half Day</Form.Label>
                         <Form.Check
                             type="switch"
                             id="custom-switch"
                             onChange={handleSwitchChange}
                             defaultChecked="checked"
                         />
-                        <Form.Label className='text-light ms-3'>One or More Days</Form.Label>
+                        <Form.Label className='ms-3'>One or More Days</Form.Label>
                     </div>
                     <DatePicker
                         shouldCloseOnSelect={holidays ? false : true}
@@ -144,7 +144,7 @@ export const Leaves = () => {
                         filterDate={isWeekday}
                         onClickOutside={handleFocus}
                     />
-                    <div className='my-3 text-light' name="holidays_list" onChange={formik.handleChange}>
+                    <div className='my-3' name="holidays_list" onChange={formik.handleChange}>
                         {dateArray2.length == 0 ? null : 'Selected Date :'}  {dateArray2.map(date => {
                             return (
                                 <Chip key={date} className="mx-2" color='primary' label={new Date(date)?.toISOString()?.split("T")[0] || ""} />

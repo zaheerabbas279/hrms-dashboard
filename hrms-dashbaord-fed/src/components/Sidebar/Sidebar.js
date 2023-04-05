@@ -2,10 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { RouteStrings } from "../../utils/common";
 import "./Sidebar.scss";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Sidebar = () => {
+  const { isSidebarOpen } = useSelector(state => state.UIStore)
+
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${isSidebarOpen ? '' : 'close'}`}>
       <ul className="sidebar_options">
         <li>
           <Link to={RouteStrings.dashboard} className="sidebar_link">

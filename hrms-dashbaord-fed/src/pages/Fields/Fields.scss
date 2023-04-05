@@ -16,11 +16,11 @@
 
 .tableData {
   th {
-    color: #f3f3f3;
+    color: $default_white;
   }
 
   td {
-    color: #f3f3f3;
+    color: $default_white;
   }
 }
 
@@ -42,12 +42,11 @@
 .customInp {
   height: 40px;
   outline: none;
-  border: 1px solid #f3f3f3;
-  
+  border: 1px solid $default_black;
 }
 
-.dropdownTable{
+.dropdownTable {
   height: 40px;
   outline: none;
-  border: 1px solid #f3f3f3f3;
+  border: 1px solid $default_black;
 }

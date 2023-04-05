@@ -11,12 +11,13 @@ import Form from "react-bootstrap/Form";
 const NameAndAddress = () => {
   return (
     <>
-      <div className="p-3 companyCard ">
-        <h5 className="text-light">Name and Address</h5>
+      <div className="p-3 companyCard">
+        <h5 className="font_color">Name and Address</h5>
 
         <div className="companydetailsDiv mb-3">
           <Input_element
             input_label="Company Name"
+            lableClass="font_color"
             name="company_name"
             type="text"
             placeholder="Enter the company name"
@@ -25,23 +26,26 @@ const NameAndAddress = () => {
             input_label="Brand Name"
             name="brand_name"
             type="text"
+            lableClass="font_color"
             placeholder="Enter the brand name"
           />
           <Input_element
             input_label="Registered Address"
+            lableClass="font_color"
             name="registered_address"
             type="text"
             placeholder="Enter the registered address"
           />
           <Input_element
             input_label="Pin code"
+            lableClass="font_color"
             name="pin_code"
             type="number"
             placeholder="Enter the pin code"
           />
 
           <div className="mt-3">
-            <button className="btn btn-primary text-light">Submit</button>
+            <button className="btn btn-primary font_color">Submit</button>
           </div>
         </div>
       </div>
@@ -53,30 +57,33 @@ const TaxSetup = () => {
   return (
     <>
       <div className="p-3 companyCard ">
-        <h5 className="text-light">Tax Setup</h5>
+        <h5 className="font_color">Tax Setup</h5>
 
         <div className="companydetailsDiv mb-3">
           <Input_element
             input_label="Company PAN"
             name="company_pan"
+            lableClass="font_color"
             type="text"
             placeholder="Enter the company pan number"
           />
           <Input_element
             input_label="Company TAN"
+            lableClass="font_color"
             name="brand_tan"
             type="text"
             placeholder="Enter the company tan"
           />
           <Input_element
             input_label="Company GSTIN"
+            lableClass="font_color"
             name="company_gstin"
             type="text"
             placeholder="Enter the company gstin"
           />
 
           <div className="mt-3">
-            <button className="btn btn-primary text-light">Submit</button>
+            <button className="btn btn-primary font_color">Submit</button>
           </div>
         </div>
       </div>
@@ -88,15 +95,15 @@ const PFEISC = () => {
   return (
     <>
       <div className="p-3 companyCard ">
-        <h5 className="text-light">PF/EISC</h5>
+        <h5 className="font_color">PF/EISC</h5>
 
-        <p className="mb-0 text-light">
+        <p className="mb-0 font_color">
           PF and ESI are mandatory if your organization has more than 20 and 10
           employees respectively.
         </p>
 
         <div className="companydetailsDiv mb-3">
-          <label htmlFor="" className="text-light">
+          <label htmlFor="" className="font_color">
             PF Status
           </label>
           <Form.Select aria-label="Default select example" className="mb-2">
@@ -104,7 +111,7 @@ const PFEISC = () => {
             <option value="enabled">Enabled</option>
             <option value="disabled">Disabled</option>
           </Form.Select>
-          <label htmlFor="" className="text-light">
+          <label htmlFor="" className="font_color">
             ESI Status
           </label>
           <Form.Select aria-label="Default select example" className="mb-2">
@@ -112,7 +119,7 @@ const PFEISC = () => {
             <option value="enabled">Enabled</option>
             <option value="disabled">Disabled</option>
           </Form.Select>
-          <label htmlFor="" className="text-light">
+          <label htmlFor="" className="font_color">
             PT Status
           </label>
           <Form.Select aria-label="Default select example" className="mb-2">
@@ -120,7 +127,7 @@ const PFEISC = () => {
             <option value="enabled">Enabled</option>
             <option value="disabled">Disabled</option>
           </Form.Select>
-          <label htmlFor="" className="text-light">
+          <label htmlFor="" className="font_color">
             LWF Status
           </label>
           <Form.Select aria-label="Default select example" className="mb-2">
@@ -130,7 +137,7 @@ const PFEISC = () => {
           </Form.Select>
 
           <div className="mt-3">
-            <button className="btn btn-primary text-light">Submit</button>
+            <button className="btn btn-primary font_color">Submit</button>
           </div>
         </div>
       </div>
@@ -177,10 +184,10 @@ export const CompanyDetails = () => {
     <>
       <div className="">
         <div className="companyDetails">
-          <small className="text-light goback" onClick={gotodashboard}>
+          <small className="goback" onClick={gotodashboard}>
             Back to Dashboard
           </small>
-          <p className="mb-0 text-light">
+          <p className="mb-0">
             <strong>Company Details</strong>
           </p>
 

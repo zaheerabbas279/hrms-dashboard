@@ -36,4 +36,14 @@
     font-weight: 600;
     text-decoration: none;
   }
+  @media (max-width: 767px) {
+    max-width: inherit;
+    margin: 30px 20px;
+  }
+}
+.header_color {
+  color: $header_color;
+}
+.font_color {
+  color: $default_white;
 }

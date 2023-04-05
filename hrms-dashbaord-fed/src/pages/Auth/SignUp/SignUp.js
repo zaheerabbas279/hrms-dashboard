@@ -54,14 +54,14 @@ export const SignUp = () => {
   return (
     <>
       <div className="my-4 text-center">
-        <h3 className="text-light">SignUp</h3>
+        <h3 className="header_color">SignUp</h3>
       </div>
       <div className="form_width">
         <Form onSubmit={formik.handleSubmit} autoComplete="off">
           <Input_element
             input_label="Full Name"
             type="text"
-            lableClass="text-light"
+            lableClass="font_color"
             name="fullName"
             handleChange={formik.handleChange}
             value={formik.values.fullName}
@@ -78,7 +78,7 @@ export const SignUp = () => {
           <Input_element
             input_label="Organization Name"
             type="text"
-            lableClass="text-light"
+            lableClass="font_color"
             name="organizationName"
             handleChange={formik.handleChange}
             handleBlur={formik.handleBlur}
@@ -95,7 +95,7 @@ export const SignUp = () => {
           <Input_element
             input_label="Work Email Address"
             type="email"
-            lableClass="text-light"
+            lableClass="font_color"
             name="email"
             handleChange={formik.handleChange}
             handleBlur={formik.handleBlur}
@@ -110,7 +110,7 @@ export const SignUp = () => {
           <Input_element
             input_label="Phone Number"
             type="number"
-            lableClass="text-light"
+            lableClass="font_color"
             name="phone"
             handleChange={formik.handleChange}
             handleBlur={formik.handleBlur}
@@ -125,7 +125,7 @@ export const SignUp = () => {
 
           <Selectelement
             select_Label="Number of Employees"
-            lableClass="text-light"
+            lableClass="font_color"
             name="numOfEmp"
             handleBlur={formik.handleBlur}
             handleChange={formik.handleChange}
@@ -146,7 +146,7 @@ export const SignUp = () => {
           ) : null}
           <Selectelement
             select_Label="Your Title"
-            lableClass="text-light"
+            lableClass="font_color"
             name="title"
             handleBlur={formik.handleBlur}
             handleChange={formik.handleChange}
@@ -165,7 +165,7 @@ export const SignUp = () => {
           ) : null}
           <Form.Group className="mb-4">
             <Form.Check inline name="group1" type="checkbox" />
-            <Form.Check.Label className="text-light">
+            <Form.Check.Label className="font_color">
               I agree to the{" "}
               <button
                 type="button"
@@ -190,7 +190,7 @@ export const SignUp = () => {
         </Form>
         <hr />
         <div className="text-center">
-          <p className="text-light m-0">
+          <p className="font_color m-0">
             Already have an account with us?{" "}
             <Link to="/auth" className="login_link">
               Login

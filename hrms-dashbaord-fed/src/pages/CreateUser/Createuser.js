@@ -14,60 +14,68 @@ const BasicInfo = () => {
   return (
     <>
       <div className="p-3 companyCard ">
-        <h5 className="text-light">Basic Info</h5>
+        <h5 className="font_color">Basic Info</h5>
 
         <div className="companydetailsDiv mb-3">
           <Input_element
             input_label="Name"
             name="name"
+            lableClass="font_color"
             type="text"
             placeholder="Enter name"
           />
           <Input_element
             input_label="Email"
             name="email"
+            lableClass="font_color"
             type="email"
             placeholder="Enter the email"
           />
           <Input_element
             input_label="Hire Date"
             name="hire_date"
+            lableClass="font_color"
             type="date"
             placeholder="Enter the hire date"
           />
           <Input_element
             input_label="Job Title"
             name="job_title"
+            lableClass="font_color"
             type="text"
             placeholder="Enter the job title"
           />
           <Input_element
             input_label="Employee Id"
             name="employee_id"
+            lableClass="font_color"
             type="number"
             placeholder="Enter the employee id"
           />
           <Input_element
             input_label="Department"
             name="department"
+            lableClass="font_color"
             type="text"
             placeholder="Enter the department"
           />
           <Input_element
             input_label="Manager"
             name="manager"
+            lableClass="font_color"
             type="text"
             placeholder="Enter the manager"
           />
           <Input_element
             input_label="Location"
             name="location"
+            lableClass="font_color"
             type="text"
             placeholder="Enter the manager"
           />
 
           <div className="mt-3">
-            <button className="btn btn-primary text-light">Submit</button>
+            <button className="btn btn-primary font_color">Submit</button>
           </div>
         </div>
       </div>
@@ -79,16 +87,17 @@ const ContactInfo = () => {
   return (
     <>
       <div className="p-3 companyCard ">
-        <h5 className="text-light">Contact Info</h5>
+        <h5 className="font_color">Contact Info</h5>
 
         <div className="companydetailsDiv mb-3">
           <Input_element
             input_label="Phone Number"
             name="phone"
+            lableClass="font_color"
             type="number"
             placeholder="Enter the phone number"
           />
-          <label htmlFor="" className="text-light">
+          <label htmlFor="" className="font_color">
             Gender
           </label>
           <Form.Select aria-label="Default select example" className="mb-2">
@@ -99,12 +108,13 @@ const ContactInfo = () => {
           <Input_element
             input_label="Date of birth"
             name="date_of_birth"
+            lableClass="font_color"
             type="date"
             placeholder="Enter the date of birth"
           />
 
           <div className="mt-3">
-            <button className="btn btn-primary text-light">Submit</button>
+            <button className="btn btn-primary font_color">Submit</button>
           </div>
         </div>
       </div>
@@ -116,9 +126,9 @@ const BankInfo = () => {
   return (
     <>
       <div className="p-3 companyCard ">
-        <h5 className="text-light">Bank Info</h5>
+        <h5 className="font_color">Bank Info</h5>
 
-        <p className="mb-0 text-light">
+        <p className="mb-0">
           Please be very careful while entering data on this screen. Mistakes
           will lead to incorrect tax deductions and filings, and failures in
           salary transfers / payments.
@@ -127,6 +137,7 @@ const BankInfo = () => {
         <div className="companydetailsDiv mb-3">
           <Input_element
             input_label="PAN"
+            lableClass="font_color"
             name="pan"
             type="text"
             placeholder="Enter PAN"
@@ -134,22 +145,25 @@ const BankInfo = () => {
           <Input_element
             input_label="Bank Account Number"
             name="bank_account_number"
+            lableClass="font_color"
             type="text"
             placeholder="Enter bank account number"
           />
           <Input_element
             input_label="Bank IFSC"
             name="bank_ifsc"
+            lableClass="font_color"
             type="text"
             placeholder="Enter bank ifsc"
           />
           <Input_element
             input_label="Beneficiary Name"
             name="beneficiary_name"
+            lableClass="font_color"
             type="text"
             placeholder="Enter beneficiary name"
           />
-          <label htmlFor="" className="text-light">
+          <label htmlFor="" className="font_color">
             Payment Mode
           </label>
           <Form.Select aria-label="Default select example" className="mb-2">
@@ -159,7 +173,7 @@ const BankInfo = () => {
           </Form.Select>
 
           <div className="mt-3">
-            <button className="btn btn-primary text-light">Submit</button>
+            <button className="btn btn-primary font_color">Submit</button>
           </div>
         </div>
       </div>
@@ -205,24 +219,24 @@ export const CreateUser = () => {
     setIsCreateUser(false);
   };
 
-  const gotodashboard = () => {};
+  const gotodashboard = () => { };
   return (
     <>
       <div className="createuserdiv">
         <div className="d-flex align-items-center justify-content-between">
           <div>
-            <small className="text-light goback" onClick={gotodashboard}>
+            <small className="goback" onClick={gotodashboard}>
               Back to Dashboard
             </small>
             {isCreateUser ? (
               <>
-                <p className="mb-0 text-light">
+                <p className="mb-0">
                   <strong>Create user</strong>
                 </p>
               </>
             ) : (
               <>
-                <p className="mb-0 text-light">
+                <p className="mb-0">
                   <strong>Users List</strong>
                 </p>
               </>

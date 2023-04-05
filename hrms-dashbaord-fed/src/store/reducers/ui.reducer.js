@@ -8,6 +8,7 @@ export const uiReducer = createSlice({
   name: "uiReducer",
   initialState: {
     isAuth: false,
+    isSidebarOpen: false
   },
   reducers: {
     increment: (state) => {
@@ -20,6 +21,9 @@ export const uiReducer = createSlice({
     setIsAuth: (state, action) => {
       state.isAuth = action.payload;
     },
+    setViewSidebar: (state, action) => {
+      state.isSidebarOpen = action.payload;
+    },
     decrement: (state) => {
       state.value -= 1;
     },
@@ -30,7 +34,7 @@ export const uiReducer = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount, setIsAuth } =
+export const { increment, decrement, incrementByAmount, setIsAuth, setViewSidebar } =
   uiReducer.actions;
 
 export default uiReducer.reducer;
