@@ -1,19 +1,21 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import CreateButton from '../CreateButton/CreateButton';
-import './dashboardhome.scss'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import CreateButton from "../CreateButton/CreateButton";
+import "./dashboardhome.scss";
 
 export const DashBoardhome = () => {
-    const navigate = useNavigate();
-    const navigatetoCreateSubAdmin = () => {
-        navigate("subAdminSignUp");
-    };
-    return (
-        <div className="container dashbaord-body my-4 text-end">
-            <CreateButton
+  const navigate = useNavigate();
+  const navigatetoCreateSubAdmin = () => {
+    navigate("subAdminSignUp");
+  };
+  return (
+    <div className="container dashbaord-body my-4">
+      {/* <CreateButton
                 name="Create a new user"
                 handleClick={navigatetoCreateSubAdmin}
-            />
-        </div>
-    )
-}
+            /> */}
+
+      <h4 className="text-light">Dashboard</h4>
+    </div>
+  );
+};

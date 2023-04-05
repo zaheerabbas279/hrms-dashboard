@@ -115,28 +115,19 @@ const AdminFields = ({ data }) => {
                         values.info.map((item, i) => {
                           return (
                             <div key={i}>
-                              <div className="d-flex flex-column align-items-center">
-                                {/* <CustomInput
-                                label=""
-                                name={`info.${i}.name`}
-                                placeholder="Type"
-                              /> */}
-                                {/* <Input_element type="text" name={`info.${i}.name`} input_label="Field Name"
-                              // formikValidation={<ErrorMessage component="div" name={`info.${i}.name`} style={errorMessage} />}
-                              /> */}
-                                {/* <ErrorMessage component="div" name={`info.${i}.name`} style={errorMessage} /> */}
+                              <div className="d-flex align-items-center justify-content-between">
                                 <CustomInput
-                                  label="Field Name : "
+                                  label="Field Name"
                                   name={`info.${i}.name`}
                                   placeholder="Field name"
                                 />
                                 <CustomInput
-                                  label="Field Type : "
+                                  label="Field Type"
                                   name={`info.${i}.type`}
                                   placeholder="Field type"
                                 />
                                 <CustomInput
-                                  label="Field Length : "
+                                  label="Field Length"
                                   name={`info.${i}.length`}
                                   placeholder="Field Length"
                                 />
@@ -202,13 +193,11 @@ const Settings = () => {
 };
 
 export const Fields = () => {
-  // console.log("the mock data is", Data);
   const gotodashboard = () => {};
 
   const [tableName, setTableName] = useState("");
 
   const setTableNamefun = (e) => {
-    // console.log("the table name is", e.target.value);
     setTableName(e.target.value);
   };
 

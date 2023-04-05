@@ -12,8 +12,8 @@ const CustomInput = ({ label, ...props }) => {
 
   return (
     <>
-      <div width="100%" className="m-3 d-flex">
-        <label className="text-light me-2">{label}</label>
+      <div width="100%" className="m-3">
+        <label className="text-light me-2 small customInpLabel">{label}</label>
         <div>
           <input
             {...field}
