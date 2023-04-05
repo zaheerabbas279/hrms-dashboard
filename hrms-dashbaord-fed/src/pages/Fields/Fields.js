@@ -115,11 +115,7 @@ const AdminFields = ({ data }) => {
                         values.info.map((item, i) => {
                           return (
                             <div key={i}>
-<<<<<<< HEAD
-                              <div className="d-flex flex-column align-items-center">
-=======
                               <div className="d-flex align-items-center justify-content-between">
->>>>>>> b0116ec3d5799f2d56aa168e32b1b53c6e589cfb
                                 <CustomInput
                                   label="Field Name"
                                   name={`info.${i}.name`}
@@ -197,12 +193,7 @@ const Settings = () => {
 };
 
 export const Fields = () => {
-<<<<<<< HEAD
-  // console.log("the mock data is", Data);
   const gotodashboard = () => { };
-=======
-  const gotodashboard = () => {};
->>>>>>> b0116ec3d5799f2d56aa168e32b1b53c6e589cfb
 
   const [tableName, setTableName] = useState("");
 

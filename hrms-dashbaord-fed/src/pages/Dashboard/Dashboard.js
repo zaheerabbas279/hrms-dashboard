@@ -6,12 +6,7 @@ import TestSidebar from "../../components/Sidebar/testSidebar";
 import { RouteStrings } from "../../utils/common";
 
 const Dashboard = () => {
-<<<<<<< HEAD
-  const [viewSidebar, setViewSidebar] = useState(false);
-
-=======
   const { isAuth } = useSelector((state) => state.UIStore);
->>>>>>> b0116ec3d5799f2d56aa168e32b1b53c6e589cfb
 
   const items = [
     { name: "home", label: "Home", routeLink: "/testlink" },
@@ -30,30 +25,16 @@ const Dashboard = () => {
     },
   ];
 
-<<<<<<< HEAD
-  return (
-    isAuth ?
-      <>
-        <div className="row g-0">
-          <div className="col-md-3 col-lg-2">
-            <Sidebar />
-          </div>
-          <div className="col-md-9 col-lg-10">
-            <div className="px-3">
-              <Outlet />
-            </div>
-=======
   return isAuth ? (
     <>
       <div className="row g-0">
         <div className="col-md-2">
-          {/* <Sidebar /> */}
-          <TestSidebar items={items} />
+          <Sidebar />
+          {/* <TestSidebar items={items} /> */}
         </div>
         <div className="col-md-10">
           <div className="px-3">
             <Outlet />
->>>>>>> b0116ec3d5799f2d56aa168e32b1b53c6e589cfb
           </div>
         </div>
       </div>

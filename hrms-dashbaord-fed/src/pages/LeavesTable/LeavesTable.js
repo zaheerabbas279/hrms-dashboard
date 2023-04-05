@@ -6,19 +6,19 @@ import { AllLeavesTable } from "./allLeavesTable";
 
 export const LeavesTable = () => {
   const [startDate, setStartDate] = useState(new Date());
-  const gotodashboard = () => {};
+  const gotodashboard = () => { };
   return (
     <>
       <div className="companyDetails">
-        <small className="text-light goback" onClick={gotodashboard}>
+        <small className="goback" onClick={gotodashboard}>
           Back to Dashboard
         </small>
-        <p className="mb-0 text-light">
+        <p className="mb-0">
           <strong>Leaves Management</strong>
         </p>
 
         <div className="leavecontainer my-3">
-          <label htmlFor="" className="small text-light">
+          <label htmlFor="" className="small">
             Please select Month and Year
           </label>
           <DatePicker

@@ -87,7 +87,7 @@ export const AllLeavesTable = () => {
           <div>
             <div className="d-flex flex-row justify-content-center align-items-center">
               <img
-                src={Images.editLogo}
+                src={Images.viewIcon}
                 alt=""
                 id="edit"
                 className="editIcon mx-2"
@@ -231,86 +231,82 @@ export const AllLeavesTable = () => {
 
         <Modal.Body>
           <div className="modalBody">
-            <h5 className="text-light">Details</h5>
+            <h5 className="font_color">Details</h5>
 
             <div className="row">
               <div className="col-md-6">
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag">Employee Id</p>
+                  <p className="mb-0 font_color modal_p_tag">Employee Id</p>
                 </div>
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag"> Employee Name</p>
+                  <p className="mb-0 font_color modal_p_tag"> Employee Name</p>
                 </div>
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag"> Leave Type</p>
+                  <p className="mb-0 font_color modal_p_tag"> Leave Type</p>
                 </div>
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag">From</p>
+                  <p className="mb-0 font_color modal_p_tag">From </p>
                 </div>
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag">To</p>
+                  <p className="mb-0 font_color modal_p_tag">To</p>
                 </div>
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag">
-                    {" "}
+                  <p className="mb-0 font_color modal_p_tag">
                     No of Paid Leaves
                   </p>
                 </div>
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag">
-                    {" "}
+                  <p className="mb-0 font_color modal_p_tag">
                     No of UnPaid Leaves
                   </p>
                 </div>
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag">
-                    {" "}
+                  <p className="mb-0 font_color modal_p_tag">
                     Available Leaves
                   </p>
                 </div>
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag">Status</p>
+                  <p className="mb-0 font_color modal_p_tag">Status</p>
                 </div>
                 <div className="my-2">
                   {rejected && (
-                    <p className="mb-0 text-light modal_p_tag">Remarks</p>
+                    <p className="mb-0 font_color modal_p_tag">Remarks</p>
                   )}
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag">Emp0001</p>
+                  <p className="mb-0 font_color modal_p_tag">Emp0001</p>
                 </div>
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag">Jon Doe</p>
+                  <p className="mb-0 font_color modal_p_tag">Jon Doe</p>
                 </div>
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag">Sick Leave</p>
+                  <p className="mb-0 font_color modal_p_tag">Sick Leave</p>
                 </div>
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag">12/12/2023</p>
+                  <p className="mb-0 font_color modal_p_tag">12/12/2023</p>
                 </div>
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag">12/12/2023</p>
+                  <p className="mb-0 font_color modal_p_tag">12/12/2023</p>
                 </div>
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag">12</p>
+                  <p className="mb-0 font_color modal_p_tag">12</p>
                 </div>
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag">12</p>
+                  <p className="mb-0 font_color modal_p_tag">12</p>
                 </div>
                 <div className="my-2">
-                  <p className="mb-0 text-light modal_p_tag">12</p>
+                  <p className="mb-0 font_color modal_p_tag">12</p>
                 </div>
                 <div className="my-2">
-                  {/* // * radio buttons to approve and reject */}
                   <Form>
                     {["radio"].map((type) => (
                       <div key={`inline-${type}`} className="mb-3">
                         <Form.Check
                           inline
                           label="Accept"
-                          className="text-light"
+                          className="font_color"
                           name="group1"
                           type={type}
                           id={`Accept`}
@@ -320,7 +316,7 @@ export const AllLeavesTable = () => {
                         <Form.Check
                           inline
                           label="Reject"
-                          className="text-light"
+                          className="font_color"
                           name="group1"
                           type={type}
                           id={`Reject`}
@@ -334,10 +330,6 @@ export const AllLeavesTable = () => {
                 {/* //* show the reason of the leave is rejected */}
                 <div className="my-2">
                   {rejected && (
-                    // <p className="mb-0 text-light">
-                    //   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    //   Pariatur, nobis.
-                    // </p>
                     <textarea
                       name="reason"
                       id="reason"
@@ -359,7 +351,7 @@ export const AllLeavesTable = () => {
           <Button
             variant="primary"
             type="submit"
-            //   disabled={isDisabled}
+          //   disabled={isDisabled}
           >
             Save Changes
           </Button>

@@ -15,7 +15,7 @@ export const DashBoardhome = () => {
                 handleClick={navigatetoCreateSubAdmin}
             /> */}
 
-      <h4 className="text-light">Dashboard</h4>
+      <h4 className="header_color">Dashboard</h4>
     </div>
   );
 };

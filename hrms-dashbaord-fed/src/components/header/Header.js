@@ -9,6 +9,7 @@ import { setIsAuth, setViewSidebar } from "../../store/reducers/ui.reducer";
 // import { setViewSidebar } from "../../utils/ConfigureStore"
 import "./header.scss";
 import { Button } from "react-bootstrap";
+import { Images } from "../../utils/images";
 
 
 export const Header = ({ onClick }) => {
@@ -77,7 +78,9 @@ export const Header = ({ onClick }) => {
 
                   {width < breakpoint ? <>
                     {/* <Nav.Link href="#link" className="font_color">sidebar</Nav.Link> */}
-                    <Button variant="primary" type="button" onClick={handleSidebar}>sidebar</Button>
+                    <div className="hamber_div">
+                      <img src={Images.hamburger} className="img-fluid" onClick={handleSidebar} />
+                    </div>
                   </> : <>
                   </>}
                 </>

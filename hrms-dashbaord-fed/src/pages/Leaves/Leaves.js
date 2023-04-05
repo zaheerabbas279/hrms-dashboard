@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import './leaves.scss'
 import Chip from '@mui/material/Chip';
 import { useFormik } from 'formik';
+import { LeavesTable } from '../LeavesTable/LeavesTable';
 
 export const Leaves = () => {
     const [holidays, setHolidays] = useState(true)
@@ -98,64 +99,80 @@ export const Leaves = () => {
             setDayError(true)
         }
     }
+    const [addleave, setAddleave] = useState(false)
 
     return (
-        <div className='attendance_style'>
+        <div className='leves_style'>
+            <div className="text-end">
+                <Button variant='primary' onClick={() => {
+                    setAddleave(!addleave)
+                }}>{addleave ? "All leaves" : "Apply Leave"}</Button>
+            </div>
+            {/* <LeavesTable /> */}
             <div className="mb-4">
                 <h3 className="header_color">Leave Management</h3>
             </div>
-            <Form onSubmit={formik.handleSubmit} autoComplete="off">
-                <Input_element type="text" name="emp_id" input_label="Emp. Id" placeholder="Enter field"
-                    handleBlur={formik.handleBlur} handleChange={formik.handleChange}
-                    formikValidation={formik.touched.emp_id && formik.errors.emp_id ? <small className='text-danger'>{formik.errors.emp_id}</small> : null}
-                />
-                <Form.Group className="mb-2">
-                    <Form.Label>Reason for Leave</Form.Label>
-                    <Form.Control
-                        as="textarea"
-                        placeholder="Enter field"
-                        style={{ minHeight: '80px' }}
-                        name="reason_leave"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                    />
-                    {formik.touched.reason_leave && formik.errors.reason_leave ? <small className='text-danger'>{formik.errors.reason_leave}</small> : null}
-                </Form.Group>
-
-                <Form.Group className="mb-2">
-                    <Form.Label>Select leave Dates</Form.Label>
-                    <div className="mb-2 d-flex">
-                        <Form.Label className='me-3'>Half Day</Form.Label>
-                        <Form.Check
-                            type="switch"
-                            id="custom-switch"
-                            onChange={handleSwitchChange}
-                            defaultChecked="checked"
+            <div>
+                {addleave ? <>
+                    <Form onSubmit={formik.handleSubmit} autoComplete="off">
+                        <Input_element type="text" name="emp_id" input_label="Emp. Id" placeholder="Enter field"
+                            handleBlur={formik.handleBlur} handleChange={formik.handleChange}
+                            formikValidation={formik.touched.emp_id && formik.errors.emp_id ? <small className='text-danger'>{formik.errors.emp_id}</small> : null}
                         />
-                        <Form.Label className='ms-3'>One or More Days</Form.Label>
-                    </div>
-                    <DatePicker
-                        shouldCloseOnSelect={holidays ? false : true}
-                        selected={startDate}
-                        onChange={holidays ? handlelistHolidays : handleHalfHoliday}
-                        highlightDates={dateArray2}
-                        calendarClassName="datepicker-calendar"
-                        minDate={new Date()}
-                        filterDate={isWeekday}
-                        onClickOutside={handleFocus}
-                    />
-                    <div className='my-3' name="holidays_list" onChange={formik.handleChange}>
-                        {dateArray2.length == 0 ? null : 'Selected Date :'}  {dateArray2.map(date => {
-                            return (
-                                <Chip key={date} className="mx-2" color='primary' label={new Date(date)?.toISOString()?.split("T")[0] || ""} />
-                            )
-                        })}
-                    </div>
-                    {dayError ? <small className='text-danger'>Select Date</small> : null}
-                </Form.Group>
+                        <Form.Group className="mb-2">
+                            <Form.Label>Reason for Leave</Form.Label>
+                            <Form.Control
+                                as="textarea"
+                                placeholder="Enter field"
+                                style={{ minHeight: '80px' }}
+                                name="reason_leave"
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                            />
+                            {formik.touched.reason_leave && formik.errors.reason_leave ? <small className='text-danger'>{formik.errors.reason_leave}</small> : null}
+                        </Form.Group>
 
-                <div className="text-end mt-4"><Button type='submit' onClick={triggerError}>Submit</Button></div>
-            </Form>
+                        <Form.Group className="mb-2">
+                            <Form.Label>Select leave Dates</Form.Label>
+                            <div className="mb-2 d-flex align-items-center">
+                                <Form.Label className={`me-3 ${holidays ? "" : "half_day"}`}>Half <span className="text-dark">Day</span> </Form.Label>
+                                <Form.Check
+                                    type="switch"
+                                    id="custom-switch"
+                                    onChange={handleSwitchChange}
+                                    defaultChecked="checked"
+                                />
+                                <Form.Label className={`ms-3 ${holidays ? "more_day" : ""}`}>One or More Days</Form.Label>
+                            </div>
+                            <DatePicker
+                                shouldCloseOnSelect={holidays ? false : true}
+                                selected={startDate}
+                                onChange={holidays ? handlelistHolidays : handleHalfHoliday}
+                                highlightDates={dateArray2}
+                                calendarClassName="datepicker-calendar"
+                                minDate={new Date()}
+                                filterDate={isWeekday}
+                                onClickOutside={handleFocus}
+                            />
+                            <div className='my-3' name="holidays_list" onChange={formik.handleChange}>
+                                {dateArray2.length == 0 ? null : 'Selected Date :'}  {dateArray2.map(date => {
+                                    return (
+                                        <Chip key={date} className="mx-2" color='primary' label={new Date(date)?.toISOString()?.split("T")[0] || ""} />
+                                    )
+                                })}
+                            </div>
+                            {dayError ? <small className='text-danger'>Select Date</small> : null}
+                        </Form.Group>
+
+                        <div className="text-end mt-4"><Button type='submit' onClick={triggerError}>Submit</Button></div>
+                    </Form>
+
+                </> : <>
+                    <LeavesTable />
+                </>}
+            </div>
+
+
         </div>
     )
 }
