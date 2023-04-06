@@ -88,7 +88,7 @@ export const SignIn = () => {
         <div className="text-center">
           <p className="font_color m-0">
             Not a customer yet?{" "}
-            <Link to="signup" className="login_link">
+            <Link to="signup" className="login_link text-light">
               Sign Up!
             </Link>
           </p>

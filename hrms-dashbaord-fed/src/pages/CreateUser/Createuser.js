@@ -367,13 +367,13 @@ export const CreateUser = () => {
             {isCreateUser ? (
               <>
                 <p className="mb-0">
-                  <strong>Create user</strong>
+                  <strong>Create Employee</strong>
                 </p>
               </>
             ) : (
               <>
                 <p className="mb-0">
-                  <strong>Users List</strong>
+                  <strong>Employees List</strong>
                 </p>
               </>
             )}
@@ -381,11 +381,11 @@ export const CreateUser = () => {
           <div>
             {isCreateUser ? (
               <>
-                <CreateButton name="List User" handleClick={showUsersList} />
+                <CreateButton name="List Employees" handleClick={showUsersList} />
               </>
             ) : (
               <>
-                <CreateButton name="Create User" handleClick={showCreateUser} />
+                <CreateButton name="Create Employees" handleClick={showCreateUser} />
               </>
             )}
           </div>

@@ -11,7 +11,6 @@ import "./header.scss";
 import { Button } from "react-bootstrap";
 import { Images } from "../../utils/images";
 
-
 export const Header = ({ onClick }) => {
   const { isAuth, isSidebarOpen } = useSelector((state) => state.UIStore);
   // const { isSidebarOpen } = useSelector((state) => state.Sidebar);
@@ -30,7 +29,7 @@ export const Header = ({ onClick }) => {
   //   };
   // }, []);
   useEffect(() => {
-    const handleWindowResize = () => setWidth(window.innerWidth)
+    const handleWindowResize = () => setWidth(window.innerWidth);
     window.addEventListener("resize", handleWindowResize);
 
     // Return a function from the effect that removes the event listener
@@ -41,8 +40,8 @@ export const Header = ({ onClick }) => {
     dispatch(setIsAuth(false));
   };
   const handleSidebar = () => {
-    dispatch(setViewSidebar(!isSidebarOpen))
-  }
+    dispatch(setViewSidebar(!isSidebarOpen));
+  };
 
   return (
     <div>
@@ -53,12 +52,18 @@ export const Header = ({ onClick }) => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
+            <Nav className="ms-auto align-items-center">
               {isAuth ? (
                 <>
-                  {width < breakpoint ? <></> : <>
-                    <Nav.Link href="#link" className="font_color">Notifications</Nav.Link>
-                  </>}
+                  {width < breakpoint ? (
+                    <></>
+                  ) : (
+                    <>
+                      <Nav.Link href="#link" className="font_color">
+                        Jon Doe
+                      </Nav.Link>
+                    </>
+                  )}
 
                   <NavDropdown id="basic-nav-dropdown" className="dprdwn">
                     <NavDropdown.Item href="#action/3.1">
@@ -71,18 +76,23 @@ export const Header = ({ onClick }) => {
                       Something
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item onClick={logout} >
-                      Logout
-                    </NavDropdown.Item>
+                    <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
                   </NavDropdown>
 
-                  {width < breakpoint ? <>
-                    {/* <Nav.Link href="#link" className="font_color">sidebar</Nav.Link> */}
-                    <div className="hamber_div">
-                      <img src={Images.hamburger} className="img-fluid" onClick={handleSidebar} />
-                    </div>
-                  </> : <>
-                  </>}
+                  {width < breakpoint ? (
+                    <>
+                      {/* <Nav.Link href="#link" className="font_color">sidebar</Nav.Link> */}
+                      <div className="hamber_div">
+                        <img
+                          src={Images.hamburger}
+                          className="img-fluid"
+                          onClick={handleSidebar}
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <></>
+                  )}
                 </>
               ) : (
                 <>

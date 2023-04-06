@@ -40,9 +40,9 @@ export const SignUp = () => {
       if (!values.phone) {
         errors.phone = "Required Phone Number";
       }
-      if (!values.numOfEmp) {
-        errors.numOfEmp = "Required Number of Employees";
-      }
+      // if (!values.numOfEmp) {
+      //   errors.numOfEmp = "Required Number of Employees";
+      // }
       if (!values.title) {
         errors.title = "Required Title";
       }
@@ -123,7 +123,7 @@ export const SignUp = () => {
             </>
           ) : null}
 
-          <Selectelement
+          {/* <Selectelement
             select_Label="Number of Employees"
             lableClass="font_color"
             name="numOfEmp"
@@ -143,7 +143,7 @@ export const SignUp = () => {
                 {formik.errors.numOfEmp}
               </span>
             </>
-          ) : null}
+          ) : null} */}
           <Selectelement
             select_Label="Your Title"
             lableClass="font_color"
@@ -157,7 +157,8 @@ export const SignUp = () => {
                   {value}
                 </option>
               );
-            })} />
+            })}
+          />
           {formik.touched.title && formik.errors.title ? (
             <>
               <span className="text-danger small">{formik.errors.title}</span>

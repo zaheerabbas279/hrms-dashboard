@@ -147,6 +147,7 @@ const PFEISC = () => {
 
 export const CompanyDetails = () => {
   const navigate = useNavigate();
+  const [isShowDetails, setIsShowDetails] = useState(false);
 
   const gotodashboard = () => {
     navigate("/");
@@ -180,6 +181,10 @@ export const CompanyDetails = () => {
     return steps.findIndex((step) => !step.completed);
   };
 
+  const showHideCompanyDetails = () => {
+    setIsShowDetails(!isShowDetails);
+  };
+
   return (
     <>
       <div className="">
@@ -191,33 +196,59 @@ export const CompanyDetails = () => {
             <strong>Company Details</strong>
           </p>
 
+          {isShowDetails ? (
+            <>
+              <div className="text-end">
+                <button
+                  className="btn btn-primary"
+                  onClick={showHideCompanyDetails}
+                >
+                  Show Company Details
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="text-end">
+                <button
+                  className="btn btn-primary"
+                  onClick={showHideCompanyDetails}
+                >
+                  Edit Company Details
+                </button>
+              </div>
+            </>
+          )}
+
           {/* stepper container code  */}
 
-          <Container sx={{ my: 4 }}>
-            <Stepper
-              alternativeLabel
-              nonLinear
-              activeStep={activeStep}
-              sx={{ mb: 3 }}
-            >
-              {steps.map((step, index) => (
-                <Step key={step.label} completed={step.completed}>
-                  <StepButton onClick={() => setActiveStep(index)}>
-                    {step.label}
-                  </StepButton>
-                </Step>
-              ))}
-            </Stepper>
-            <Box>
-              {
-                {
-                  0: <NameAndAddress />,
-                  1: <TaxSetup />,
-                  2: <PFEISC />,
-                }[activeStep]
-              }
-            </Box>
-            {/* <Stack
+          {isShowDetails ? (
+            <>
+              <Container sx={{ my: 4 }}>
+                <Stepper
+                  alternativeLabel
+                  nonLinear
+                  activeStep={activeStep}
+                  sx={{ mb: 3 }}
+                >
+                  {steps.map((step, index) => (
+                    <Step key={step.label} completed={step.completed}>
+                      <StepButton onClick={() => setActiveStep(index)}>
+                        {step.label}
+                      </StepButton>
+                    </Step>
+                  ))}
+                </Stepper>
+                <Box>
+                  {
+                    {
+                      0: <NameAndAddress />,
+                      1: <TaxSetup />,
+                      2: <PFEISC />,
+                    }[activeStep]
+                  }
+                </Box>
+                {/* <Stack
             direction="row"
             sx={{ pt: 2, pb: 7, justifyContent: "space-around" }}
           >
@@ -233,7 +264,66 @@ export const CompanyDetails = () => {
               Next
             </Button>
           </Stack> */}
-          </Container>
+              </Container>
+            </>
+          ) : (
+            <>
+              <div className="companyDetailsContainer">
+                <div className="basicInfoDiv my-3">
+                  <h4>Basic Info</h4>
+
+                  <label htmlFor="name">Brand Name</label>
+                  <p className="mb-0">
+                    <strong>IT</strong>
+                  </p>
+                  <label htmlFor="name">Registered Address</label>
+                  <p className="mb-0">
+                    <strong>IT Park, 3rd Stage, Mysore</strong>
+                  </p>
+                  <label htmlFor="name">PIN Code</label>
+                  <p className="mb-0">
+                    <strong>898787</strong>
+                  </p>
+                </div>
+                <div className="basicInfoDiv my-3">
+                  <h4>Tax Info</h4>
+
+                  <label htmlFor="name">Company PAN</label>
+                  <p className="mb-0">
+                    <strong>AKJHFDHFLKH98987</strong>
+                  </p>
+                  <label htmlFor="name">Company TAN</label>
+                  <p className="mb-0">
+                    <strong>ASFDU876865ADF6</strong>
+                  </p>
+                  <label htmlFor="name">Company GSTIN</label>
+                  <p className="mb-0">
+                    <strong>GISDGASDFO987FAS8D7FS7DF9SD</strong>
+                  </p>
+                </div>
+                <div className="basicInfoDiv">
+                  <h4>PF/EISC</h4>
+
+                  <label htmlFor="name">PF Status</label>
+                  <p className="mb-0 text-success">
+                    <strong>Enabled</strong>
+                  </p>
+                  <label htmlFor="name">ESI Status</label>
+                  <p className="mb-0 text-success">
+                    <strong>Enabled</strong>
+                  </p>
+                  <label htmlFor="name">PT Status</label>
+                  <p className="mb-0 text-success">
+                    <strong>Enabled</strong>
+                  </p>
+                  <label htmlFor="name">LWF Status</label>
+                  <p className="mb-0 text-success">
+                    <strong>Enabled</strong>
+                  </p>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </>

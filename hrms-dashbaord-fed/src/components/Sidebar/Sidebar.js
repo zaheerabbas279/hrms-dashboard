@@ -32,7 +32,7 @@ export const Sidebar = () => {
         </li>
         <li>
           <Link to={RouteStrings.createuser} className="sidebar_link" onClick={handleClickLink}>
-            Users
+            Employees
           </Link>
         </li>
         <li>
