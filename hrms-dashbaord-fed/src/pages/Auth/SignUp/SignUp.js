@@ -19,8 +19,9 @@ export const SignUp = () => {
       organizationName: "",
       email: "",
       phone: "",
-      numOfEmp: "",
+      // numOfEmp: "",
       title: "",
+      password: "",
     },
     onSubmit: (values) => {
       console.log("the sign up form data is", values);
@@ -45,6 +46,9 @@ export const SignUp = () => {
       // }
       if (!values.title) {
         errors.title = "Required Title";
+      }
+      if (!values.password) {
+        errors.password = "Required Password";
       }
 
       return errors;
@@ -164,6 +168,25 @@ export const SignUp = () => {
               <span className="text-danger small">{formik.errors.title}</span>
             </>
           ) : null}
+
+          <Input_element
+            input_label="Password"
+            type="text"
+            lableClass="font_color"
+            name="password"
+            handleChange={formik.handleChange}
+            handleBlur={formik.handleBlur}
+            value={formik.values.password}
+            placeholder="Enter Password"
+          />
+          {formik.touched.password && formik.errors.password ? (
+            <>
+              <span className="text-danger small">
+                {formik.errors.password}
+              </span>
+            </>
+          ) : null}
+
           <Form.Group className="mb-4">
             <Form.Check inline name="group1" type="checkbox" />
             <Form.Check.Label className="font_color">
@@ -185,6 +208,7 @@ export const SignUp = () => {
               </button>
             </Form.Check.Label>
           </Form.Group>
+
           <Button type="submit" className="btn_submit">
             Submit form
           </Button>

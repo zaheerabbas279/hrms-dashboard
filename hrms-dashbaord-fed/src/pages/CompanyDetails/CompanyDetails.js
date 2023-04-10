@@ -12,12 +12,13 @@ export const CompanyDetails = () => {
 
   const navigate = useNavigate();
   const [isShowDetails, setIsShowDetails] = useState(false);
+  const [activeStep, setActiveStep] = useState(0);
+  const [infoValue, setInfoValue] = useState(companyInfo[0].fields)
 
   const gotodashboard = () => {
     navigate("/");
   };
 
-  const [activeStep, setActiveStep] = useState(0);
 
   var steps = [];
   companyInfo.filter(item => {
@@ -26,25 +27,26 @@ export const CompanyDetails = () => {
   })
 
 
-  const [infoValue, setInfoValue] = useState(companyInfo[0].fields)
   const showHideCompanyDetails = () => {
     setIsShowDetails(!isShowDetails);
   };
+
   const handlechangeinfo = (i) => {
     // setActiveStep(i)
     setInfoValue(companyInfo[i].fields)
   }
 
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
 
   const InfoDiv = () => {
-    let field_value = []
-    const handleBack = () => {
-      setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
 
+    let field_value = []
     infoValue.filter(item => {
       field_value.push(item.name)
     })
+
     let res_name = field_value.reduce((acc, curr) => (acc[curr] = '', acc), {});
     return (
       <Formik

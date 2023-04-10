@@ -16,6 +16,7 @@ import { CreateRole } from "../pages/CreateRole/CreateRole";
 import { Payslips } from "../pages/Payslips/Payslips";
 import { Fields } from "../pages/Fields/Fields";
 import { LeavesTable } from "../pages/LeavesTable/LeavesTable";
+import { EmployeeApplyLeave } from "../pages/EmployeeApplyLeave/EmployeeApplyLeave";
 
 const RouteCheck = () => {
   // const { isAuth } = useSelector((state) => state.UIStore);
@@ -53,6 +54,10 @@ const RouteCheck = () => {
         />
         <Route path={RouteStrings.leaves} element={<Leaves />} />
         <Route path={RouteStrings.leavestable} element={<LeavesTable />} />
+        <Route
+          path={RouteStrings.employeeApplyLeave}
+          element={<EmployeeApplyLeave />}
+        />
         <Route path={RouteStrings.settings} element={<SettingsPage />} />
         <Route path={RouteStrings.createuser} element={<CreateUser />} />
         <Route path={RouteStrings.createrole} element={<CreateRole />} />
