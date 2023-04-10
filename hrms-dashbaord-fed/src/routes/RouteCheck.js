@@ -59,7 +59,7 @@ const RouteCheck = () => {
           element={<EmployeeApplyLeave />}
         />
         <Route path={RouteStrings.settings} element={<SettingsPage />} />
-        <Route path={RouteStrings.createuser} element={<CreateUser />} />
+        <Route path={RouteStrings.createEmployee} element={<CreateUser />} />
         <Route path={RouteStrings.createrole} element={<CreateRole />} />
         <Route path={RouteStrings.payslips} element={<Payslips />} />
         <Route path={RouteStrings.fields} element={<Fields />} />

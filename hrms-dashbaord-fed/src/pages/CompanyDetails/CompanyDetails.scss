@@ -2,11 +2,8 @@
 
 .companyDetails {
   padding: 10px 10px;
-  margin: 10px 0px;
-}
-
-.goback {
-  cursor: pointer;
+  margin: 10px auto;
+  max-width: 800px;
 }
 
 .editBtn {
@@ -23,9 +20,8 @@
 }
 
 .companyCard {
-  background-color: $card_background !important;
-  border: 1px solid $card_background !important;
+  background-color: $card_background;
   border-radius: 10px;
-  max-width: 500px;
+  max-width: 700px;
   margin: 0 auto;
 }

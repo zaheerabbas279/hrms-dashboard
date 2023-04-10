@@ -8,6 +8,7 @@ import Chip from "@mui/material/Chip";
 import { useFormik } from "formik";
 import { LeavesTable } from "../LeavesTable/LeavesTable";
 import { Selectelement } from "../../components/Select_field/Selectelement";
+import { Link } from "react-router-dom"
 
 export const Leaves = () => {
   const [holidays, setHolidays] = useState(false);
@@ -45,14 +46,6 @@ export const Leaves = () => {
     setDateArray2(item);
     setStartDate(date);
   };
-
-  const xyz = ["a", "", "v", "sad", ""];
-  console.log("🚀 ~ file: Leaves.js:48 ~ Leaves ~ dateArray:", xyz);
-  // let { ...obj } = xyz
-  // console.log("🚀 ~ file: Leaves.js:48 ~ Leaves ~ obj:", obj)
-
-  let jgj = JSON.parse(JSON.stringify(xyz));
-  console.log("🚀 ~ file: Leaves.js:54 ~ Leaves ~ jgj:", jgj);
 
   const handlelistHolidays = (date) => {
     let selectedDate = new Date(date).toDateString();
@@ -156,7 +149,13 @@ export const Leaves = () => {
 
   return (
     <div className="leves_style">
+      <div className="d-flex justify-content-between mt-4">
+        <div>
+          <h3 className="header_color">Leave Management</h3>
+        </div>
+      </div>
       <div className="text-end">
+        <Link to="/" className="goback">Back to Dashboard</Link>
         <Button
           variant="primary"
           onClick={() => {
@@ -166,13 +165,11 @@ export const Leaves = () => {
           {addleave ? "All leaves" : "Apply Leave"}
         </Button>
       </div>
-      {/* <LeavesTable /> */}
-      <div className="mb-4">
-        <h3 className="header_color">Leave Management</h3>
-      </div>
+
       <div>
         {addleave ? (
           <>
+            <h4 className="mb-4">Apply for Leave</h4>
             <Form onSubmit={formik.handleSubmit} autoComplete="off">
               <Input_element
                 type="text"

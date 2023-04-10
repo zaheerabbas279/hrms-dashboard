@@ -1,19 +1,13 @@
 import React, { useState } from "react";
 import "./Fields.scss";
-// import Form from "react-bootstrap/Form";
 import Data from "./MOCK_DATA.json";
-import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import { Formik, Form, FieldArray, ErrorMessage } from "formik";
 import CustomInput from "./CustomInput";
 import * as yup from "yup";
 import { ModalComponent } from "../../components/modal/ModalComponent";
-import { Input_element } from "../../components/input_field/Input_element";
-
 import { Images } from "../../utils/images";
 import { FieldsTable } from "./FieldsTable";
-import TestData from './FieldsTable'
+import { Link } from "react-router-dom";
 
 
 const handleValidation = yup.object().shape({
@@ -164,38 +158,7 @@ const AdminFields = ({ data }) => {
 const CompanyFields = () => {
   return (
     <>
-      {/* <h5>Company Fields are</h5> */}
-
-      {/* <Table striped bordered className="testing">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Larry</td>
-            <td > Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </Table> */}
+      <h5>Company Feilds are</h5>
     </>
   );
 };
@@ -209,7 +172,6 @@ const Settings = () => {
 };
 
 export const Fields = () => {
-  const gotodashboard = () => { };
 
   const [tableName, setTableName] = useState("");
 
@@ -220,12 +182,10 @@ export const Fields = () => {
   return (
     <>
       <div className="fieldsDetails">
-        <small className="goback" onClick={gotodashboard}>
-          Back to Dashboard
-        </small>
-        <p className="mb-0">
-          <strong>Configure Fields</strong>
-        </p>
+        <div className="d-flex justify-content-between mt-4">
+          <h3>Configure Fields</h3>
+          <Link to="/" className="goback">Back to Dashboard</Link>
+        </div>
 
         <div className="fieldsmaindiv my-4">
           <div className="formchilddiv w-50">

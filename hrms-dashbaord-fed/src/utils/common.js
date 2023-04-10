@@ -9,7 +9,7 @@ export const RouteStrings = {
   employeeApplyLeave: "employeeApplyLeave",
   leavestable: "leavestable",
   settings: "settings",
-  createuser: "createuser",
+  createEmployee: "createemployee",
   createrole: "createrole",
   payslips: "payslips",
   fields: "fields",

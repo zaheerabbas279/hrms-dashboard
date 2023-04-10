@@ -9,12 +9,14 @@ import { UsersTable } from "./UsersTable";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import CustomInput from "../Fields/CustomInput";
 import employeeInfo from './employeeinfo.json'
+import { Link } from "react-router-dom";
 
 export const CreateUser = () => {
 
   const [activeStep, setActiveStep] = useState(0);
   const [infoValue, setInfoValue] = useState(employeeInfo[0].fields)
   const [payloadData, setPayloadData] = useState([]);
+  const [isCreateUser, setIsCreateUser] = useState(false);
 
   var steps = [];
   employeeInfo.filter(item => {
@@ -33,7 +35,6 @@ export const CreateUser = () => {
   };
 
   const InfoDiv = () => {
-
     let field_value = []
     infoValue.filter(item => {
       field_value.push(item.name)
@@ -73,7 +74,7 @@ export const CreateUser = () => {
           }
         }}
       >
-        <Form>
+        <Form autoComplete="off">
           {infoValue.map((field, i) => {
             return (
               <div>
@@ -101,7 +102,6 @@ export const CreateUser = () => {
     )
   }
 
-  const [isCreateUser, setIsCreateUser] = useState(false);
 
   const showCreateUser = () => {
     setIsCreateUser(true);
@@ -110,45 +110,19 @@ export const CreateUser = () => {
     setIsCreateUser(false);
   };
 
-  const gotodashboard = () => { };
   return (
     <>
-      <div className="createuserdiv">
-        <div className="d-flex align-items-center justify-content-between">
+      <div className="createuserdiv mx-lg-5">
+        <div className="d-flex justify-content-between mt-4">
           <div>
-            <small className="goback" onClick={gotodashboard}>
-              Back to Dashboard
-            </small>
-            {isCreateUser ? (
-              <>
-                <p className="mb-0">
-                  <strong>Create Employee</strong>
-                </p>
-              </>
-            ) : (
-              <>
-                <p className="mb-0">
-                  <strong>Employees List</strong>
-                </p>
-              </>
-            )}
+            <h3> {isCreateUser ? "Create Employee" : "Employees List"}</h3>
           </div>
           <div>
-            {isCreateUser ? (
-              <>
-                <CreateButton
-                  name="List Employees"
-                  handleClick={showUsersList}
-                />
-              </>
-            ) : (
-              <>
-                <CreateButton
-                  name="Create Employees"
-                  handleClick={showCreateUser}
-                />
-              </>
-            )}
+            <Link to="/" className="goback">Back to Dashboard</Link>
+            <CreateButton
+              name={isCreateUser ? "List Employees" : "Create Employees"}
+              handleClick={isCreateUser ? showUsersList : showCreateUser}
+            />
           </div>
         </div>
 
@@ -168,34 +142,9 @@ export const CreateUser = () => {
                   </Step>
                 ))}
               </Stepper>
-              <div className="bg-primary p-4">
+              <div className="form_container p-4">
                 {<InfoDiv />}
               </div>
-              {/* <Box>
-                {
-                  {
-                    0: <BasicInfo />,
-                    1: <ContactInfo />,
-                    2: <BankInfo />,
-                  }[activeStep]
-                }
-              </Box> */}
-              {/* <Stack
-            direction="row"
-            sx={{ pt: 2, pb: 7, justifyContent: "space-around" }}
-          >
-            <Button
-              color="inherit"
-              disabled={!activeStep}
-              onClick={() => setActiveStep((activeStep) => activeStep - 1)}
-            >
-              Back
-            </Button>
-
-            <Button disabled={checkDisabled} onClick={handleNext}>
-              Next
-            </Button>
-          </Stack> */}
             </Container>
           </>
         ) : (
