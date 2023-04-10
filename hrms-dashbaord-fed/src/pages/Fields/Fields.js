@@ -13,6 +13,8 @@ import { Input_element } from "../../components/input_field/Input_element";
 
 import { Images } from "../../utils/images";
 import { FieldsTable } from "./FieldsTable";
+import TestData from './FieldsTable'
+
 
 const handleValidation = yup.object().shape({
   info: yup.array().of(
@@ -25,6 +27,7 @@ const handleValidation = yup.object().shape({
     })
   ),
 });
+
 
 const initialValues = {
   info: [
@@ -73,26 +76,6 @@ const AdminFields = ({ data }) => {
         <div className="w-100 d-flex justify-content-center">
           <div className="fieldsDetails w-50">
             <FieldsTable />
-            {/* <Table bordered className="tableData">
-              <>
-                <thead>
-                  <tr>
-                    <th>Field Name</th>
-                    <th>Field Type</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.map((item) => {
-                    return (
-                      <tr>
-                        <td>{item.field_name}</td>
-                        <td>{item.type}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </>
-            </Table> */}
           </div>
         </div>
 
@@ -120,11 +103,13 @@ const AdminFields = ({ data }) => {
                                   label="Field Name"
                                   name={`info.${i}.name`}
                                   placeholder="Field name"
+                                  className="customInp"
                                 />
                                 <CustomInput
                                   label="Field Type"
                                   name={`info.${i}.type`}
                                   placeholder="Field type"
+                                  className="customInp"
                                 />
                                 <CustomInput
                                   label="Field Length"
@@ -179,7 +164,38 @@ const AdminFields = ({ data }) => {
 const CompanyFields = () => {
   return (
     <>
-      <h5>Company Fields are</h5>
+      {/* <h5>Company Fields are</h5> */}
+
+      {/* <Table striped bordered className="testing">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Larry</td>
+            <td > Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </Table> */}
     </>
   );
 };
@@ -251,8 +267,4 @@ export const Fields = () => {
     </>
   );
 };
-const errorMessage = {
-  color: "red",
-  // position: "absolute",
-  fontSize: "11px",
-};
+

@@ -45,14 +45,6 @@ export const Leaves = () => {
         setStartDate(date)
     }
 
-    const xyz = ['a', '', 'v', 'sad', '']
-    console.log("🚀 ~ file: Leaves.js:48 ~ Leaves ~ dateArray:", xyz)
-    // let { ...obj } = xyz
-    // console.log("🚀 ~ file: Leaves.js:48 ~ Leaves ~ obj:", obj)
-
-    let jgj = JSON.parse(JSON.stringify(xyz))
-    console.log("🚀 ~ file: Leaves.js:54 ~ Leaves ~ jgj:", jgj)
-
     const handlelistHolidays = (date) => {
         let selectedDate = new Date(date).toDateString()
         let items = [...dateArray]
@@ -70,7 +62,9 @@ export const Leaves = () => {
 
             delete items2[indexNumber]
 
-            items2 = items2.filter(el => el != null);
+            items2 = items2.filter(function (el) {
+                return el != null;
+            });
             items2.sort((date1, date2) => new Date(date1) - new Date(date2))
         }
         setDayError(false)
