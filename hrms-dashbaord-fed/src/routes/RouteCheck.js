@@ -17,6 +17,7 @@ import { Payslips } from "../pages/Payslips/Payslips";
 import { Fields } from "../pages/Fields/Fields";
 import { LeavesTable } from "../pages/LeavesTable/LeavesTable";
 import { EmployeeApplyLeave } from "../pages/EmployeeApplyLeave/EmployeeApplyLeave";
+import { NotFoundScreen } from "../pages/404/404";
 
 const RouteCheck = () => {
   // const { isAuth } = useSelector((state) => state.UIStore);
@@ -63,6 +64,7 @@ const RouteCheck = () => {
         <Route path={RouteStrings.createrole} element={<CreateRole />} />
         <Route path={RouteStrings.payslips} element={<Payslips />} />
         <Route path={RouteStrings.fields} element={<Fields />} />
+        <Route path={RouteStrings[404]} element={<NotFoundScreen />} />
       </Route>
     </Routes>
   );
