@@ -1,6 +1,19 @@
-.createuserdiv {
+@import "../../style/theme.style";
 
-    // background-color: $card_background;
-    padding: 10px 10px;
-    margin: 10px 0px;
+.createuserdiv {
+  padding: 10px 10px;
+  margin: 10px 0px;
+  .form_container {
+    background-color: $card_background;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+.goback {
+  font-size: 12px;
+  font-weight: 600;
+  width: fit-content;
+  margin: 0 0 16px auto;
+  display: block;
 }

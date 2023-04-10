@@ -2,19 +2,17 @@ import React from "react";
 import "./payslips.scss";
 import Form from "react-bootstrap/Form";
 import CreateButton from "../../components/CreateButton/CreateButton";
+import { Link } from "react-router-dom";
 
 export const Payslips = () => {
-  const gotodashboard = () => { };
 
   return (
     <>
       <div className="payslipsDetails">
-        <small className="goback" onClick={gotodashboard}>
-          Back to Dashboard
-        </small>
-        <p className="mb-0">
-          <strong>Payslips</strong>
-        </p>
+        <div className="mt-4">
+          <h3>Payslips</h3>
+        </div>
+        <Link to="/" className="goback">Back to Dashboard</Link>
 
         <div className="payslipsdiv my-3">
           <div className="childdiv">
@@ -22,7 +20,6 @@ export const Payslips = () => {
               Select Financial Year
             </label>
             <Form.Select aria-label="Default select example">
-              {/* <option>Open this select menu</option> */}
               <option value="2022-2023">2022 - 2023</option>
               <option value="2023-2024">2023 - 2024</option>
             </Form.Select>

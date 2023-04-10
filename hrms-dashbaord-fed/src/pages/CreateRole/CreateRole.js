@@ -5,10 +5,11 @@ import { ModalComponent } from '../../components/modal/ModalComponent'
 import { Input_element } from '../../components/input_field/Input_element'
 import { Selectelement } from '../../components/Select_field/Selectelement'
 import { useFormik } from 'formik'
+import { Link } from 'react-router-dom'
 
 export const CreateRole = () => {
     const [viewRole, setViewRole] = useState(false)
-    const [createwRole, setCreateRole] = useState(false)
+    const [createRole, setCreateRole] = useState(false)
     const [assignRole, setAssignRole] = useState(false)
 
     const employees = ['01', '02', '03', '04', '05']
@@ -52,14 +53,18 @@ export const CreateRole = () => {
 
     return (
         <div className="createrole_style">
-            <div className="d-flex justify-content-end mb-4">
-                <Button type='button' className='mx-3' onClick={() => setViewRole(false)}>Assign Roles</Button>
-                <Button type='button' className='mx-3' onClick={() => setViewRole(true)}>Roles</Button>
+            <div className="d-flex justify-content-between mb-4">
+                <div><h3>Roles</h3></div>
+                <div>
+                    <Link to="/" className="goback">Back to Dashboard</Link>
+                    <Button type='button' onClick={viewRole ? () => setViewRole(false) : () => setViewRole(true)}>{viewRole ? "Roles List" : "Create Roles"}</Button>
+                </div>
             </div>
             <div className='mt-5'>
                 {viewRole ? <div className='role_div'>
+                    <h5>Add Roles</h5>
                     <div className="mb-4 text-end">
-                        <Button type='button' className='mx-3' onClick={() => setCreateRole(true)}>Create Roles</Button>
+                        <Button type='button' className='mx-3' onClick={() => setCreateRole(true)}>Add New Role</Button>
                     </div>
                     <div className='roles'>
                         <Table striped bordered hover className='table_role'>
@@ -80,8 +85,9 @@ export const CreateRole = () => {
                         </Table>
                     </div>
                 </div> : <div className='table_div'>
+                    <h5>Assigned Roles List</h5>
                     <div className="mb-4 text-end">
-                        <Button type='button' className='mx-3' onClick={() => setAssignRole(true)}>ADD</Button>
+                        <Button type='button' className='mx-3' onClick={() => setAssignRole(true)}>Assign Role</Button>
                     </div>
                     <Table striped bordered hover className='table_assignrole'>
                         <thead>
@@ -105,7 +111,7 @@ export const CreateRole = () => {
             </div>
 
             <ModalComponent
-                show={createwRole}
+                show={createRole}
                 onHide={() => setCreateRole(false)}
                 modal_header="Create Role"
                 modal_body={<>

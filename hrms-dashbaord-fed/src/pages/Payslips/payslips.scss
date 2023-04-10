@@ -1,17 +1,11 @@
 .payslipsDetails {
-    // background-color: $card_background;
-    padding: 10px 10px;
-    margin: 10px 0px;
+  padding: 10px 10px;
+  margin: 10px auto;
+  max-width: 650px;
+  //   border: 1px solid #000;
+  //   border-radius: 10px;
 }
 
-.goback {
-    cursor: pointer;
-}
-
-.childdiv{
-    max-width: 500px;
-}
-
-.form16card{
-    cursor: pointer;
+.form16card {
+  cursor: pointer;
 }

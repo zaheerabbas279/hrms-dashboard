@@ -1,27 +1,12 @@
 @import "../../style/theme.style";
 
 .fieldsDetails {
-  // background-color: $card_background;
+  max-width: 800px;
   padding: 10px 10px;
-  margin: 10px 0px;
+  margin: 10px auto;
 }
-
-.goback {
-  cursor: pointer;
-}
-
 .tableName {
   text-transform: capitalize;
-}
-
-.tableData {
-  th {
-    color: $default_white;
-  }
-
-  td {
-    color: $default_white;
-  }
 }
 
 .modal-content {
