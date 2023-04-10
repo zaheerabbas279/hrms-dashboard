@@ -19,29 +19,26 @@ export const CompanyDetails = () => {
     navigate("/");
   };
 
-
   var steps = [];
   companyInfo.filter(item => {
     let xyz = { label: item.title }
     steps.push(xyz)
   })
 
-
   const showHideCompanyDetails = () => {
     setIsShowDetails(!isShowDetails);
   };
 
   const handlechangeinfo = (i) => {
-    // setActiveStep(i)
     setInfoValue(companyInfo[i].fields)
   }
 
   const handleBack = () => {
+    handlechangeinfo(activeStep - 1)
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
   const InfoDiv = () => {
-
     let field_value = []
     infoValue.filter(item => {
       field_value.push(item.name)
@@ -72,7 +69,6 @@ export const CompanyDetails = () => {
           } else {
             handlechangeinfo(activeStep + 1)
             setActiveStep((prevActiveStep) => prevActiveStep + 1);
-
             console.log(values);
             // resetForm()
           }
@@ -151,7 +147,6 @@ export const CompanyDetails = () => {
               <Container sx={{ my: 4 }}>
                 <Stepper
                   alternativeLabel
-                  nonLinear
                   activeStep={activeStep}
                   sx={{ mb: 3 }}
                 >

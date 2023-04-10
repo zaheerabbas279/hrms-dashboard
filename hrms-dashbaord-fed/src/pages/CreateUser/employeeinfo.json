@@ -1,0 +1,67 @@
+[
+    {
+        "title": "Name and address",
+        "fields": [
+            {
+                "field_name": "name",
+                "name": "name",
+                "feild_type": "text"
+            },
+            {
+                "field_name": "email",
+                "name": "email",
+                "feild_type": "email"
+            },
+            {
+                "field_name": "hire date",
+                "name": "hire_date",
+                "feild_type": "date"
+            }
+        ]
+    },
+    {
+        "title": "Contact Info",
+        "fields": [
+            {
+                "field_name": "phone number",
+                "name": "phone_number",
+                "feild_type": "number"
+            },
+            {
+                "field_name": "gender",
+                "name": "gender",
+                "feild_type": "text"
+            },
+            {
+                "field_name": "date of birth",
+                "name": "dob",
+                "feild_type": "date"
+            }
+        ]
+    },
+    {
+        "title": "bank info",
+        "fields": [
+            {
+                "field_name": "pan",
+                "name": "pan",
+                "feild_type": "text"
+            },
+            {
+                "field_name": "bank account number",
+                "name": "bank_account_number",
+                "feild_type": "text"
+            },
+            {
+                "field_name": "bank ifsc",
+                "name": "bank_ifsc",
+                "feild_type": "text"
+            },
+            {
+                "field_name": "beneficiary name",
+                "name": "beneficiary_name",
+                "feild_type": "text"
+            }
+        ]
+    }
+]

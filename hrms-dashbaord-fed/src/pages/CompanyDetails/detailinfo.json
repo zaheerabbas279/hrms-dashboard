@@ -63,25 +63,5 @@
                 "feild_type": "text"
             }
         ]
-    },
-    {
-        "title": "test Setup",
-        "fields": [
-            {
-                "name": "test_status",
-                "field_name": "Test status",
-                "feild_type": "text"
-            },
-            {
-                "name": "testesi_status",
-                "field_name": "Testesi status",
-                "feild_type": "text"
-            },
-            {
-                "name": "testpt_status",
-                "field_name": "Testpt status",
-                "feild_type": "text"
-            }
-        ]
     }
 ]
