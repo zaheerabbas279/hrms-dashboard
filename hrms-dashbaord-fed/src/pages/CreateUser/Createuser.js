@@ -355,7 +355,7 @@ export const CreateUser = () => {
     setIsCreateUser(false);
   };
 
-  const gotodashboard = () => { };
+  const gotodashboard = () => {};
   return (
     <>
       <div className="createuserdiv">
@@ -381,11 +381,17 @@ export const CreateUser = () => {
           <div>
             {isCreateUser ? (
               <>
-                <CreateButton name="List Employees" handleClick={showUsersList} />
+                <CreateButton
+                  name="List Employees"
+                  handleClick={showUsersList}
+                />
               </>
             ) : (
               <>
-                <CreateButton name="Create Employees" handleClick={showCreateUser} />
+                <CreateButton
+                  name="Create Employees"
+                  handleClick={showCreateUser}
+                />
               </>
             )}
           </div>
