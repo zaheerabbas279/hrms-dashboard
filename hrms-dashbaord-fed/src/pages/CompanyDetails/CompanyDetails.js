@@ -4,34 +4,35 @@ import "./CompanyDetails.scss";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import { Button, Container, Stack, StepButton } from "@mui/material";
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import CustomInput from "../Fields/CustomInput";
-import companyInfo from "./detailinfo.json"
+import companyInfo from "./detailinfo.json";
 
 export const CompanyDetails = () => {
-
   const navigate = useNavigate();
   const [isShowDetails, setIsShowDetails] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
-  const [infoValue, setInfoValue] = useState(companyInfo[0].fields)
+  const [infoValue, setInfoValue] = useState(companyInfo[0].fields);
+  const [payloadData, setPayloadData] = useState([]);
 
   const gotodashboard = () => {
     navigate("/");
   };
 
   var steps = [];
-  companyInfo.filter(item => {
-    let xyz = { label: item.title }
-    steps.push(xyz)
-  })
+  companyInfo.filter((item) => {
+    let xyz = { label: item.title };
+    steps.push(xyz);
+  });
 
   const showHideCompanyDetails = () => {
     setIsShowDetails(!isShowDetails);
   };
 
   const handlechangeinfo = (i) => {
-    setInfoValue(companyInfo[i].fields)
-  }
+    // setActiveStep(i)
+    setInfoValue(companyInfo[i].fields);
+  };
 
   const handleBack = () => {
     handlechangeinfo(activeStep - 1)
@@ -52,24 +53,30 @@ export const CompanyDetails = () => {
           const errors = {};
           Object.keys(values).forEach(function (key) {
             if (values[key] == "") {
-              errors[key] = `${key} required`
+              errors[key] = `${key} required`;
             }
             if (values.email) {
-              if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-                errors.email = 'Invalid email address';
+              if (
+                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+              ) {
+                errors.email = "Invalid email address";
               }
             }
           });
-          return errors
+          return errors;
         }}
         onSubmit={(values, { resetForm }) => {
-
           if (activeStep === steps.length - 1) {
-            console.log(values);
+            payloadData.push(values);
+            let _payload = Object.assign({}, ...payloadData);
+            console.log(
+              "🚀 ~ file: CompanyDetails.js:74 ~ InfoDiv ~ _payload:",
+              _payload
+            );
           } else {
-            handlechangeinfo(activeStep + 1)
+            handlechangeinfo(activeStep + 1);
             setActiveStep((prevActiveStep) => prevActiveStep + 1);
-            console.log(values);
+            payloadData.push(values);
             // resetForm()
           }
         }}
@@ -78,19 +85,16 @@ export const CompanyDetails = () => {
           {infoValue.map((field, i) => {
             return (
               <div>
-                <CustomInput label={field.field_name} type={field.feild_type} name={field.name} />
+                <CustomInput
+                  label={field.field_name}
+                  type={field.feild_type}
+                  name={field.name}
+                />
               </div>
-            )
+            );
           })}
-          {/* <div className="mt-3">
-            <button type="submit" className="btn btn-secondary font_color">Submit</button>
-          </div> */}
-          <Button
-            variant="contained"
-            type="submit"
-            sx={{ mt: 1, mr: 1 }}
-          >
-            {activeStep === steps.length - 1 ? 'Submit' : 'Continue'}
+          <Button variant="contained" type="submit" sx={{ mt: 1, mr: 1 }}>
+            {activeStep === steps.length - 1 ? "Submit" : "Continue"}
           </Button>
           <Button
             disabled={activeStep === 0}
@@ -102,8 +106,10 @@ export const CompanyDetails = () => {
           </Button>
         </Form>
       </Formik>
-    )
-  }
+    );
+  };
+
+  console.log("payloadData---------------->", payloadData);
 
   return (
     <>
@@ -152,31 +158,11 @@ export const CompanyDetails = () => {
                 >
                   {steps.map((step, index) => (
                     <Step key={step.label} completed={step.completed}>
-                      <StepButton>
-                        {step.label}
-                      </StepButton>
+                      <StepButton>{step.label}</StepButton>
                     </Step>
                   ))}
                 </Stepper>
-                <div className="bg-primary p-4">
-                  {<InfoDiv />}
-                </div>
-                {/* <Stack
-            direction="row"
-            sx={{ pt: 2, pb: 7, justifyContent: "space-around" }}
-          >
-            <Button
-              color="inherit"
-              disabled={!activeStep}
-              onClick={() => setActiveStep((activeStep) => activeStep - 1)}
-            >
-              Back
-            </Button>
-
-            <Button disabled={checkDisabled} onClick={handleNext}>
-              Next
-            </Button>
-          </Stack> */}
+                <div className="bg-primary p-4">{<InfoDiv />}</div>
               </Container>
             </>
           ) : (
