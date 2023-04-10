@@ -35,17 +35,20 @@ export const CompanyDetails = () => {
   };
 
   const handleBack = () => {
-    handlechangeinfo(activeStep - 1)
+    handlechangeinfo(activeStep - 1);
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
   const InfoDiv = () => {
-    let field_value = []
-    infoValue.filter(item => {
-      field_value.push(item.name)
-    })
+    let field_value = [];
+    infoValue.filter((item) => {
+      field_value.push(item.name);
+    });
 
-    let res_name = field_value.reduce((acc, curr) => (acc[curr] = '', acc), {});
+    let res_name = field_value.reduce(
+      (acc, curr) => ((acc[curr] = ""), acc),
+      {}
+    );
     return (
       <Formik
         initialValues={res_name}

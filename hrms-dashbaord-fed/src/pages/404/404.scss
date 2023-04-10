@@ -1,0 +1,12 @@
+.notfoundmaindiv {
+    .notfoundImagediv {
+        width: 100%;
+        text-align: center;
+
+        .notfoundimage {
+            height: 100%;
+            width: 60%;
+            object-fit: cover;
+        }
+    }
+}
