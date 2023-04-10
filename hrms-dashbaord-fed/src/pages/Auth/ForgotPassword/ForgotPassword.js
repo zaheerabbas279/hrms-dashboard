@@ -33,13 +33,13 @@ export const ForgotPassword = () => {
       {isSent ? (
         <>
           <div className="formforgot_width">
-            <h6 className="text-light">
+            <h6 className="font_color">
               Please check your email. We have sent you a mail with reset
               instructions. Please check your spam if you do not see the email
               within a minute.
             </h6>
             <div className="text-center mt-4">
-              <p className="text-light m-0">
+              <p className="font_color m-0">
                 Back to{" "}
                 <Link to="/auth" className="forgot_link">
                   login
@@ -52,14 +52,14 @@ export const ForgotPassword = () => {
       ) : (
         <>
           <div className="my-4 text-center">
-            <h3 className="text-light">Forgot Password?</h3>
+            <h3 className="header_color">Forgot Password?</h3>
           </div>
           <div className="formsignin_width">
             <Form onSubmit={formik.handleSubmit} autoComplete="off">
               <Input_element
                 input_label="Email Address"
                 type="email"
-                lableClass="text-light"
+                lableClass="font_color"
                 name="email"
                 handleBlur={formik.handleBlur}
                 handleChange={formik.handleChange}

@@ -1,0 +1,87 @@
+[
+    {
+        "title": "Name and address",
+        "fields": [
+            {
+                "name": "company_name",
+                "field_name": "company name",
+                "feild_type": "text"
+            },
+            {
+                "name": "company_address",
+                "field_name": "company address",
+                "feild_type": "text"
+            },
+            {
+                "name": "email",
+                "field_name": "email",
+                "feild_type": "email"
+            }
+        ]
+    },
+    {
+        "title": "Tax Setup",
+        "fields": [
+            {
+                "name": "company_pan",
+                "field_name": "company pan",
+                "feild_type": "text"
+            },
+            {
+                "name": "company_tan",
+                "field_name": "company tan",
+                "feild_type": "text"
+            },
+            {
+                "name": "company_gstin",
+                "field_name": "company gstin",
+                "feild_type": "text"
+            },
+            {
+                "name": "company_gstin3",
+                "field_name": "company gstin.....",
+                "feild_type": "text"
+            }
+        ]
+    },
+    {
+        "title": "PF Setup",
+        "fields": [
+            {
+                "name": "pf_status",
+                "field_name": "pf status",
+                "feild_type": "text"
+            },
+            {
+                "name": "esi_status",
+                "field_name": "esi status",
+                "feild_type": "text"
+            },
+            {
+                "name": "pt_status",
+                "field_name": "pt status",
+                "feild_type": "text"
+            }
+        ]
+    },
+    {
+        "title": "test Setup",
+        "fields": [
+            {
+                "name": "test_status",
+                "field_name": "Test status",
+                "feild_type": "text"
+            },
+            {
+                "name": "testesi_status",
+                "field_name": "Testesi status",
+                "feild_type": "text"
+            },
+            {
+                "name": "testpt_status",
+                "field_name": "Testpt status",
+                "feild_type": "text"
+            }
+        ]
+    }
+]

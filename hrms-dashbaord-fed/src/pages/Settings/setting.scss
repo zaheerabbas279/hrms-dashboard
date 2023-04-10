@@ -2,7 +2,7 @@
 
 .setting_style {
   background-color: transparent;
-  max-width: 500px;
+  max-width: 800px;
   margin: 30px auto;
   .acchead {
     .accordion-button {
@@ -12,4 +12,28 @@
       font-size: 20px;
     }
   }
+  .information_tab {
+    background-color: $card_background;
+    border-radius: 6px;
+    ul {
+      background-color: #97d8e6;
+      border-radius: 6px 6px 0 0;
+      button {
+        border: 1px solid #dee2e6;
+      }
+    }
+    .setting_tab {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px 15px 30px 15px;
+    }
+  }
+}
+.setting_field {
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 6px;
+  box-shadow: none;
+  outline: none;
+  border: 0;
 }

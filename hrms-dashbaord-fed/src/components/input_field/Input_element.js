@@ -13,6 +13,8 @@ export const Input_element = (props) => {
     lableClass,
     formikValidation,
     defaultValue,
+    disabled,
+    required
   } = props;
   return (
     <Form.Group className="mb-2">
@@ -26,6 +28,7 @@ export const Input_element = (props) => {
         onChange={handleChange}
         value={value}
         defaultValue={defaultValue}
+        disabled={disabled}
       />
       {formikValidation}
     </Form.Group>

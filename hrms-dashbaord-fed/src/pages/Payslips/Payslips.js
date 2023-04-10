@@ -4,21 +4,21 @@ import Form from "react-bootstrap/Form";
 import CreateButton from "../../components/CreateButton/CreateButton";
 
 export const Payslips = () => {
-  const gotodashboard = () => {};
+  const gotodashboard = () => { };
 
   return (
     <>
       <div className="payslipsDetails">
-        <small className="text-light goback" onClick={gotodashboard}>
+        <small className="goback" onClick={gotodashboard}>
           Back to Dashboard
         </small>
-        <p className="mb-0 text-light">
+        <p className="mb-0">
           <strong>Payslips</strong>
         </p>
 
         <div className="payslipsdiv my-3">
           <div className="childdiv">
-            <label htmlFor="" className="text-light">
+            <label htmlFor="">
               Select Financial Year
             </label>
             <Form.Select aria-label="Default select example">

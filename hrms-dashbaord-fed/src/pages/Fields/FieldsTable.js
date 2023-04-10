@@ -53,7 +53,7 @@ export const FieldsTable = () => {
   });
 
   const handleShow = (data) => {
-    console.log("dataaaaa", data);
+    // console.log("dataaaaa", data);
     setShow(true);
     setFieldData(data);
     formrik.setFieldValue("field_name", data.field_name);
@@ -106,11 +106,6 @@ export const FieldsTable = () => {
           </div>
         ),
       },
-      //   {
-      //     Header: "Farm Name",
-      //     accessor: "farm_name",
-      //     Filter: ColumnFilter,
-      //   },
     ],
     []
   );
@@ -246,7 +241,7 @@ export const FieldsTable = () => {
             <Input_element
               type="text"
               input_label="Field Name"
-              //   name={fieldData.field_name}
+              lableClass="font_color"
               name="field_name"
               handleChange={formrik.handleChange}
               handleBlur={formrik.handleBlur}
@@ -262,7 +257,7 @@ export const FieldsTable = () => {
             <Input_element
               type="text"
               input_label="Field Type"
-              //   name={fieldData.type}
+              lableClass="font_color"
               name="type"
               handleChange={formrik.handleChange}
               handleBlur={formrik.handleBlur}
@@ -277,7 +272,7 @@ export const FieldsTable = () => {
               type="number"
               input_label="Field Length"
               name="length"
-              //   name={fieldData.length}
+              lableClass="font_color"
               handleChange={formrik.handleChange}
               handleBlur={formrik.handleBlur}
               value={formrik.values.length}
@@ -297,7 +292,6 @@ export const FieldsTable = () => {
             <Button
               variant="primary"
               type="submit"
-              //   disabled={isDisabled}
             >
               Save Changes
             </Button>

@@ -6,6 +6,8 @@
   min-height: 100vh;
   position: sticky;
   top: 0;
+  left: auto;
+  z-index: 1029;
   .sidebar_options {
     list-style: none;
     padding: 0;
@@ -20,4 +22,33 @@
       }
     }
   }
+  @media (max-width: 767px) {
+    position: absolute;
+    left: 0%;
+    top: 0;
+    width: 100%;
+    transition: all 0.2s;
+    height: 100vh;
+    .sidebar_options {
+      margin-top: 50px;
+    }
+  }
+}
+.sidebar.close {
+  @media (max-width: 767px) {
+    position: absolute;
+    width: 100%;
+    left: -100%;
+  }
+}
+.accordion-button {
+  background-color: #97d8e6 !important;
+}
+
+.sidebarTest {
+  max-width: 240px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.react-datepicker-popper {
+  z-index: 999 !important;
 }

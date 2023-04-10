@@ -5,21 +5,21 @@ const CustomInput = ({ label, ...props }) => {
   const [field] = useField(props);
 
   const errorMessage = {
-    color: "red",
+    color: "#e35050",
     position: "absolute",
-    fontSize: "11px",
+    fontSize: "12px",
   };
 
   return (
     <>
-      <div width="100%" className="m-3 d-flex">
-        <label className="text-light me-2">{label}</label>
+      <div className="mb-4">
+        <label className="font_color me-2 form-label">{label}</label>
         <div>
           <input
             {...field}
             {...props}
             autoComplete="true"
-            className="customInp"
+            className="setting_field"
           />
           <ErrorMessage
             component="div"

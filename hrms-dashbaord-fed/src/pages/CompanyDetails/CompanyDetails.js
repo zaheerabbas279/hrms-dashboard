@@ -1,216 +1,172 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CompanyDetails.scss";
-import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
-import { Container, Stack, StepButton } from "@mui/material";
-import { Input_element } from "../../components/input_field/Input_element";
-import Form from "react-bootstrap/Form";
-
-const NameAndAddress = () => {
-  return (
-    <>
-      <div className="p-3 companyCard ">
-        <h5 className="text-light">Name and Address</h5>
-
-        <div className="companydetailsDiv mb-3">
-          <Input_element
-            input_label="Company Name"
-            name="company_name"
-            type="text"
-            placeholder="Enter the company name"
-          />
-          <Input_element
-            input_label="Brand Name"
-            name="brand_name"
-            type="text"
-            placeholder="Enter the brand name"
-          />
-          <Input_element
-            input_label="Registered Address"
-            name="registered_address"
-            type="text"
-            placeholder="Enter the registered address"
-          />
-          <Input_element
-            input_label="Pin code"
-            name="pin_code"
-            type="number"
-            placeholder="Enter the pin code"
-          />
-
-          <div className="mt-3">
-            <button className="btn btn-primary text-light">Submit</button>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
-const TaxSetup = () => {
-  return (
-    <>
-      <div className="p-3 companyCard ">
-        <h5 className="text-light">Tax Setup</h5>
-
-        <div className="companydetailsDiv mb-3">
-          <Input_element
-            input_label="Company PAN"
-            name="company_pan"
-            type="text"
-            placeholder="Enter the company pan number"
-          />
-          <Input_element
-            input_label="Company TAN"
-            name="brand_tan"
-            type="text"
-            placeholder="Enter the company tan"
-          />
-          <Input_element
-            input_label="Company GSTIN"
-            name="company_gstin"
-            type="text"
-            placeholder="Enter the company gstin"
-          />
-
-          <div className="mt-3">
-            <button className="btn btn-primary text-light">Submit</button>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
-const PFEISC = () => {
-  return (
-    <>
-      <div className="p-3 companyCard ">
-        <h5 className="text-light">PF/EISC</h5>
-
-        <p className="mb-0 text-light">
-          PF and ESI are mandatory if your organization has more than 20 and 10
-          employees respectively.
-        </p>
-
-        <div className="companydetailsDiv mb-3">
-          <label htmlFor="" className="text-light">
-            PF Status
-          </label>
-          <Form.Select aria-label="Default select example" className="mb-2">
-            <option>Please Select </option>
-            <option value="enabled">Enabled</option>
-            <option value="disabled">Disabled</option>
-          </Form.Select>
-          <label htmlFor="" className="text-light">
-            ESI Status
-          </label>
-          <Form.Select aria-label="Default select example" className="mb-2">
-            <option>Please Select </option>
-            <option value="enabled">Enabled</option>
-            <option value="disabled">Disabled</option>
-          </Form.Select>
-          <label htmlFor="" className="text-light">
-            PT Status
-          </label>
-          <Form.Select aria-label="Default select example" className="mb-2">
-            <option>Please Select </option>
-            <option value="enabled">Enabled</option>
-            <option value="disabled">Disabled</option>
-          </Form.Select>
-          <label htmlFor="" className="text-light">
-            LWF Status
-          </label>
-          <Form.Select aria-label="Default select example" className="mb-2">
-            <option>Please Select </option>
-            <option value="enabled">Enabled</option>
-            <option value="disabled">Disabled</option>
-          </Form.Select>
-
-          <div className="mt-3">
-            <button className="btn btn-primary text-light">Submit</button>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
+import { Button, Container, Stack, StepButton } from "@mui/material";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import CustomInput from "../Fields/CustomInput";
+import companyInfo from "./detailinfo.json"
 
 export const CompanyDetails = () => {
+
   const navigate = useNavigate();
+  const [isShowDetails, setIsShowDetails] = useState(false);
+  const [activeStep, setActiveStep] = useState(0);
+  const [infoValue, setInfoValue] = useState(companyInfo[0].fields)
 
   const gotodashboard = () => {
     navigate("/");
   };
 
-  // !for stepper
-  const [activeStep, setActiveStep] = useState(0);
-  const [steps, setSteps] = useState([
-    { label: "Name and Address", completed: false },
-    { label: "Tax Setup", completed: false },
-    { label: "PF/EISC", completed: false },
-  ]);
 
-  const handleNext = () => {
-    if (activeStep < steps.length - 1) {
-      setActiveStep((activeStep) => activeStep + 1);
-    } else {
-      const stepIndex = findUnfinished();
-      setActiveStep(stepIndex);
-    }
+  var steps = [];
+  companyInfo.filter(item => {
+    let xyz = { label: item.title }
+    steps.push(xyz)
+  })
+
+
+  const showHideCompanyDetails = () => {
+    setIsShowDetails(!isShowDetails);
   };
 
-  const checkDisabled = () => {
-    if (activeStep < steps.length - 1) return false;
-    const index = findUnfinished();
-    if (index !== -1) return false;
-    return true;
+  const handlechangeinfo = (i) => {
+    // setActiveStep(i)
+    setInfoValue(companyInfo[i].fields)
+  }
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const findUnfinished = () => {
-    return steps.findIndex((step) => !step.completed);
-  };
+  const InfoDiv = () => {
+
+    let field_value = []
+    infoValue.filter(item => {
+      field_value.push(item.name)
+    })
+
+    let res_name = field_value.reduce((acc, curr) => (acc[curr] = '', acc), {});
+    return (
+      <Formik
+        initialValues={res_name}
+        validate={(values, i) => {
+          const errors = {};
+          Object.keys(values).forEach(function (key) {
+            if (values[key] == "") {
+              errors[key] = `${key} required`
+            }
+            if (values.email) {
+              if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+                errors.email = 'Invalid email address';
+              }
+            }
+          });
+          return errors
+        }}
+        onSubmit={(values, { resetForm }) => {
+
+          if (activeStep === steps.length - 1) {
+            console.log(values);
+          } else {
+            handlechangeinfo(activeStep + 1)
+            setActiveStep((prevActiveStep) => prevActiveStep + 1);
+
+            console.log(values);
+            // resetForm()
+          }
+        }}
+      >
+        <Form>
+          {infoValue.map((field, i) => {
+            return (
+              <div>
+                <CustomInput label={field.field_name} type={field.feild_type} name={field.name} />
+              </div>
+            )
+          })}
+          {/* <div className="mt-3">
+            <button type="submit" className="btn btn-secondary font_color">Submit</button>
+          </div> */}
+          <Button
+            variant="contained"
+            type="submit"
+            sx={{ mt: 1, mr: 1 }}
+          >
+            {activeStep === steps.length - 1 ? 'Submit' : 'Continue'}
+          </Button>
+          <Button
+            disabled={activeStep === 0}
+            variant="contained"
+            onClick={handleBack}
+            sx={{ mt: 1, mr: 1 }}
+          >
+            Back
+          </Button>
+        </Form>
+      </Formik>
+    )
+  }
 
   return (
     <>
       <div className="">
         <div className="companyDetails">
-          <small className="text-light goback" onClick={gotodashboard}>
+          <small className="goback" onClick={gotodashboard}>
             Back to Dashboard
           </small>
-          <p className="mb-0 text-light">
+          <p className="mb-0">
             <strong>Company Details</strong>
           </p>
 
+          {isShowDetails ? (
+            <>
+              <div className="text-end">
+                <button
+                  className="btn btn-primary"
+                  onClick={showHideCompanyDetails}
+                >
+                  Show Company Details
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="text-end">
+                <button
+                  className="btn btn-primary"
+                  onClick={showHideCompanyDetails}
+                >
+                  Edit Company Details
+                </button>
+              </div>
+            </>
+          )}
+
           {/* stepper container code  */}
 
-          <Container sx={{ my: 4 }}>
-            <Stepper
-              alternativeLabel
-              nonLinear
-              activeStep={activeStep}
-              sx={{ mb: 3 }}
-            >
-              {steps.map((step, index) => (
-                <Step key={step.label} completed={step.completed}>
-                  <StepButton onClick={() => setActiveStep(index)}>
-                    {step.label}
-                  </StepButton>
-                </Step>
-              ))}
-            </Stepper>
-            <Box>
-              {
-                {
-                  0: <NameAndAddress />,
-                  1: <TaxSetup />,
-                  2: <PFEISC />,
-                }[activeStep]
-              }
-            </Box>
-            {/* <Stack
+          {isShowDetails ? (
+            <>
+              <Container sx={{ my: 4 }}>
+                <Stepper
+                  alternativeLabel
+                  nonLinear
+                  activeStep={activeStep}
+                  sx={{ mb: 3 }}
+                >
+                  {steps.map((step, index) => (
+                    <Step key={step.label} completed={step.completed}>
+                      <StepButton>
+                        {step.label}
+                      </StepButton>
+                    </Step>
+                  ))}
+                </Stepper>
+                <div className="bg-primary p-4">
+                  {<InfoDiv />}
+                </div>
+                {/* <Stack
             direction="row"
             sx={{ pt: 2, pb: 7, justifyContent: "space-around" }}
           >
@@ -226,7 +182,66 @@ export const CompanyDetails = () => {
               Next
             </Button>
           </Stack> */}
-          </Container>
+              </Container>
+            </>
+          ) : (
+            <>
+              <div className="companyDetailsContainer">
+                <div className="basicInfoDiv my-3">
+                  <h4>Basic Info</h4>
+
+                  <label htmlFor="name">Brand Name</label>
+                  <p className="mb-0">
+                    <strong>IT</strong>
+                  </p>
+                  <label htmlFor="name">Registered Address</label>
+                  <p className="mb-0">
+                    <strong>IT Park, 3rd Stage, Mysore</strong>
+                  </p>
+                  <label htmlFor="name">PIN Code</label>
+                  <p className="mb-0">
+                    <strong>898787</strong>
+                  </p>
+                </div>
+                <div className="basicInfoDiv my-3">
+                  <h4>Tax Info</h4>
+
+                  <label htmlFor="name">Company PAN</label>
+                  <p className="mb-0">
+                    <strong>AKJHFDHFLKH98987</strong>
+                  </p>
+                  <label htmlFor="name">Company TAN</label>
+                  <p className="mb-0">
+                    <strong>ASFDU876865ADF6</strong>
+                  </p>
+                  <label htmlFor="name">Company GSTIN</label>
+                  <p className="mb-0">
+                    <strong>GISDGASDFO987FAS8D7FS7DF9SD</strong>
+                  </p>
+                </div>
+                <div className="basicInfoDiv">
+                  <h4>PF/EISC</h4>
+
+                  <label htmlFor="name">PF Status</label>
+                  <p className="mb-0 text-success">
+                    <strong>Enabled</strong>
+                  </p>
+                  <label htmlFor="name">ESI Status</label>
+                  <p className="mb-0 text-success">
+                    <strong>Enabled</strong>
+                  </p>
+                  <label htmlFor="name">PT Status</label>
+                  <p className="mb-0 text-success">
+                    <strong>Enabled</strong>
+                  </p>
+                  <label htmlFor="name">LWF Status</label>
+                  <p className="mb-0 text-success">
+                    <strong>Enabled</strong>
+                  </p>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </>

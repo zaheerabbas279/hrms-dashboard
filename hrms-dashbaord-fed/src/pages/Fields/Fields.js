@@ -13,6 +13,8 @@ import { Input_element } from "../../components/input_field/Input_element";
 
 import { Images } from "../../utils/images";
 import { FieldsTable } from "./FieldsTable";
+import TestData from './FieldsTable'
+
 
 const handleValidation = yup.object().shape({
   info: yup.array().of(
@@ -25,6 +27,7 @@ const handleValidation = yup.object().shape({
     })
   ),
 });
+
 
 const initialValues = {
   info: [
@@ -65,7 +68,7 @@ const AdminFields = ({ data }) => {
     <>
       <div className="container">
         <div className="d-flex align-items-center justify-content-between">
-          <h5 className="text-light">Admin fields</h5>
+          <h5 className="header_color">Admin fields</h5>
           <button className="btn btn-danger" onClick={handleShow}>
             Add Fields
           </button>
@@ -73,26 +76,6 @@ const AdminFields = ({ data }) => {
         <div className="w-100 d-flex justify-content-center">
           <div className="fieldsDetails w-50">
             <FieldsTable />
-            {/* <Table bordered className="tableData">
-              <>
-                <thead>
-                  <tr>
-                    <th>Field Name</th>
-                    <th>Field Type</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.map((item) => {
-                    return (
-                      <tr>
-                        <td>{item.field_name}</td>
-                        <td>{item.type}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </>
-            </Table> */}
           </div>
         </div>
 
@@ -115,28 +98,21 @@ const AdminFields = ({ data }) => {
                         values.info.map((item, i) => {
                           return (
                             <div key={i}>
-                              <div className="d-flex flex-column align-items-center">
-                                {/* <CustomInput
-                                label=""
-                                name={`info.${i}.name`}
-                                placeholder="Type"
-                              /> */}
-                                {/* <Input_element type="text" name={`info.${i}.name`} input_label="Field Name"
-                              // formikValidation={<ErrorMessage component="div" name={`info.${i}.name`} style={errorMessage} />}
-                              /> */}
-                                {/* <ErrorMessage component="div" name={`info.${i}.name`} style={errorMessage} /> */}
+                              <div className="d-flex align-items-center justify-content-between">
                                 <CustomInput
-                                  label="Field Name : "
+                                  label="Field Name"
                                   name={`info.${i}.name`}
                                   placeholder="Field name"
+                                  className="customInp"
                                 />
                                 <CustomInput
-                                  label="Field Type : "
+                                  label="Field Type"
                                   name={`info.${i}.type`}
                                   placeholder="Field type"
+                                  className="customInp"
                                 />
                                 <CustomInput
-                                  label="Field Length : "
+                                  label="Field Length"
                                   name={`info.${i}.length`}
                                   placeholder="Field Length"
                                 />
@@ -160,7 +136,7 @@ const AdminFields = ({ data }) => {
                     <div className="d-flex align-items-center justify-content-center">
                       <button
                         // style={{ margin: "25px 10px 10px 0" }}
-                        className="btn btn-info text-light mx-2"
+                        className="btn btn-info mx-2"
                         type="button"
                         onClick={(e) => updateForm(values, setValues)}
                       >
@@ -168,7 +144,7 @@ const AdminFields = ({ data }) => {
                       </button>
 
                       <button
-                        className="btn btn-primary text-light mx-2"
+                        className="btn btn-primary mx-2"
                         type="submit"
                       >
                         Submit
@@ -188,7 +164,38 @@ const AdminFields = ({ data }) => {
 const CompanyFields = () => {
   return (
     <>
-      <h5 className="text-light">Company Fields are</h5>
+      {/* <h5>Company Fields are</h5> */}
+
+      {/* <Table striped bordered className="testing">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Larry</td>
+            <td > Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </Table> */}
     </>
   );
 };
@@ -196,35 +203,33 @@ const CompanyFields = () => {
 const Settings = () => {
   return (
     <>
-      <h5 className="text-light">Settings Feilds are</h5>
+      <h5>Settings Feilds are</h5>
     </>
   );
 };
 
 export const Fields = () => {
-  // console.log("the mock data is", Data);
-  const gotodashboard = () => {};
+  const gotodashboard = () => { };
 
   const [tableName, setTableName] = useState("");
 
   const setTableNamefun = (e) => {
-    // console.log("the table name is", e.target.value);
     setTableName(e.target.value);
   };
 
   return (
     <>
       <div className="fieldsDetails">
-        <small className="text-light goback" onClick={gotodashboard}>
+        <small className="goback" onClick={gotodashboard}>
           Back to Dashboard
         </small>
-        <p className="mb-0 text-light">
+        <p className="mb-0">
           <strong>Configure Fields</strong>
         </p>
 
         <div className="fieldsmaindiv my-4">
           <div className="formchilddiv w-50">
-            <label htmlFor="" className="text-light">
+            <label htmlFor="">
               Select the table name :
             </label>
             <select
@@ -243,7 +248,6 @@ export const Fields = () => {
         </div>
 
         <div className="tableDetailsDiv">
-          {/* <h4 className="text-light tableName">{tableName}</h4> */}
 
           {tableName === "admin" ? (
             <>
@@ -263,8 +267,4 @@ export const Fields = () => {
     </>
   );
 };
-const errorMessage = {
-  color: "red",
-  // position: "absolute",
-  fontSize: "11px",
-};
+

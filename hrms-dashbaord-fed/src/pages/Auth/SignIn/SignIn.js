@@ -40,7 +40,7 @@ export const SignIn = () => {
   return (
     <>
       <div className="my-4 text-center">
-        <h3 className="text-light">SignIn</h3>
+        <h3 className="header_color">SignIn</h3>
       </div>
       <div className="formsignin_width">
         <Form onSubmit={formik.handleSubmit} autoComplete="off">
@@ -48,7 +48,7 @@ export const SignIn = () => {
             name="email"
             input_label="Email Address"
             type="email"
-            lableClass="text-light"
+            lableClass="font_color"
             handleChange={formik.handleChange}
             value={formik.values.email}
             handleBlur={formik.handleBlur}
@@ -64,7 +64,7 @@ export const SignIn = () => {
             name="password"
             input_label="Password"
             type="password"
-            lableClass="text-light"
+            lableClass="font_color"
             placeholder="Enter Valid Password"
             handleChange={formik.handleChange}
             handleBlur={formik.handleBlur}
@@ -86,9 +86,9 @@ export const SignIn = () => {
         </div>
         <hr />
         <div className="text-center">
-          <p className="text-light m-0">
+          <p className="font_color m-0">
             Not a customer yet?{" "}
-            <Link to="signup" className="login_link">
+            <Link to="signup" className="login_link text-light">
               Sign Up!
             </Link>
           </p>

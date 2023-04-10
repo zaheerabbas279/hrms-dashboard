@@ -1,0 +1,45 @@
+[
+    {
+        "title": "basic info",
+        "fileds": [
+            {
+                "field_name": "addresss",
+                "field_type": "text"
+            }
+        ]
+    },
+    {
+        "title": "contact info page",
+        "fileds": [
+            {
+                "field_name": "first_name",
+                "field_type": "text"
+            },
+            {
+                "field_name": "last_name",
+                "field_type": "text"
+            },
+            {
+                "field_name": "email",
+                "field_type": "email"
+            }
+        ]
+    },
+    {
+        "title": "bank info",
+        "fileds": [
+            {
+                "field_name": "bank_name",
+                "field_type": "text"
+            },
+            {
+                "field_name": "account_type",
+                "field_type": "text"
+            },
+            {
+                "field_name": "account_number",
+                "field_type": "text"
+            }
+        ]
+    }
+]

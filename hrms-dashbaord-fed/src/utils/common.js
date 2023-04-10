@@ -6,6 +6,8 @@ export const RouteStrings = {
   subAdminSignUp: "subAdminSignUp",
   companydetails: "companydetails",
   leaves: "leaves",
+  employeeApplyLeave: "employeeApplyLeave",
+  leavestable: "leavestable",
   settings: "settings",
   createuser: "createuser",
   createrole: "createrole",
