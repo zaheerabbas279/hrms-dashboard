@@ -13,8 +13,6 @@ import { ColumnFilter } from "../../utils/ColumnFilter";
 import { Images } from "../../utils/images";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { useFormik } from "formik";
-import { Input_element } from "../../components/input_field/Input_element";
 import Form from "react-bootstrap/Form";
 
 export const AllLeavesTable = () => {
@@ -55,8 +53,13 @@ export const AllLeavesTable = () => {
   const columns = React.useMemo(
     () => [
       {
+        Header: "Emp ID",
+        accessor: "emp_id",
+        Filter: ColumnFilter,
+      },
+      {
         Header: "Name",
-        accessor: "emp_name",
+        accessor: "name",
         Filter: ColumnFilter,
       },
       {
@@ -75,19 +78,24 @@ export const AllLeavesTable = () => {
         Filter: ColumnFilter,
       },
       {
+        Header: "No. of Days",
+        accessor: "num_day",
+        Filter: ColumnFilter,
+      },
+      {
         Header: "Status",
         accessor: "status",
         Filter: ColumnFilter,
       },
       {
-        Header: "View",
-        accessor: "view",
+        Header: "Approval action",
+        accessor: "action",
         Filter: ColumnFilter,
         Cell: (tableProps) => (
           <div>
             <div className="d-flex flex-row justify-content-center align-items-center">
               <img
-                src={Images.viewIcon}
+                src={Images.editLogo}
                 alt=""
                 id="edit"
                 className="editIcon mx-2"
@@ -97,11 +105,6 @@ export const AllLeavesTable = () => {
           </div>
         ),
       },
-      //   {
-      //     Header: "Farm Name",
-      //     accessor: "farm_name",
-      //     Filter: ColumnFilter,
-      //   },
     ],
     []
   );
@@ -139,10 +142,26 @@ export const AllLeavesTable = () => {
 
   return (
     <>
-      <div className="mt-3 mb-3">
+      <div className="mt-5 mb-2 d-flex justify-content-between">
         <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+        <div>
+          <select
+            value={pageSize}
+            className="selectTag"
+            onChange={(e) => setPageSize(Number(e.target.value))}
+          >
+            <option value="" disabled>
+              Select
+            </option>
+            {[5, 10, 15, 25, 50].map((pageSize) => (
+              <option key={pageSize} value={pageSize}>
+                {pageSize}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
-      <div className="text-center mt-3">
+      <div className="text-center">
         <table {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
@@ -171,22 +190,7 @@ export const AllLeavesTable = () => {
           </tbody>
         </table>
         <div className="d-flex align-items-center mb-3">
-          <div>
-            <select
-              value={pageSize}
-              className="selectTag mb-3 w-auto"
-              onChange={(e) => setPageSize(Number(e.target.value))}
-            >
-              <option value="" disabled>
-                Select
-              </option>
-              {[5, 10, 15, 25, 50].map((pageSize) => (
-                <option key={pageSize} value={pageSize}>
-                  {pageSize}
-                </option>
-              ))}
-            </select>
-          </div>
+
           <div className="w-100 text-center mt-3 mb-1">
             <button
               className="mx-1 skipToBtn"
@@ -233,115 +237,86 @@ export const AllLeavesTable = () => {
           <div className="modalBody">
             <h5 className="font_color">Details</h5>
 
-            <div className="row">
-              <div className="col-md-6">
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag">Employee Id</p>
-                </div>
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag"> Employee Name</p>
-                </div>
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag"> Leave Type</p>
-                </div>
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag">From </p>
-                </div>
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag">To</p>
-                </div>
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag">
-                    No of Paid Leaves
-                  </p>
-                </div>
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag">
-                    No of UnPaid Leaves
-                  </p>
-                </div>
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag">
-                    Available Leaves
-                  </p>
-                </div>
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag">Status</p>
-                </div>
-                <div className="my-2">
-                  {rejected && (
-                    <p className="mb-0 font_color modal_p_tag">Remarks</p>
-                  )}
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag">Emp0001</p>
-                </div>
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag">Jon Doe</p>
-                </div>
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag">Sick Leave</p>
-                </div>
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag">12/12/2023</p>
-                </div>
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag">12/12/2023</p>
-                </div>
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag">12</p>
-                </div>
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag">12</p>
-                </div>
-                <div className="my-2">
-                  <p className="mb-0 font_color modal_p_tag">12</p>
-                </div>
-                <div className="my-2">
-                  <Form>
-                    {["radio"].map((type) => (
-                      <div key={`inline-${type}`} className="mb-3">
-                        <Form.Check
-                          inline
-                          label="Accept"
-                          className="font_color"
-                          name="group1"
-                          type={type}
-                          id={`Accept`}
-                          value="accept"
-                          onChange={changeStatusForLeave}
-                        />
-                        <Form.Check
-                          inline
-                          label="Reject"
-                          className="font_color"
-                          name="group1"
-                          type={type}
-                          id={`Reject`}
-                          value="reject"
-                          onChange={changeStatusForLeave}
-                        />
-                      </div>
-                    ))}
-                  </Form>
-                </div>
-                {/* //* show the reason of the leave is rejected */}
-                <div className="my-2">
-                  {rejected && (
-                    <textarea
-                      name="reason"
-                      id="reason"
-                      cols="30"
-                      rows="10"
-                      placeholder="Enter the remark"
-                      className="_reason_text_area"
-                    ></textarea>
-                  )}
-                </div>
+            <div className="row my-2">
+              <div className="col-6 text-end"><p className="mb-0 font_color">Employee Id :</p></div>
+              <div className="col-6"><p className="mb-0 font_color">DB001</p></div>
+            </div>
+            <div className="row my-2">
+              <div className="col-6 text-end"><p className="mb-0 font_color">Employee Name :</p></div>
+              <div className="col-6"><p className="mb-0 font_color">Chandrahasa</p></div>
+            </div>
+            <div className="row my-2">
+              <div className="col-6 text-end"><p className="mb-0 font_color">Leave Type :</p></div>
+              <div className="col-6"><p className="mb-0 font_color">Paid leave</p></div>
+            </div>
+            <div className="row my-2">
+              <div className="col-6 text-end"><p className="mb-0 font_color">leave Days :</p></div>
+              <div className="col-6"><p className="mb-0 font_color">01</p></div>
+            </div>
+            <div className="row my-2">
+              <div className="col-6 text-end"><p className="mb-0 font_color">Leave From :</p></div>
+              <div className="col-6"><p className="mb-0 font_color">04/29/2023</p></div>
+            </div>
+            <div className="row my-2">
+              <div className="col-6 text-end"><p className="mb-0 font_color">Leave To :</p></div>
+              <div className="col-6"><p className="mb-0 font_color">04/29/2023</p></div>
+            </div>
+            <div className="row my-2">
+              <div className="col-6 text-end"><p className="mb-0 font_color">Available Sick Leaves :</p></div>
+              <div className="col-6"><p className="mb-0 font_color">12</p></div>
+            </div>
+            <div className="row my-2">
+              <div className="col-6 text-end"><p className="mb-0 font_color">Available Paid Leaves :</p></div>
+              <div className="col-6"><p className="mb-0 font_color">12</p></div>
+            </div>
+            <div className="row my-2">
+              <div className="col-6 text-end"><p className="mb-0 font_color">Available Client Leaves :</p></div>
+              <div className="col-6"><p className="mb-0 font_color">12</p></div>
+            </div>
+            <div className="row my-2">
+              <div className="col-6 text-end"><p className="mb-0 font_color">Status :</p></div>
+              <div className="col-6">
+                <Form>
+                  {["radio"].map((type) => (
+                    <div key={`inline-${type}`} className="mb-3">
+                      <Form.Check
+                        inline
+                        label="Accept"
+                        className="font_color"
+                        name="group1"
+                        type={type}
+                        id={`Accept`}
+                        value="accept"
+                        onChange={changeStatusForLeave}
+                      />
+                      <Form.Check
+                        inline
+                        label="Reject"
+                        className="font_color"
+                        name="group1"
+                        type={type}
+                        id={`Reject`}
+                        value="reject"
+                        onChange={changeStatusForLeave}
+                      />
+                    </div>
+                  ))}
+                </Form>
               </div>
             </div>
+            {rejected ? <div className="row my-2">
+              <div className="col-6 text-end"><p className="mb-0 font_color">Remarks :</p></div>
+              <div className="col-6">
+                <textarea
+                  name="reason"
+                  id="reason"
+                  cols="30"
+                  rows="10"
+                  placeholder="Enter the remark"
+                  className="_reason_text_area"
+                ></textarea>
+              </div>
+            </div> : null}
           </div>
         </Modal.Body>
         <Modal.Footer>
@@ -353,7 +328,7 @@ export const AllLeavesTable = () => {
             type="submit"
           //   disabled={isDisabled}
           >
-            Save Changes
+            Submit
           </Button>
         </Modal.Footer>
       </Modal>

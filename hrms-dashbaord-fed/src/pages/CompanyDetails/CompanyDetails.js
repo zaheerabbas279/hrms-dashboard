@@ -126,9 +126,6 @@ export const CompanyDetails = () => {
             })}
             <div className="col-md-12">
               <div className="text-end">
-                <Button variant="contained" type="submit" sx={{ mt: 1, mr: 1 }}>
-                  {activeStep === steps.length - 1 ? "Submit" : "Continue"}
-                </Button>
                 <Button
                   disabled={activeStep === 0}
                   variant="contained"
@@ -136,6 +133,9 @@ export const CompanyDetails = () => {
                   sx={{ mt: 1, mr: 1 }}
                 >
                   Back
+                </Button>
+                <Button variant="contained" type="submit" sx={{ mt: 1, mr: 1 }}>
+                  {activeStep === steps.length - 1 ? "Submit" : "Continue"}
                 </Button>
               </div>
             </div>

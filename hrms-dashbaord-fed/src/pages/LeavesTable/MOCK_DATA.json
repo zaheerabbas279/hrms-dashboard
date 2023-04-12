@@ -1,82 +1,30 @@
 [
     {
-        "emp_name": "Leona Comelli",
-        "leave_type": "audio/mpeg3",
-        "from": "4/29/2022",
-        "to": "10/12/2022",
-        "number_of_days": 1,
-        "status": "new"
+        "emp_id": "DB001",
+        "name":"John Doe",
+        "leave_type": "Paid leave",
+        "from": "4/29/2023",
+        "to": "4/29/2023",
+        "num_day": 1,
+        "status": "pending"
     },
     {
-        "emp_name": "Mikael Whitmarsh",
-        "leave_type": "video/msvideo",
-        "from": "7/13/2022",
-        "to": "1/28/2023",
-        "number_of_days": 2,
-        "status": "new"
+        "emp_id": "DB002",
+        "name":"John Doe",
+        "leave_type": "Sick leave",
+        "from": "4/29/2023",
+        "to": "--",
+        "num_day": "Half day",
+        "status": "pending"
     },
     {
-        "emp_name": "Florian McArd",
-        "leave_type": "image/gif",
-        "from": "9/5/2022",
-        "to": "3/24/2023",
-        "number_of_days": 3,
-        "status": "new"
-    },
-    {
-        "emp_name": "Phillip Fuchs",
-        "leave_type": "image/x-tiff",
-        "from": "12/25/2022",
-        "to": "6/20/2022",
-        "number_of_days": 4,
-        "status": "new"
-    },
-    {
-        "emp_name": "Rani Douch",
-        "leave_type": "image/tiff",
-        "from": "4/10/2022",
-        "to": "10/18/2022",
-        "number_of_days": 5,
-        "status": "new"
-    },
-    {
-        "emp_name": "Grannie Patey",
-        "leave_type": "application/pdf",
-        "from": "8/16/2022",
-        "to": "8/24/2022",
-        "number_of_days": 6,
-        "status": "new"
-    },
-    {
-        "emp_name": "Trudi Gooderham",
-        "leave_type": "video/mpeg",
-        "from": "9/26/2022",
-        "to": "1/16/2023",
-        "number_of_days": 7,
-        "status": "new"
-    },
-    {
-        "emp_name": "Anselm Bridat",
-        "leave_type": "audio/x-mpeg-3",
-        "from": "10/30/2022",
-        "to": "9/22/2022",
-        "number_of_days": 8,
-        "status": "new"
-    },
-    {
-        "emp_name": "Gelya Rumming",
-        "leave_type": "video/avi",
-        "from": "2/11/2023",
-        "to": "6/14/2022",
-        "number_of_days": 9,
-        "status": "new"
-    },
-    {
-        "emp_name": "Cherida Oels",
-        "leave_type": "application/msword",
-        "from": "1/6/2023",
-        "to": "5/10/2022",
-        "number_of_days": 10,
-        "status": "new"
+        "emp_id": "DB003",
+        "name":"John Doe",
+        "leave_type": "Casual leave",
+        "from": "4/23/2023",
+        "to": "4/25/2023",
+        "num_day": "3",
+        "status": "pending"
     }
+    
 ]

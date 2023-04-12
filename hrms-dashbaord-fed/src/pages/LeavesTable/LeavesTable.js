@@ -9,9 +9,9 @@ export const LeavesTable = () => {
   return (
     <>
       <div className="companyDetails">
-        <h4 className="mb-4">Employee Leaves</h4>
+        <h4 className="">Employee Leaves</h4>
 
-        <div className="leavecontainer my-3">
+        {/* <div className="leavecontainer my-3">
           <label htmlFor="" className="small">
             Please select Month and Year
           </label>
@@ -21,9 +21,9 @@ export const LeavesTable = () => {
             selected={startDate}
             onChange={(date) => setStartDate(date)}
           />
-        </div>
+        </div> */}
 
-        <div className="leavesTable">
+        <div className="leavesTable mt-5">
           <AllLeavesTable />
         </div>
       </div>

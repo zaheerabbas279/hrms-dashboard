@@ -12,10 +12,50 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    li {
+    // li {
+    //   margin: 10px 15px;
+    .sidebar_link {
+      font-size: 18px;
+      color: $default_white;
+      text-decoration: none;
+      font-weight: 600;
       margin: 10px 15px;
+    }
+    .sidebar_link.active {
+      color: #00ffff;
+    }
+    // }
+    .accordion-item {
+      background-color: transparent !important;
+      border: 0 !important;
+    }
+    .accordion-button {
+      background-color: transparent !important;
+      box-shadow: none !important;
+      font-size: 18px;
+      color: $default_white;
+      font-weight: 600;
+      margin: 10px 0;
+      padding: 0px 15px !important;
+    }
+    .accordion-button:after {
+      width: 15px !important;
+      height: 15px !important;
+      color: #fff !important;
+      background-size: contain !important;
+      // background-image: url(../);
+    }
+    .accordion-collapse.collapsing {
+      height: auto !important;
+    }
+    .accordion-collapse.collapse {
+      height: auto !important;
+    }
+    .accordion-body {
+      margin: 10px 15px;
+      padding: 0 !important;
       .sidebar_link {
-        font-size: 18px;
+        font-size: 16px;
         color: $default_white;
         text-decoration: none;
         font-weight: 600;

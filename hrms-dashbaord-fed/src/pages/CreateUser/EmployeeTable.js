@@ -24,13 +24,23 @@ export const EmployeeTable = () => {
     const columns = React.useMemo(
         () => [
             {
-                Header: "First Name",
-                accessor: "first_name",
+                Header: "Emp ID",
+                accessor: "emp_id",
                 Filter: ColumnFilter,
             },
             {
-                Header: "Last Name",
-                accessor: "last_name",
+                Header: "Name",
+                accessor: "name",
+                Filter: ColumnFilter,
+            },
+            {
+                Header: "Designation",
+                accessor: "designation",
+                Filter: ColumnFilter,
+            },
+            {
+                Header: "Department",
+                accessor: "department",
                 Filter: ColumnFilter,
             },
             {
@@ -39,40 +49,25 @@ export const EmployeeTable = () => {
                 Filter: ColumnFilter,
             },
             {
-                Header: "Date Of Birth",
-                accessor: "date_of_birth",
+                Header: "Contact Number",
+                accessor: "contact_number",
                 Filter: ColumnFilter,
             },
             {
-                Header: "Age",
-                accessor: "age",
-                Filter: ColumnFilter,
-            },
-            {
-                Header: "Country",
-                accessor: "country",
-                Filter: ColumnFilter,
-            },
-            {
-                Header: "Phone",
-                accessor: "phone",
-                Filter: ColumnFilter,
-            },
-            {
-                Header: "Action",
+                Header: "View/Edit",
                 accessor: "action",
                 Cell: (tableProps) => (
                     <div>
                         <div className="d-flex flex-row justify-content-center align-items-center">
                             <img
-                                src={Images.editLogo}
+                                src={Images.viewIcon}
                                 alt=""
                                 id="editInventory"
                                 className="editIcon mx-2"
                                 onClick={() => { }}
                             />
                             <img
-                                src={Images.deleteLogo}
+                                src={Images.editLogo}
                                 alt=""
                                 id="showinventoryHistory"
                                 className="editIcon mx-2"
@@ -87,7 +82,7 @@ export const EmployeeTable = () => {
     );
     const data = useMemo(() => Data);
 
-    // create a table instance
+
     const {
         tableInstance,
         getTableProps,
@@ -119,10 +114,26 @@ export const EmployeeTable = () => {
 
     return (
         <>
-            <div className="mt-3 mb-3">
+            <div className="mt-5 mb-2 d-flex justify-content-between">
                 <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+                <div>
+                    <select
+                        value={pageSize}
+                        className="selectTag"
+                        onChange={(e) => setPageSize(Number(e.target.value))}
+                    >
+                        <option value="" disabled>
+                            Select
+                        </option>
+                        {[5, 10, 15, 25, 50].map((pageSize) => (
+                            <option key={pageSize} value={pageSize}>
+                                {pageSize}
+                            </option>
+                        ))}
+                    </select>
+                </div>
             </div>
-            <div className="text-center mt-3">
+            <div className="text-center">
                 <table {...getTableProps()}>
                     <thead>
                         {headerGroups.map((headerGroup) => (
@@ -150,24 +161,6 @@ export const EmployeeTable = () => {
                         })}
                     </tbody>
                 </table>
-                <div className="d-flex align-items-center mb-3">
-                    <div>
-                        <select
-                            value={pageSize}
-                            className="selectTag mb-3 w-auto"
-                            onChange={(e) => setPageSize(Number(e.target.value))}
-                        >
-                            <option value="" disabled>
-                                Select
-                            </option>
-                            {[5, 10, 15, 25, 50].map((pageSize) => (
-                                <option key={pageSize} value={pageSize}>
-                                    {pageSize}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                </div>
             </div>
 
             {/* Modal for the view field data */}

@@ -4,6 +4,7 @@ import { RouteStrings } from "../../utils/common";
 import "./Sidebar.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { setViewSidebar } from "../../store/reducers/ui.reducer";
+import Accordion from 'react-bootstrap/Accordion';
 
 export const Sidebar = () => {
   const { isSidebarOpen } = useSelector(state => state.UIStore)
@@ -13,48 +14,55 @@ export const Sidebar = () => {
   }
   return (
     <div className={`sidebar ${isSidebarOpen ? '' : 'close'}`}>
-      <ul className="sidebar_options">
-        <li>
+      <div className="sidebar_options">
+        <Accordion>
           <NavLink to={RouteStrings.dashboard} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
             Dashboard
           </NavLink>
-        </li>
-        <li>
-          <NavLink to={RouteStrings.createEmployee} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
-            Employees
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to={RouteStrings.leaves} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
-            Leaves
-          </NavLink>
-        </li>
-        {/* <li>
-          <NavLink to={RouteStrings.payslips} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
+          {/* <NavLink to={RouteStrings.payslips} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
             Payslips
-          </NavLink>
-        </li> */}
-        <li>
-          <NavLink to={RouteStrings.createrole} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
-            Roles
-          </NavLink>
-        </li>
-        <li>
+          </NavLink> */}
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>Employees</Accordion.Header>
+            <Accordion.Body>
+              <NavLink to={RouteStrings.createEmployee} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
+                Employees List
+              </NavLink>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="1">
+            <Accordion.Header>Leaves</Accordion.Header>
+            <Accordion.Body>
+              <NavLink to={RouteStrings.leaves} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
+                Employee Leaves
+              </NavLink>
+            </Accordion.Body>
+          </Accordion.Item>
           <NavLink to={RouteStrings.companydetails} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
             Company Details
           </NavLink>
-        </li>
-        <li>
-          <NavLink to={RouteStrings.fields} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
-            Fields
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to={RouteStrings.settings} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
-            Settings
-          </NavLink>
-        </li>
-      </ul>
+          <Accordion.Item eventKey="2">
+            <Accordion.Header>Settings</Accordion.Header>
+            <Accordion.Body>
+              <div>
+                <NavLink to={RouteStrings.createrole} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
+                  Roles
+                </NavLink>
+              </div>
+              <div>
+                <NavLink to={RouteStrings.fields} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
+                  Fields
+                </NavLink>
+              </div>
+              <div>
+                <NavLink to={RouteStrings.settings} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
+                  Admin Settings
+                </NavLink>
+              </div>
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+      </div>
     </div>
   );
 };

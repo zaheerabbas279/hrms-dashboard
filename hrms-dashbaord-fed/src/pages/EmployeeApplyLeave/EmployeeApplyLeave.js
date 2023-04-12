@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { Input_element } from "../../components/input_field/Input_element";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "./employeeapplyleave.scss";
+import "../Leaves/leaves.scss";
 import Chip from "@mui/material/Chip";
 import { useFormik } from "formik";
 import { LeavesTable } from "../LeavesTable/LeavesTable";
@@ -249,7 +249,7 @@ export const EmployeeApplyLeave = () => {
                       type="switch"
                       id="custom-switch"
                       onChange={handleSwitchChange}
-                      // defaultChecked="checked"
+                    // defaultChecked="checked"
                     />
 
                     {/* <Form.Label className={`me-3 ${holidays ? "" : "half_day"}`}>

@@ -37,7 +37,7 @@ table td {
 .searchInput {
   border: none;
   outline: none;
-  width: 80%;
+  width: 100%;
   z-index: 2;
   color: $default_black;
   position: relative;
@@ -92,7 +92,7 @@ table td {
 }
 
 .searchDiv {
-  width: 16%;
+  width: 20%;
   border-bottom: 2px solid $default_white;
 }
 
