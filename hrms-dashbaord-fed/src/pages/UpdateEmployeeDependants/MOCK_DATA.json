@@ -1,0 +1,29 @@
+[
+    {
+        "emp_id": "db009092",
+        "emp_name": "Balu",
+        "department_team": "2013",
+        "designation": "0",
+        "employee_type": "4",
+        "employee_shifts": "0",
+        "skills": "4"
+    },
+    {
+        "emp_id": "db009093",
+        "emp_name": "Daood",
+        "department_team": "2013",
+        "designation": "0",
+        "employee_type": "4",
+        "employee_shifts": "0",
+        "skills": "4"
+    },
+    {
+        "emp_id": "db009094",
+        "emp_name": "Babu",
+        "department_team": "2013",
+        "designation": "0",
+        "employee_type": "4",
+        "employee_shifts": "0",
+        "skills": "4"
+    }
+]

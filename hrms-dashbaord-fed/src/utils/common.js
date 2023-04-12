@@ -14,5 +14,7 @@ export const RouteStrings = {
   payslips: "payslips",
   fields: "fields",
   userprofile: "userprofile",
+  employeeLeaveCount: "employeeLeaveCount",
+  udpateEmployeeDependants: "udpateEmployeeDependants",
   404: "*",
 };
