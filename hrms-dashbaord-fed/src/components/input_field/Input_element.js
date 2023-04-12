@@ -13,8 +13,7 @@ export const Input_element = (props) => {
     lableClass,
     formikValidation,
     defaultValue,
-    disabled,
-    required
+    disabled
   } = props;
   return (
     <Form.Group className="mb-2">

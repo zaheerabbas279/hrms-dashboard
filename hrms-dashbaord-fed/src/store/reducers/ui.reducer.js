@@ -8,7 +8,8 @@ export const uiReducer = createSlice({
   name: "uiReducer",
   initialState: {
     isAuth: false,
-    isSidebarOpen: false
+    isSidebarOpen: false,
+    isEmployeeEdit: false,
   },
   reducers: {
     increment: (state) => {
@@ -23,6 +24,9 @@ export const uiReducer = createSlice({
     },
     setViewSidebar: (state, action) => {
       state.isSidebarOpen = action.payload;
+    },
+    setEmployeeEdit: (state, action) => {
+      state.isEmployeeEdit = action.payload;
     },
     decrement: (state) => {
       state.value -= 1;

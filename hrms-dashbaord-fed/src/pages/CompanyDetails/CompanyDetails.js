@@ -35,23 +35,30 @@ export const CompanyDetails = () => {
     handlechangeinfo(activeStep - 1);
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
+  const errorMessage = {
+    color: "#e35050",
+    position: "absolute",
+    fontSize: "12px",
+  };
 
   const InfoDiv = () => {
-    let field_value = [];
-    infoValue.filter((item) => {
-      field_value.push(item.name);
-    });
-
-    let res_name = field_value.reduce(
-      (acc, curr) => ((acc[curr] = ""), acc),
-      {}
+    let Required_fields = []
+    infoValue.filter(item => {
+      if (item.isRequired) {
+        Required_fields.push(item.name)
+      }
+    })
+    let res_name = infoValue.reduce(
+      (acc, curr) => ((acc[curr.name] = `${curr.field_saved_value ? curr.field_saved_value : ""}`), acc), {}
     );
+    var req_name = Required_fields.reduce((acc, curr) => (acc[curr] = '', acc), {});
+
     return (
       <Formik
         initialValues={res_name}
         validate={(values, i) => {
           const errors = {};
-          Object.keys(values).forEach(function (key) {
+          Object.keys(req_name).forEach(function (key) {
             if (values[key] == "") {
               errors[key] = `${key} required`;
             }
@@ -77,33 +84,62 @@ export const CompanyDetails = () => {
             handlechangeinfo(activeStep + 1);
             setActiveStep((prevActiveStep) => prevActiveStep + 1);
             payloadData.push(values);
-            // resetForm()
           }
         }}
       >
         <Form>
-          {infoValue.map((field, i) => {
-            return (
-              <div>
-                <CustomInput
-                  label={field.field_name}
-                  type={field.feild_type}
-                  name={field.name}
-                />
+          <div className="row">
+            {infoValue.map((field, i) => {
+              if (field.feild_type == "select") {
+                let optionValues = field.field_values;
+                return (
+                  <div className="col-md-6">
+                    <div className="mb-3">
+                      <label className="font_color mb-2">{field.isRequired ? `${field.field_name} *` : `${field.field_name}`}</label>
+                      <Field as="select" className="setting_field" name={field.name}>
+                        <option selected disabled value="">select menu</option>
+                        {optionValues.map(item => {
+                          return (
+                            <option value={item.value}>{item.name}</option>
+                          )
+                        })}
+                      </Field>
+                      <ErrorMessage
+                        component="div"
+                        name={field.name}
+                        style={errorMessage}
+                      />
+                    </div>
+                  </div>
+                )
+              } else {
+                return (
+                  <div className="col-md-6">
+                    <CustomInput
+                      label={field.isRequired ? `${field.field_name} *` : `${field.field_name}`}
+                      type={field.feild_type}
+                      name={field.name}
+                    />
+                  </div>
+                );
+              }
+            })}
+            <div className="col-md-12">
+              <div className="text-end">
+                <Button variant="contained" type="submit" sx={{ mt: 1, mr: 1 }}>
+                  {activeStep === steps.length - 1 ? "Submit" : "Continue"}
+                </Button>
+                <Button
+                  disabled={activeStep === 0}
+                  variant="contained"
+                  onClick={handleBack}
+                  sx={{ mt: 1, mr: 1 }}
+                >
+                  Back
+                </Button>
               </div>
-            );
-          })}
-          <Button variant="contained" type="submit" sx={{ mt: 1, mr: 1 }}>
-            {activeStep === steps.length - 1 ? "Submit" : "Continue"}
-          </Button>
-          <Button
-            disabled={activeStep === 0}
-            variant="contained"
-            onClick={handleBack}
-            sx={{ mt: 1, mr: 1 }}
-          >
-            Back
-          </Button>
+            </div>
+          </div>
         </Form>
       </Formik>
     );

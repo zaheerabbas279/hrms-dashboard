@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import CreateSubAdmin from "../pages/CreateSubAdminSignup/CreateSubAdmin";
@@ -18,22 +18,17 @@ import { Fields } from "../pages/Fields/Fields";
 import { LeavesTable } from "../pages/LeavesTable/LeavesTable";
 import { EmployeeApplyLeave } from "../pages/EmployeeApplyLeave/EmployeeApplyLeave";
 import { NotFoundScreen } from "../pages/404/404";
+import { IsAuthcondition } from "./IsAuthcondition";
 
 const RouteCheck = () => {
-  // const { isAuth } = useSelector((state) => state.UIStore);
-  // const [isAuthenticated, setIsAuthenticated] = useState(false);
-  // return <>{isAuth ? <DashboardRoutes /> : <AdminRoutes />}</>;
+  const { isAuth } = useSelector((state) => state.UIStore);
 
   return (
     <Routes>
       {/* auth routes */}
       <Route
         path={RouteStrings.login}
-        element={
-          <>
-            <Outlet />
-          </>
-        }
+        element={<IsAuthcondition />}
       >
         <Route index element={<SignIn />} />
         <Route path={RouteStrings.signup} element={<SignUp />} />

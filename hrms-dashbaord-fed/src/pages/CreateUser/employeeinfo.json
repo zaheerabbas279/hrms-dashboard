@@ -1,66 +1,356 @@
 [
     {
-        "title": "Name and address",
+        "title": "Basic Details",
         "fields": [
             {
-                "field_name": "name",
                 "name": "name",
+                "field_name": "Name",
+                "feild_type": "text",
+                "isRequired":true
+            },
+            {
+                "name": "gender",
+                "field_name": "gender",
+                "feild_type": "select",
+                "isRequired":true,
+                "field_values": [
+                    {
+                        "name": "Male",
+                        "value": "male"
+                    },
+                    {
+                        "name": "Female",
+                        "value": "female"
+                    }
+                ]
+            },
+            {
+                "name": "email",
+                "field_name": "Office Email",
+                "feild_type": "email",
+                "isRequired":true
+            },
+            {
+                "name": "contact_number",
+                "field_name": "Contact Number",
+                "feild_type": "number",
+                "field_saved_value":"1234567",
+                "isRequired":true
+            },
+            {
+                "name": "employee_type",
+                "field_name": "Employee Type",
+                "feild_type": "select",
+                "isRequired":true,
+                "field_values": [
+                    {
+                        "name": "Intern",
+                        "value": "intern"
+                    },
+                    {
+                        "name": "Regular/Permanent",
+                        "value": "regular/permanent"
+                    },
+                    {
+                        "name": "Temporary",
+                        "value": "temporary"
+                    }
+                ]
+            },
+            {
+                "name": "employee_id",
+                "field_name": "Employee Id",
+                "feild_type": "text",
+                "isRequired":true
+            },
+            {
+                "name": "department",
+                "field_name": "Department",
+                "feild_type": "select",
+                "isRequired":false,
+                "field_values": [
+                    {
+                        "name": "Client Services",
+                        "value": "client_services"
+                    },
+                    {
+                        "name": "Accounts and Finance",
+                        "value": "accounts_and_finance"
+                    },
+                    {
+                        "name": "Admin and Facility",
+                        "value": "admin_and_facility"
+                    },
+                    {
+                        "name": "Client Services",
+                        "value": "client_services"
+                    },
+                    {
+                        "name": "Dev Ops Team",
+                        "value": "dev_ops_team"
+                    }
+                ]
+            },
+            {
+                "name": "designation",
+                "field_name": "Designation",
+                "feild_type": "select",
+                "isRequired":false,
+                "field_values": [
+                    {
+                        "name": "Associate Manager",
+                        "value": "associate_manager"
+                    },
+                    {
+                        "name": "Associate Team Lead",
+                        "value": "associate_team_lead"
+                    },
+                    {
+                        "name": "Manager",
+                        "value": "manager"
+                    },
+                    {
+                        "name": "iOS Developer",
+                        "value": "ios_developer"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Work Details",
+        "fields": [
+            {
+                "name": "date_of_joining",
+                "field_name": "Date of Joining",
+                "feild_type": "date",
+                "field_saved_value":"2020-03-03"
+            },
+            {
+                "name": "years_of_experience",
+                "field_name": "Years of Experience",
+                "feild_type": "number",
+                "field_saved_value":"56789"
+            },
+            {
+                "name": "Shifts",
+                "field_name": "shifts",
+                "feild_type": "select",
+                "field_values": [
+                    {
+                        "name": "EMEA(shift 1): 11:30 am to 08:30 pm",
+                        "value": "emea_shit_one"
+                    },
+                    {
+                        "name": "EMEA(shift 1): 11:30 am to 08:30 pm",
+                        "value": "emea_shit_one"
+                    },
+                    {
+                        "name": "EMEA(shift 1): 11:30 am to 08:30 pm",
+                        "value": "emea_shit_one"
+                    },
+                    {
+                        "name": "EMEA(shift 1): 11:30 am to 08:30 pm",
+                        "value": "emea_shit_one"
+                    },
+                    {
+                        "name": "EMEA(shift 1): 11:30 am to 08:30 pm",
+                        "value": "emea_shit_one"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Personal Information",
+        "fields": [
+            {
+                "name": "dob",
+                "field_name": "Date of Birth",
+                "feild_type": "date"
+            },
+            {
+                "name": "age",
+                "field_name": "Age",
+                "feild_type": "number",
+                "field_saved_value":"987654"
+            },
+            {
+                "name": "father_name",
+                "field_name": "Father Name",
                 "feild_type": "text"
             },
             {
-                "field_name": "email",
+                "name": "mother_name",
+                "field_name": "Mother Name",
+                "feild_type": "text"
+            },
+            {
+                "name": "permanent_address",
+                "field_name": "Permanent Address",
+                "feild_type": "textarea"
+            },
+            {
+                "name": "postal_address",
+                "field_name": "Postal Address",
+                "feild_type": "textarea"
+            },
+            {
                 "name": "email",
+                "field_name": "Personal Email",
                 "feild_type": "email"
             },
             {
-                "field_name": "hire date",
-                "name": "hire_date",
-                "feild_type": "date"
+                "name": "blood_group",
+                "field_name": "Blood Group",
+                "feild_type": "text"
+            },
+            {
+                "name": "marital_status",
+                "field_name": "Marital Status",
+                "feild_type": "select",
+                "field_values": [
+                    {
+                        "name": "Single",
+                        "value": "single"
+                    },
+                    {
+                        "name": "Married",
+                        "value": "married"
+                    }
+                ]
+            },
+            {
+                "name": "emergency_contact",
+                "field_name": "Emergency Contact",
+                "feild_type": "number",
+                "field_saved_value":"1234567"
+            },
+            {
+                "name": "emergency_contact_person_name",
+                "field_name": "Emergency Contact Person Name",
+                "feild_type": "text"
+            },
+            {
+                "name": "emergency_contact_person_relation",
+                "field_name": "Emergency Contact Person Realation",
+                "feild_type": "text"
             }
         ]
     },
     {
-        "title": "Contact Info",
+        "title": "Edcucation Information",
         "fields": [
             {
-                "field_name": "phone number",
-                "name": "phone_number",
-                "feild_type": "number"
+                "name": "years_of_passing",
+                "field_name": "Years of Passing",
+                "feild_type": "number",
+                "field_saved_value":"987654321"
             },
             {
-                "field_name": "gender",
-                "name": "gender",
+                "name": "highest_qualification",
+                "field_name": "Highest Qualification",
                 "feild_type": "text"
             },
             {
-                "field_name": "date of birth",
-                "name": "dob",
-                "feild_type": "date"
+                "name": "university_name",
+                "field_name": "University Name",
+                "feild_type": "text"
             }
         ]
     },
     {
-        "title": "bank info",
+        "title": "Account Information",
         "fields": [
             {
-                "field_name": "pan",
-                "name": "pan",
-                "feild_type": "text"
+                "name": "esi number",
+                "field_name": "ESI Number",
+                "feild_type": "number",
+                "field_saved_value":"1234567"
             },
             {
-                "field_name": "bank account number",
+                "name": "pf_number",
+                "field_name": "PF Number",
+                "feild_type": "number",
+                "field_saved_value":"567890"
+            },
+            {
+                "name": "uan_number",
+                "field_name": "UAN Number",
+                "feild_type": "number",
+                "field_saved_value":"987654321"
+            },
+            {
+                "name": "pan_number",
+                "field_name": "PAN Number",
+                "feild_type": "number",
+                "field_saved_value":"3456789"
+            },
+            {
+                "name": "aadhaar_number",
+                "field_name": "Aadhaar Number",
+                "feild_type": "number",
+                "field_saved_value":"234567"
+            },
+            {
                 "name": "bank_account_number",
-                "feild_type": "text"
+                "field_name": "Bank Account Number",
+                "feild_type": "number",
+                "field_saved_value":"094567"
             },
             {
-                "field_name": "bank ifsc",
-                "name": "bank_ifsc",
-                "feild_type": "text"
+                "name": "bank_account_type",
+                "field_name": "Bank Account Type",
+                "feild_type": "select",
+                "field_values": [
+                    {
+                        "name": "Salary Account",
+                        "value": "salary_account"
+                    },
+                    {
+                        "name": "Saving Account",
+                        "value": "saving_account"
+                    },
+                    {
+                        "name": "Current Account",
+                        "value": "current_account"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Documents",
+        "fields": [
+            {
+                "name": "passport_photo",
+                "field_name": "Passport Photo",
+                "feild_type": "file"
             },
             {
-                "field_name": "beneficiary name",
-                "name": "beneficiary_name",
-                "feild_type": "text"
+                "name": "degree_certificate",
+                "field_name": "degree_certificate",
+                "feild_type": "file"
+            },
+            {
+                "name": "experience_letter",
+                "field_name": "Experience Letter",
+                "feild_type": "file"
+            },
+            {
+                "name": "aadhaar_card",
+                "field_name": "Aadhaar Card",
+                "feild_type": "file"
+            },
+            {
+                "name": "pan_card",
+                "field_name": "Pan Card",
+                "feild_type": "file"
+            },
+            {
+                "name": "bank_passbook",
+                "field_name": "Bank Passbook",
+                "feild_type": "file"
             }
         ]
     }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { RouteStrings } from "../../utils/common";
 import "./Sidebar.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,49 +11,48 @@ export const Sidebar = () => {
   const handleClickLink = () => {
     dispatch(setViewSidebar(!isSidebarOpen))
   }
-
   return (
     <div className={`sidebar ${isSidebarOpen ? '' : 'close'}`}>
       <ul className="sidebar_options">
         <li>
-          <Link to={RouteStrings.dashboard} className="sidebar_link" onClick={handleClickLink}>
+          <NavLink to={RouteStrings.dashboard} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
             Dashboard
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to={RouteStrings.leaves} className="sidebar_link" onClick={handleClickLink}>
-            Leaves
-          </Link>
-        </li>
-        <li>
-          <Link to={RouteStrings.payslips} className="sidebar_link" onClick={handleClickLink}>
-            Payslips
-          </Link>
-        </li>
-        <li>
-          <Link to={RouteStrings.createEmployee} className="sidebar_link" onClick={handleClickLink}>
+          <NavLink to={RouteStrings.createEmployee} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
             Employees
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to={RouteStrings.createrole} className="sidebar_link" onClick={handleClickLink}>
+          <NavLink to={RouteStrings.leaves} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
+            Leaves
+          </NavLink>
+        </li>
+        {/* <li>
+          <NavLink to={RouteStrings.payslips} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
+            Payslips
+          </NavLink>
+        </li> */}
+        <li>
+          <NavLink to={RouteStrings.createrole} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
             Roles
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to={RouteStrings.companydetails} className="sidebar_link" onClick={handleClickLink}>
+          <NavLink to={RouteStrings.companydetails} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
             Company Details
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to={RouteStrings.fields} className="sidebar_link" onClick={handleClickLink}>
+          <NavLink to={RouteStrings.fields} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
             Fields
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to={RouteStrings.settings} className="sidebar_link" onClick={handleClickLink}>
+          <NavLink to={RouteStrings.settings} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
             Settings
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </div>

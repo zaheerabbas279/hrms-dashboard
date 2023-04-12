@@ -191,41 +191,6 @@ export const FieldsTable = () => {
               ))}
             </select>
           </div>
-          {/* <div className="w-100 text-center mt-3 mb-1">
-            <button
-              className="mx-1 skipToBtn"
-              onClick={() => gotoPage(0)}
-              disabled={!canPreviousPage}
-            >
-              {"<<"}
-            </button>
-            <button
-              className="mx-1 actionBtn"
-              onClick={() => previousPage()}
-              disabled={!canPreviousPage}
-            >
-              Prev
-            </button>
-            <span className="mx-2 pageNumber">
-              <strong>
-                {pageIndex + 1}
-              </strong>{" "}
-            </span>
-            <button
-              className="mx-1 actionBtn"
-              onClick={() => nextPage()}
-              disabled={!canNextPage}
-            >
-              Next
-            </button>
-            <button
-              className="skipToBtn"
-              onClick={() => gotoPage(pageCount - 1)}
-              disabled={!canNextPage}
-            >
-              {">>"}
-            </button>
-          </div> */}
         </div>
       </div>
 
