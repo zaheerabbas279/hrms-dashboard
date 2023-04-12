@@ -162,33 +162,35 @@ export const AllLeavesTable = () => {
         </div>
       </div>
       <div className="text-center">
-        <table {...getTableProps()}>
-          <thead>
-            {headerGroups.map((headerGroup) => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps()}>
-                    {column.render("Header")}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody {...getTableBodyProps()}>
-            {page.map((row) => {
-              prepareRow(row);
-              return (
-                <tr {...row.getRowProps()}>
-                  {row.cells.map((cell) => {
-                    return (
-                      <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                    );
-                  })}
+        <div className="table_scroll">
+          <table {...getTableProps()}>
+            <thead>
+              {headerGroups.map((headerGroup) => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map((column) => (
+                    <th {...column.getHeaderProps()}>
+                      {column.render("Header")}
+                    </th>
+                  ))}
                 </tr>
-              );
-            })}
-          </tbody>
-        </table>
+              ))}
+            </thead>
+            <tbody {...getTableBodyProps()}>
+              {page.map((row) => {
+                prepareRow(row);
+                return (
+                  <tr {...row.getRowProps()}>
+                    {row.cells.map((cell) => {
+                      return (
+                        <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
         <div className="d-flex align-items-center mb-3">
 
           <div className="w-100 text-center mt-3 mb-1">
@@ -238,43 +240,43 @@ export const AllLeavesTable = () => {
             <h5 className="font_color">Details</h5>
 
             <div className="row my-2">
-              <div className="col-6 text-end"><p className="mb-0 font_color">Employee Id :</p></div>
+              <div className="col-6 text-end"><p className="mb-0 font_color">Employee Id:</p></div>
               <div className="col-6"><p className="mb-0 font_color">DB001</p></div>
             </div>
             <div className="row my-2">
-              <div className="col-6 text-end"><p className="mb-0 font_color">Employee Name :</p></div>
+              <div className="col-6 text-end"><p className="mb-0 font_color">Employee Name:</p></div>
               <div className="col-6"><p className="mb-0 font_color">Chandrahasa</p></div>
             </div>
             <div className="row my-2">
-              <div className="col-6 text-end"><p className="mb-0 font_color">Leave Type :</p></div>
+              <div className="col-6 text-end"><p className="mb-0 font_color">Leave Type:</p></div>
               <div className="col-6"><p className="mb-0 font_color">Paid leave</p></div>
             </div>
             <div className="row my-2">
-              <div className="col-6 text-end"><p className="mb-0 font_color">leave Days :</p></div>
+              <div className="col-6 text-end"><p className="mb-0 font_color">leave Days:</p></div>
               <div className="col-6"><p className="mb-0 font_color">01</p></div>
             </div>
             <div className="row my-2">
-              <div className="col-6 text-end"><p className="mb-0 font_color">Leave From :</p></div>
+              <div className="col-6 text-end"><p className="mb-0 font_color">Leave From:</p></div>
               <div className="col-6"><p className="mb-0 font_color">04/29/2023</p></div>
             </div>
             <div className="row my-2">
-              <div className="col-6 text-end"><p className="mb-0 font_color">Leave To :</p></div>
+              <div className="col-6 text-end"><p className="mb-0 font_color">Leave To:</p></div>
               <div className="col-6"><p className="mb-0 font_color">04/29/2023</p></div>
             </div>
             <div className="row my-2">
-              <div className="col-6 text-end"><p className="mb-0 font_color">Available Sick Leaves :</p></div>
+              <div className="col-6 text-end"><p className="mb-0 font_color">Available Sick Leaves:</p></div>
               <div className="col-6"><p className="mb-0 font_color">12</p></div>
             </div>
             <div className="row my-2">
-              <div className="col-6 text-end"><p className="mb-0 font_color">Available Paid Leaves :</p></div>
+              <div className="col-6 text-end"><p className="mb-0 font_color">Available Paid Leaves:</p></div>
               <div className="col-6"><p className="mb-0 font_color">12</p></div>
             </div>
             <div className="row my-2">
-              <div className="col-6 text-end"><p className="mb-0 font_color">Available Client Leaves :</p></div>
+              <div className="col-6 text-end"><p className="mb-0 font_color">Available Client Leaves:</p></div>
               <div className="col-6"><p className="mb-0 font_color">12</p></div>
             </div>
             <div className="row my-2">
-              <div className="col-6 text-end"><p className="mb-0 font_color">Status :</p></div>
+              <div className="col-6 text-end"><p className="mb-0 font_color">Status:</p></div>
               <div className="col-6">
                 <Form>
                   {["radio"].map((type) => (
@@ -305,7 +307,7 @@ export const AllLeavesTable = () => {
               </div>
             </div>
             {rejected ? <div className="row my-2">
-              <div className="col-6 text-end"><p className="mb-0 font_color">Remarks :</p></div>
+              <div className="col-6 text-end"><p className="mb-0 font_color">Remarks:</p></div>
               <div className="col-6">
                 <textarea
                   name="reason"
@@ -313,7 +315,7 @@ export const AllLeavesTable = () => {
                   cols="30"
                   rows="10"
                   placeholder="Enter the remark"
-                  className="_reason_text_area"
+                  className="_reason_text_area w-100"
                 ></textarea>
               </div>
             </div> : null}

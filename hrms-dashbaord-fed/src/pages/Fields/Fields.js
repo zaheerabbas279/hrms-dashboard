@@ -53,7 +53,7 @@ const handleSubmit = (values) => {
   console.log(values.info);
 };
 
-const AdminFields = ({ data }) => {
+const AdminFields = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -69,7 +69,7 @@ const AdminFields = ({ data }) => {
         </div>
         <div className="w-100 d-flex justify-content-center">
           <div className="fieldsDetails w-50">
-            <FieldsTable />
+            <FieldsTable Data={Data} />
           </div>
         </div>
 

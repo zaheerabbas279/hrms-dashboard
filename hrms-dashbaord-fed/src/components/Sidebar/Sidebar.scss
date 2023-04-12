@@ -12,19 +12,17 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    // li {
-    //   margin: 10px 15px;
     .sidebar_link {
-      font-size: 18px;
+      font-size: 16px;
       color: $default_white;
       text-decoration: none;
       font-weight: 600;
-      margin: 10px 15px;
+      padding: 5px 15px;
+      display: block;
     }
     .sidebar_link.active {
       color: #00ffff;
     }
-    // }
     .accordion-item {
       background-color: transparent !important;
       border: 0 !important;
@@ -35,33 +33,27 @@
       font-size: 18px;
       color: $default_white;
       font-weight: 600;
-      margin: 10px 0;
-      padding: 0px 15px !important;
+      padding: 5px 15px !important;
+    }
+    .accordion-collapse {
+      height: auto !important;
     }
     .accordion-button:after {
       width: 15px !important;
       height: 15px !important;
       color: #fff !important;
+      background-image: url("../../assets/dropdown.png") !important;
       background-size: contain !important;
-      // background-image: url(../);
+      transform: rotate(90deg);
     }
-    .accordion-collapse.collapsing {
-      height: auto !important;
-    }
-    .accordion-collapse.collapse {
-      height: auto !important;
+    .collapsed.accordion-button:after {
+      transform: rotate(0deg);
     }
     .accordion-body {
-      margin: 10px 15px;
       padding: 0 !important;
       .sidebar_link {
-        font-size: 16px;
-        color: $default_white;
-        text-decoration: none;
-        font-weight: 600;
-      }
-      .sidebar_link.active {
-        color: #00ffff;
+        margin: 0px 5px 5px 25px;
+        padding: 0 !important;
       }
     }
   }

@@ -19,6 +19,7 @@ import { LeavesTable } from "../pages/LeavesTable/LeavesTable";
 import { EmployeeApplyLeave } from "../pages/EmployeeApplyLeave/EmployeeApplyLeave";
 import { NotFoundScreen } from "../pages/404/404";
 import { IsAuthcondition } from "./IsAuthcondition";
+import { UserProfile } from "../components/UserProfile/UserProfile";
 
 const RouteCheck = () => {
   const { isAuth } = useSelector((state) => state.UIStore);
@@ -43,6 +44,10 @@ const RouteCheck = () => {
         <Route
           path={RouteStrings.subAdminSignUp}
           element={<CreateSubAdmin />}
+        />
+        <Route
+          path={RouteStrings.userprofile}
+          element={<UserProfile />}
         />
         <Route
           path={RouteStrings.companydetails}

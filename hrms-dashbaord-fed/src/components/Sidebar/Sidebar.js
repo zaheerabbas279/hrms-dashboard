@@ -15,10 +15,12 @@ export const Sidebar = () => {
   return (
     <div className={`sidebar ${isSidebarOpen ? '' : 'close'}`}>
       <div className="sidebar_options">
-        <Accordion>
-          <NavLink to={RouteStrings.dashboard} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
-            Dashboard
-          </NavLink>
+        <Accordion alwaysOpen>
+          <div>
+            <NavLink to={RouteStrings.dashboard} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
+              Dashboard
+            </NavLink>
+          </div>
           {/* <NavLink to={RouteStrings.payslips} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
             Payslips
           </NavLink> */}
@@ -38,9 +40,11 @@ export const Sidebar = () => {
               </NavLink>
             </Accordion.Body>
           </Accordion.Item>
-          <NavLink to={RouteStrings.companydetails} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
-            Company Details
-          </NavLink>
+          <div>
+            <NavLink to={RouteStrings.companydetails} activeClassName="active" className="sidebar_link" onClick={handleClickLink}>
+              Company Details
+            </NavLink>
+          </div>
           <Accordion.Item eventKey="2">
             <Accordion.Header>Settings</Accordion.Header>
             <Accordion.Body>

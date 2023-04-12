@@ -10,6 +10,7 @@ import { setIsAuth, setViewSidebar } from "../../store/reducers/ui.reducer";
 import "./header.scss";
 import { Button } from "react-bootstrap";
 import { Images } from "../../utils/images";
+import { RouteStrings } from "../../utils/common";
 
 export const Header = ({ onClick }) => {
   const { isAuth, isSidebarOpen } = useSelector((state) => state.UIStore);
@@ -56,17 +57,26 @@ export const Header = ({ onClick }) => {
               {isAuth ? (
                 <>
                   {width < breakpoint ? (
-                    <></>
+                    null
                   ) : (
                     <>
-                      <Nav.Link href="#link" className="font_color">
-                        Jon Doe
-                      </Nav.Link>
+                      <p className="font_color m-0">
+                        John Doe
+                      </p>
                     </>
                   )}
 
                   <NavDropdown id="basic-nav-dropdown" className="dprdwn">
-                    <NavDropdown.Item href="#action/3.1">
+                    <div>
+                      {width < breakpoint ? (
+                        <>
+                          <p className="mb-0 ms-3">
+                            Hi, <strong>John Doe</strong>
+                          </p></>
+                      ) : null}
+                    </div>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href={RouteStrings.userprofile}>
                       Profile
                     </NavDropdown.Item>
                     <NavDropdown.Divider />

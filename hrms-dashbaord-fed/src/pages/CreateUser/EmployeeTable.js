@@ -133,7 +133,7 @@ export const EmployeeTable = () => {
                     </select>
                 </div>
             </div>
-            <div className="text-center">
+            <div className="text-center table_scroll">
                 <table {...getTableProps()}>
                     <thead>
                         {headerGroups.map((headerGroup) => (

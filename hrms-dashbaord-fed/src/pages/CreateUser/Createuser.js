@@ -88,7 +88,6 @@ export const CreateUser = () => {
           }
         }}
       >
-        {/* {(handleFormikChange) => ( */}
         <Form autoComplete="off">
           <div className="row">
             {infoValue.map((field, i) => {
@@ -158,7 +157,6 @@ export const CreateUser = () => {
             </div>
           </div>
         </Form>
-        {/* )} */}
       </Formik>
     )
   }

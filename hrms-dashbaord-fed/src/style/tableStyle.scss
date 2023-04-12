@@ -5,6 +5,9 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
+.table_scroll {
+  overflow-x: scroll;
+}
 
 table td,
 table th {
