@@ -19,6 +19,8 @@ import { LeavesTable } from "../pages/LeavesTable/LeavesTable";
 import { EmployeeApplyLeave } from "../pages/EmployeeApplyLeave/EmployeeApplyLeave";
 import { NotFoundScreen } from "../pages/404/404";
 import { IsAuthcondition } from "./IsAuthcondition";
+import { EmployeeLeaveCount } from "../pages/EmployeeLeaveCount/EmployeeLeaveCount";
+import { UpdateEmployeeDependants } from "../pages/UpdateEmployeeDependants/UpdateEmployeeDependants";
 
 const RouteCheck = () => {
   const { isAuth } = useSelector((state) => state.UIStore);
@@ -26,10 +28,7 @@ const RouteCheck = () => {
   return (
     <Routes>
       {/* auth routes */}
-      <Route
-        path={RouteStrings.login}
-        element={<IsAuthcondition />}
-      >
+      <Route path={RouteStrings.login} element={<IsAuthcondition />}>
         <Route index element={<SignIn />} />
         <Route path={RouteStrings.signup} element={<SignUp />} />
         <Route
@@ -53,6 +52,14 @@ const RouteCheck = () => {
         <Route
           path={RouteStrings.employeeApplyLeave}
           element={<EmployeeApplyLeave />}
+        />
+        <Route
+          path={RouteStrings.employeeLeaveCount}
+          element={<EmployeeLeaveCount />}
+        />
+        <Route
+          path={RouteStrings.udpateEmployeeDependants}
+          element={<UpdateEmployeeDependants />}
         />
         <Route path={RouteStrings.settings} element={<SettingsPage />} />
         <Route path={RouteStrings.createEmployee} element={<CreateUser />} />
