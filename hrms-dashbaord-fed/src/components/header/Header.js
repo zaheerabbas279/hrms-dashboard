@@ -67,13 +67,7 @@ export const Header = ({ onClick }) => {
 
                   <NavDropdown id="basic-nav-dropdown" className="dprdwn">
                     <NavDropdown.Item href="#action/3.1">
-                      Action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                      Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                      Something
+                      Profile
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>

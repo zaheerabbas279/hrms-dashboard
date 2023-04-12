@@ -5,17 +5,20 @@
             {
                 "name": "company_name",
                 "field_name": "company name",
-                "feild_type": "text"
+                "feild_type": "text",
+                "isRequired":true
             },
             {
                 "name": "company_address",
                 "field_name": "company address",
-                "feild_type": "text"
+                "feild_type": "text",
+                "isRequired":true
             },
             {
                 "name": "email",
                 "field_name": "email",
-                "feild_type": "email"
+                "feild_type": "email",
+                "isRequired":true
             }
         ]
     },
@@ -25,22 +28,26 @@
             {
                 "name": "company_pan",
                 "field_name": "company pan",
-                "feild_type": "text"
+                "feild_type": "number",
+                "isRequired":true
             },
             {
                 "name": "company_tan",
                 "field_name": "company tan",
-                "feild_type": "text"
+                "feild_type": "number",
+                "isRequired":false
             },
             {
                 "name": "company_gstin",
                 "field_name": "company gstin",
-                "feild_type": "text"
+                "feild_type": "number",
+                "isRequired":true
             },
             {
                 "name": "company_gstin3",
                 "field_name": "company gstin.....",
-                "feild_type": "text"
+                "feild_type": "number",
+                "isRequired":false
             }
         ]
     },

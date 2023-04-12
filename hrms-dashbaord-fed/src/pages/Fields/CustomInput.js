@@ -27,7 +27,7 @@ const CustomInput = ({ label, ...props }) => {
             style={errorMessage}
           />
         </div>
-      </div>
+      </div >
     </>
   );
 };

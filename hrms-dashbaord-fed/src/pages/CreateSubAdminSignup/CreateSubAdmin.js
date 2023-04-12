@@ -4,7 +4,7 @@ import { Header } from "../../components/Header/Header";
 import Form from "react-bootstrap/Form";
 import "./styles.scss";
 import { useFormik } from "formik";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CreateSubAdmin = () => {
   const navigate = useNavigate();
@@ -48,12 +48,14 @@ const CreateSubAdmin = () => {
 
   return (
     <>
-      <div className="subAdminDiv text-center w-100 d-flex justify-content-center">
-        <div className="card p-4 m-3 subAdminCard">
-          <div className="mt-2 mb-4">
-            <h5 className="text-light">Create a new user</h5>
+      <div className="subAdminDiv">
+        <div className="d-md-flex justify-content-between my-4">
+          <h3>Create a new user</h3>
+          <div>
+            <Link to="/" className="goback">Back to Dashboard</Link>
           </div>
-
+        </div>
+        <div className="card p-4 subAdminCard">
           <form
             className="subAdminForm d-flex flex-column text-start"
             onSubmit={formik.handleSubmit}
@@ -138,15 +140,15 @@ const CreateSubAdmin = () => {
               </>
             ) : null}
 
-            <div className="w-100">
+            <div className="w-100 my-4">
               <Button name="Create User" type="submit" />
             </div>
 
-            <div className="w-100 text-center mt-3">
+            {/* <div className="w-100 text-center mt-3">
               <p className="mb-0 text-light backLink" onClick={goToDashboard}>
                 Back to Dashboard
               </p>
-            </div>
+            </div> */}
           </form>
         </div>
       </div>

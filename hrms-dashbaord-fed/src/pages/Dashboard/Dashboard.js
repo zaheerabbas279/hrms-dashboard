@@ -8,23 +8,6 @@ import { RouteStrings } from "../../utils/common";
 const Dashboard = () => {
   const { isAuth } = useSelector((state) => state.UIStore);
 
-  const items = [
-    { name: "home", label: "Home", routeLink: "/testlink" },
-    {
-      name: "billing",
-      label: "Billing",
-      items: [
-        { name: "statements", label: "Statements", routeLink: "/testlink" },
-        { name: "reports", label: "Reports", routeLink: "/testlink" },
-      ],
-    },
-    {
-      name: "settings",
-      label: "Settings",
-      routeLink: "/testlink",
-    },
-  ];
-
   return isAuth ? (
     <>
       <div className="row g-0">

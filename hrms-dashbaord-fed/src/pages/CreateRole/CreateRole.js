@@ -55,7 +55,7 @@ export const CreateRole = () => {
         <div className="createrole_style">
             <div className="d-flex justify-content-between mb-4">
                 <div><h3>Roles</h3></div>
-                <div>
+                <div className='text-end'>
                     <Link to="/" className="goback">Back to Dashboard</Link>
                     <Button type='button' onClick={viewRole ? () => setViewRole(false) : () => setViewRole(true)}>{viewRole ? "Roles List" : "Create Roles"}</Button>
                 </div>
