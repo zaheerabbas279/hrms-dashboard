@@ -1,0 +1,50 @@
+@import "../../style/theme.style";
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table_scroll {
+    overflow-x: scroll;
+}
+
+table,
+table th {
+    border: 1px solid #f3f3f3 !important;
+    // border-bottom: 1px solid #f3f3f3 !important;
+    // padding: 5px !important;
+}
+
+// table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {
+    // background-color: #ddd;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    color: $default_white;
+    background-color: $card_background;
+    // border-color: $default_white !important;
+}
+
+table td {
+    color: $default_white;
+    background-color: $card_background;
+}
+
+.cellStyles {
+    .cell_data {
+        padding: 5px !important;
+        // border-top: 1px solid #f3f3f3;
+        // border-left: 1px solid #f3f3f3;
+        // border-right: 1px solid #f3f3f3;
+        // border-bottom: 1px solid #f3f3f3;
+    }
+}
