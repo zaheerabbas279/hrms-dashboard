@@ -22,6 +22,8 @@ import { IsAuthcondition } from "./IsAuthcondition";
 import { UserProfile } from "../components/UserProfile/UserProfile";
 import { EmployeeLeaveCount } from "../pages/EmployeeLeaveCount/EmployeeLeaveCount";
 import { UpdateEmployeeDependants } from "../pages/UpdateEmployeeDependants/UpdateEmployeeDependants";
+import { CreateShift } from "../pages/CreateShift/CreateShift";
+import { EmployeeType } from "../pages/EmployeeType/EmployeeType";
 
 const RouteCheck = () => {
   const { isAuth } = useSelector((state) => state.UIStore);
@@ -72,6 +74,8 @@ const RouteCheck = () => {
         <Route path={RouteStrings.payslips} element={<Payslips />} />
         <Route path={RouteStrings.fields} element={<Fields />} />
         <Route path={RouteStrings[404]} element={<NotFoundScreen />} />
+        <Route path={RouteStrings.createshift} element={<CreateShift />} />
+        <Route path={RouteStrings.employeetype} element={<EmployeeType />} />
       </Route>
     </Routes>
   );

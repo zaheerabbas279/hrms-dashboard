@@ -16,5 +16,7 @@ export const RouteStrings = {
   userprofile: "userprofile",
   employeeLeaveCount: "employeeLeaveCount",
   udpateEmployeeDependants: "udpateEmployeeDependants",
+  createshift: "createshift",
+  employeetype: "employeetype",
   404: "*",
 };

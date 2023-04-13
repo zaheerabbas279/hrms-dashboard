@@ -288,58 +288,6 @@ export const UpdateEmployeeDependantsTable = () => {
             })}
           </tbody>
         </table>
-
-        <div className="d-flex align-items-center mb-3">
-          {/* <div>
-            <select
-              value={pageSize}
-              className="selectTag mb-3 w-auto"
-              onChange={(e) => setPageSize(Number(e.target.value))}
-            >
-              <option value="" disabled>
-                Select
-              </option>
-              {[5, 10, 15, 25, 50].map((pageSize) => (
-                <option key={pageSize} value={pageSize}>
-                  {pageSize}
-                </option>
-              ))}
-            </select>
-          </div> */}
-          <div className="w-100 text-center mt-3 mb-1">
-            <button
-              className="mx-1 skipToBtn"
-              onClick={() => gotoPage(0)}
-              disabled={!canPreviousPage}
-            >
-              {"<<"}
-            </button>
-            <button
-              className="mx-1 actionBtn"
-              onClick={() => previousPage()}
-              disabled={!canPreviousPage}
-            >
-              Prev
-            </button>
-            <span className="mx-2 pageNumber">
-              <strong>{pageIndex + 1}</strong>{" "}
-            </span>
-            <button
-              className="mx-1 actionBtn"
-              onClick={() => nextPage()}
-              disabled={!canNextPage}
-            >
-              Next
-            </button>
-            <button
-              className="skipToBtn"
-              onClick={() => gotoPage(pageCount - 1)}
-              disabled={!canNextPage}
-            >
-              {">>"}
-            </button>
-          </div>
-        </div>
         {/* <pre>
           <code>
             {JSON.stringify(
@@ -351,6 +299,43 @@ export const UpdateEmployeeDependantsTable = () => {
             )}
           </code>
         </pre> */}
+      </div>
+
+
+      <div className="d-flex align-items-center mb-3">
+        <div className="w-100 text-center mt-3 mb-1">
+          <button
+            className="mx-1 skipToBtn"
+            onClick={() => gotoPage(0)}
+            disabled={!canPreviousPage}
+          >
+            {"<<"}
+          </button>
+          <button
+            className="mx-1 actionBtn"
+            onClick={() => previousPage()}
+            disabled={!canPreviousPage}
+          >
+            Prev
+          </button>
+          <span className="mx-2 pageNumber">
+            <strong>{pageIndex + 1}</strong>{" "}
+          </span>
+          <button
+            className="mx-1 actionBtn"
+            onClick={() => nextPage()}
+            disabled={!canNextPage}
+          >
+            Next
+          </button>
+          <button
+            className="skipToBtn"
+            onClick={() => gotoPage(pageCount - 1)}
+            disabled={!canNextPage}
+          >
+            {">>"}
+          </button>
+        </div>
       </div>
 
       {/* Modal for the view field data */}
@@ -496,7 +481,7 @@ export const UpdateEmployeeDependantsTable = () => {
           <Button
             variant="primary"
             type="submit"
-            //   disabled={isDisabled}
+          //   disabled={isDisabled}
           >
             Save Changes
           </Button>

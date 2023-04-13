@@ -13,7 +13,7 @@
     padding: 0;
     margin: 0;
     .sidebar_link {
-      font-size: 16px;
+      font-size: 18px;
       color: $default_white;
       text-decoration: none;
       font-weight: 600;
@@ -52,8 +52,10 @@
     .accordion-body {
       padding: 0 !important;
       .sidebar_link {
-        margin: 0px 5px 5px 25px;
+        font-size: 15px;
+        margin: 0px 15px 5px 20px;
         padding: 0 !important;
+        font-weight: 400;
       }
     }
   }
