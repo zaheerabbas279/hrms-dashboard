@@ -150,7 +150,7 @@ export const CompanyDetails = () => {
     <>
       <div className="companyDetails">
         <div className="d-md-flex justify-content-between mt-4">
-          <h3>Company Details</h3>
+          <h3>Company Profile</h3>
           <div>
             <Link to="/" className="goback">Back to Dashboard</Link>
             <div className="text-end">
@@ -186,105 +186,28 @@ export const CompanyDetails = () => {
         ) : (
           <>
             <div className="companyDetailsContainer">
-              <div className="basicInfoDiv my-4">
-                <h4 className="mb-3">Basic Info</h4>
-                <div className="row">
-                  <div className="col-md-6">
-                    <div className="d-flex">
-                      <label htmlFor="name">Brand Name :</label>
-                      <p className="mx-2">
-                        <strong>IT</strong>
-                      </p></div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="d-flex">
-                      <label htmlFor="name">Registered Address :</label>
-                      <p className="mx-2">
-                        <strong>IT Park, 3rd Stage, Mysore</strong>
-                      </p>
+              {companyInfo.map((item, i) => {
+                let details = item.fields;
+                return (
+                  <div className="basicInfoDiv my-4" key={i}>
+                    <h4 className="mb-3">{item.title}</h4>
+                    <div className="row">
+                      {details.map((value) => {
+                        return (
+                          <div className="col-md-6">
+                            <div className="d-flex my-1">
+                              <label>{value.field_name} :</label>
+                              <p className="mx-2">
+                                <strong>{value.saved_value}</strong>
+                              </p>
+                            </div>
+                          </div>
+                        )
+                      })}
                     </div>
                   </div>
-                  <div className="col-md-6">
-                    <div className="d-flex">
-                      <label htmlFor="name">PIN Code :</label>
-                      <p className="mx-2">
-                        <strong>898787</strong>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-
-
-
-
-              </div>
-              <div className="basicInfoDiv my-4">
-                <h4 className="mb-3">Tax Info</h4>
-                <div className="row">
-                  <div className="col-md-6">
-                    <div className="d-flex">
-                      <label htmlFor="name">Company PAN :</label>
-                      <p className="mx-2">
-                        <strong>AKJHFDHFLKH98987</strong>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="d-flex">
-                      <label htmlFor="name">Company TAN :</label>
-                      <p className="mx-2">
-                        <strong>ASFDU876865ADF6</strong>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-md-12">
-                    <div className="d-flex">
-                      <label htmlFor="name">Company GSTIN :</label>
-                      <p className="mx-2">
-                        <strong>GISDGASDFO987FAS8D7FS7DF9SD</strong>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="basicInfoDiv">
-                <h4 className="mb-3">PF/EIS</h4>
-                <div className="row">
-                  <div className="col-md-6">
-                    <div className="d-flex">
-                      <label htmlFor="name">PF Status :</label>
-                      <p className="mx-2 text-success">
-                        <strong>Enabled</strong>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="d-flex">
-                      <label htmlFor="name">ESI Status :</label>
-                      <p className="mx-2 text-success">
-                        <strong>Enabled</strong>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="d-flex">
-                      <label htmlFor="name">PT Status :</label>
-                      <p className="mx-2 text-success">
-                        <strong>Enabled</strong>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="d-flex">
-                      <label htmlFor="name">LWF Status :</label>
-                      <p className="mx-2 text-success">
-                        <strong>Enabled</strong>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                )
+              })}
             </div>
           </>
         )}

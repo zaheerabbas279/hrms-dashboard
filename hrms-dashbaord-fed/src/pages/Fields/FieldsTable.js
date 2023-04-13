@@ -73,22 +73,32 @@ export const FieldsTable = (Data) => {
   const columns = React.useMemo(
     () => [
       {
-        Header: "Field Name",
-        accessor: "field_name",
+        Header: "Field Label Name",
+        accessor: "field_label_name",
         Filter: ColumnFilter,
       },
       {
-        Header: "Type",
-        accessor: "type",
+        Header: "Input Type",
+        accessor: "field_type",
         Filter: ColumnFilter,
       },
       {
-        Header: "Length",
-        accessor: "length",
+        Header: "Input Length",
+        accessor: "input_length",
         Filter: ColumnFilter,
       },
       {
-        Header: "Edit",
+        Header: "Field Required",
+        accessor: "field_required",
+        Filter: ColumnFilter,
+      },
+      {
+        Header: "Select type Options",
+        accessor: "select_options",
+        Filter: ColumnFilter,
+      },
+      {
+        Header: "Action",
         accessor: "edit",
         Filter: ColumnFilter,
         Cell: (tableProps) => (
@@ -96,6 +106,13 @@ export const FieldsTable = (Data) => {
             <div className="d-flex flex-row justify-content-center align-items-center">
               <img
                 src={Images.editLogo}
+                alt=""
+                id="edit"
+                className="editIcon mx-2"
+                onClick={() => handleShow(tableProps.cell.row.original)}
+              />
+              <img
+                src={Images.deleteLogo}
                 alt=""
                 id="edit"
                 className="editIcon mx-2"
@@ -142,10 +159,26 @@ export const FieldsTable = (Data) => {
 
   return (
     <>
-      <div className="mt-3 mb-3">
+      <div className="d-flex justify-content-between mb-2 mt-4">
         <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+        <div>
+          <select
+            value={pageSize}
+            className="selectTag w-auto"
+            onChange={(e) => setPageSize(Number(e.target.value))}
+          >
+            <option value="" disabled>
+              Select
+            </option>
+            {[5, 10, 15, 25, 50].map((pageSize) => (
+              <option key={pageSize} value={pageSize}>
+                {pageSize}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
-      <div className="text-center mt-3 table_scroll">
+      <div className="text-center table_scroll">
         <table {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
@@ -173,24 +206,6 @@ export const FieldsTable = (Data) => {
             })}
           </tbody>
         </table>
-        <div className="d-flex align-items-center mb-3">
-          <div>
-            <select
-              value={pageSize}
-              className="selectTag mb-3 w-auto"
-              onChange={(e) => setPageSize(Number(e.target.value))}
-            >
-              <option value="" disabled>
-                Select
-              </option>
-              {[5, 10, 15, 25, 50].map((pageSize) => (
-                <option key={pageSize} value={pageSize}>
-                  {pageSize}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
       </div>
 
       {/* Modal for the view field data */}
