@@ -1,44 +1,41 @@
 @import "../../style/theme.style";
 
-
 .employeetype_style {
-    margin: 30px auto;
-    max-width: 700px;
+  margin: 30px auto;
+  max-width: 700px;
 
-    .table_div {
-        max-width: 600px;
-        margin: 0 auto;
+  .table_div {
+    max-width: 600px;
+    margin: 0 auto;
 
-        .table_assignrole {
-            background-color: $card_background;
+    .table_assignrole {
+      background-color: $card_background;
 
-            .edit_role {
-                background: transparent;
-                border: 0;
-                padding: 0;
-            }
-        }
+      .edit_role {
+        background: transparent;
+        border: 0;
+        padding: 0;
+      }
     }
+  }
 
-    .role_div {
-        max-width: 600px;
-        margin: 0 auto;
+  .type_form {
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 6px;
+    background-color: $card_background;
+  }
 
-        .roles {
-            max-width: 200px;
-            margin: 0 auto;
-        }
-    }
+  th,
+  td {
+    color: $default_white !important;
+    text-align: center;
+    background-color: $card_background !important;
+  }
 
-    th,
-    td {
-        color: $default_white !important;
-        text-align: center;
-        background-color: $card_background !important;
-    }
-
-    .del_logo {
-        height: 20px;
-        width: 20px;
-    }
+  .del_logo {
+    height: 20px;
+    width: 20px;
+  }
 }

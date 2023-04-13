@@ -91,12 +91,13 @@ export const EmployeeType = () => {
       </div>
       <div className="mt-5">
         {viewRole ? (
-          <div className="role_div">
-            <h5>Add Employee Type</h5>
+          <div className="type_form">
+            <h5 className="mb-3 font_color">Add Employee Type</h5>
 
             <Form onSubmit={formikRole.handleSubmit}>
               <Input_element
                 input_label="Employee Type"
+                lableClass="font_color"
                 name="role_name"
                 handleChange={formikRole.handleChange}
                 handleBlur={formikRole.handleBlur}
@@ -105,8 +106,8 @@ export const EmployeeType = () => {
                 placeholder="Enter Employee Type"
                 formikValidation={
                   formikRole.touched.role_name &&
-                  formikRole.errors.role_name ? (
-                    <small className="text-danger">
+                    formikRole.errors.role_name ? (
+                    <small className="text-danger position-absolute">
                       {formikRole.errors.role_name}
                     </small>
                   ) : null
@@ -154,90 +155,6 @@ export const EmployeeType = () => {
         )}
       </div>
 
-      {/* <ModalComponent
-        show={createRole}
-        onHide={() => setCreateRole(false)}
-        modal_header="Create Role"
-        modal_body={
-          <>
-            <Form onSubmit={formikRole.handleSubmit}>
-              <Input_element
-                input_label="Role Name"
-                name="role_name"
-                handleChange={formikRole.handleChange}
-                handleBlur={formikRole.handleBlur}
-                value={formikRole.values.role_name}
-                type="text"
-                placeholder="Enter Role"
-                formikValidation={
-                  formikRole.touched.role_name &&
-                  formikRole.errors.role_name ? (
-                    <small className="text-danger">
-                      {formikRole.errors.role_name}
-                    </small>
-                  ) : null
-                }
-              />
-              <div className="text-end mt-4">
-                <Button type="submit">Submit</Button>
-              </div>
-            </Form>
-          </>
-        }
-      /> */}
-      {/* <ModalComponent
-        show={assignRole}
-        onHide={() => setAssignRole(false)}
-        modal_header="Assign Role"
-        modal_body={
-          <Form onSubmit={formik.handleSubmit}>
-            <Selectelement
-              select_Label="Emp. Id"
-              name="selected_employee"
-              handleChange={formik.handleChange}
-              handleBlur={formik.handleBlur}
-              optionArray={employees.map((value) => {
-                return (
-                  <option key={`${value}`} value={`${value}`}>
-                    {value}
-                  </option>
-                );
-              })}
-              formikValidation={
-                formik.touched.selected_employee &&
-                formik.errors.selected_employee ? (
-                  <small className="text-danger">
-                    {formik.errors.selected_employee}
-                  </small>
-                ) : null
-              }
-            />
-            <Selectelement
-              select_Label="Role"
-              name="selected_role"
-              handleChange={formik.handleChange}
-              handleBlur={formik.handleBlur}
-              optionArray={roles.map((value) => {
-                return (
-                  <option key={`${value}`} value={`${value}`}>
-                    {value}
-                  </option>
-                );
-              })}
-              formikValidation={
-                formik.touched.selected_role && formik.errors.selected_role ? (
-                  <small className="text-danger">
-                    {formik.errors.selected_role}
-                  </small>
-                ) : null
-              }
-            />
-            <div className="text-end mt-4">
-              <Button type="submit">Submit</Button>
-            </div>
-          </Form>
-        }
-      /> */}
     </div>
   );
 };

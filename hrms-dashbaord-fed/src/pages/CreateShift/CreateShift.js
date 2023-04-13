@@ -82,6 +82,7 @@ export const CreateShift = () => {
                     </div>
                     :
                     <div className='shift_form'>
+                        <h5 className="mb-3 font_color">Add Shift Type</h5>
                         <Form onSubmit={formik.handleSubmit}>
                             <Input_element input_label="Shift Type"
                                 type="text" name="shift_type" lableClass="font_color"
