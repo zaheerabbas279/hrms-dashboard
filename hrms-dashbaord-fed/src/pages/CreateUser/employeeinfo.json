@@ -318,40 +318,5 @@
                 ]
             }
         ]
-    },
-    {
-        "title": "Documents",
-        "fields": [
-            {
-                "name": "passport_photo",
-                "field_name": "Passport Photo",
-                "feild_type": "file"
-            },
-            {
-                "name": "degree_certificate",
-                "field_name": "degree_certificate",
-                "feild_type": "file"
-            },
-            {
-                "name": "experience_letter",
-                "field_name": "Experience Letter",
-                "feild_type": "file"
-            },
-            {
-                "name": "aadhaar_card",
-                "field_name": "Aadhaar Card",
-                "feild_type": "file"
-            },
-            {
-                "name": "pan_card",
-                "field_name": "Pan Card",
-                "feild_type": "file"
-            },
-            {
-                "name": "bank_passbook",
-                "field_name": "Bank Passbook",
-                "feild_type": "file"
-            }
-        ]
     }
 ]

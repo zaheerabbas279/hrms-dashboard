@@ -20,10 +20,10 @@ export const Leaves = () => {
 
   let emptyday = [];
 
-  const isWeekday = (date) => {
-    const day = date.getDay();
-    return day !== 0 && day !== 6;
-  };
+  // const isWeekday = (date) => {
+  //   const day = date.getDay();
+  //   return day !== 0 && day !== 6;
+  // };
 
   const handleSwitchChange = (e) => {
     let checkedStatus = e.target.checked;
@@ -107,12 +107,16 @@ export const Leaves = () => {
     "Loss of Pay(LOP) / Leave Without Pay",
   ];
 
+  const sendArray = ["HR", "Manager", "Team Lead"]
+
   const formik = useFormik({
     initialValues: {
       emp_id: "DB001",
       reason_leave: "",
       leavetype: "",
       holidays_list: dateArray2,
+      send_to: "",
+      send_cc: ""
     },
     validate: (values) => {
       let errors = {};
@@ -124,6 +128,12 @@ export const Leaves = () => {
       }
       if (!values.leavetype) {
         errors.leavetype = "Required";
+      }
+      if (!values.send_to) {
+        errors.send_to = "Required";
+      }
+      if (!values.send_cc) {
+        errors.send_cc = "Required";
       }
       return errors;
     },
@@ -168,13 +178,14 @@ export const Leaves = () => {
 
       <div>
         {addleave ? (
-          <>
-            <h4 className="mb-4">Apply for Leave</h4>
+          <div className="leave_div">
+            <h4 className="mb-4 font_color">Apply for Leave</h4>
             <Form onSubmit={formik.handleSubmit} autoComplete="off">
               <Input_element
                 type="text"
                 name="emp_id"
                 input_label="Emp. Id"
+                lableClass="font_color"
                 placeholder="Enter field"
                 handleBlur={formik.handleBlur}
                 handleChange={formik.handleChange}
@@ -189,6 +200,7 @@ export const Leaves = () => {
               <Selectelement
                 select_Label="Leave Type"
                 name="leavetype"
+                lableClass="font_color"
                 handleBlur={formik.handleBlur}
                 handleChange={formik.handleChange}
                 optionArray={
@@ -210,8 +222,58 @@ export const Leaves = () => {
                   ) : null
                 }
               />
+              <Selectelement
+                select_Label="To"
+                name="send_to"
+                lableClass="font_color"
+                handleBlur={formik.handleBlur}
+                handleChange={formik.handleChange}
+                optionArray={
+                  <>
+                    {sendArray.map((send, i) => {
+                      return (
+                        <option key={i} value={send}>
+                          {send}
+                        </option>
+                      );
+                    })}
+                  </>
+                }
+                formikValidation={
+                  formik.touched.send_to && formik.errors.send_to ? (
+                    <small className="text-danger">
+                      {formik.errors.send_to}
+                    </small>
+                  ) : null
+                }
+              />
+              <Selectelement
+                select_Label="CC"
+                name="send_cc"
+                lableClass="font_color"
+                handleBlur={formik.handleBlur}
+                handleChange={formik.handleChange}
+                optionArray={
+                  <>
+                    {sendArray.map((send, i) => {
+                      return (
+                        <option key={i} value={send}>
+                          {send}
+                        </option>
+                      );
+                    })}
+                  </>
+                }
+                formikValidation={
+                  formik.touched.send_cc && formik.errors.send_cc ? (
+                    <small className="text-danger">
+                      {formik.errors.send_cc}
+                    </small>
+                  ) : null
+                }
+              />
               <Form.Group className="mb-2">
-                <Form.Label>Reason for Leave</Form.Label>
+                <Form.Label className="font_color">Reason for Leave</Form.Label>
                 <Form.Control
                   as="textarea"
                   placeholder="Enter field"
@@ -228,24 +290,16 @@ export const Leaves = () => {
               </Form.Group>
 
               <Form.Group className="mb-2">
-                <Form.Label>Select leave Dates</Form.Label>
+                <Form.Label className="font_color">Select leave Dates</Form.Label>
                 <div className="mb-2 d-flex align-items-center">
-                  {/* <Form.Label className={`ms-3 ${holidays ? "more_day" : ""}`}>
-                  One or More Days
-                </Form.Label> */}
-                  <Form.Label className={`me-3 ${holidays ? "half_day" : ""}`}>
-                    Half <span className="text-dark">Day</span>{" "}
+                  <Form.Label className={`me-3 font_color ${holidays ? "half_day" : ""}`}>
+                    Half <span className={`me-3 ${holidays ? "text-dark" : ""}`}>Day</span>{" "}
                   </Form.Label>
                   <Form.Check
                     type="switch"
                     id="custom-switch"
                     onChange={handleSwitchChange}
-                  // defaultChecked="checked"
                   />
-
-                  {/* <Form.Label className={`me-3 ${holidays ? "" : "half_day"}`}>
-                  Half <span className="text-dark">Day</span>{" "}
-                </Form.Label> */}
                 </div>
                 <DatePicker
                   shouldCloseOnSelect={false}
@@ -258,7 +312,7 @@ export const Leaves = () => {
                       : " datepicker-calendar"
                   }
                   minDate={new Date()}
-                  filterDate={isWeekday}
+                  // filterDate={isWeekday}
                   onClickOutside={handleFocus}
                   onKeyDown={(e) => {
                     e.preventDefault();
@@ -294,7 +348,7 @@ export const Leaves = () => {
                 </Button>
               </div>
             </Form>
-          </>
+          </div>
         ) : (
           <>
             <LeavesTable />

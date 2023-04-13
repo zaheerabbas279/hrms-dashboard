@@ -5,8 +5,6 @@ import {
   usePagination,
   useFilters,
 } from "react-table";
-import Data from "./MOCK_DATA.json";
-// import { COLUMNS } from "./columns";
 import "../../style/tableStyle.scss";
 import { GlobalFilter } from "../../utils/GlobalFilter";
 import { ColumnFilter } from "../../utils/ColumnFilter";
@@ -16,7 +14,8 @@ import Modal from "react-bootstrap/Modal";
 import { useFormik } from "formik";
 import { Input_element } from "../../components/input_field/Input_element";
 
-export const FieldsTable = () => {
+export const FieldsTable = (Data) => {
+
   const [show, setShow] = useState(false);
   const [fieldData, setFieldData] = useState([]);
   const [updatedData, setUpdatedData] = useState({
@@ -109,7 +108,7 @@ export const FieldsTable = () => {
     ],
     []
   );
-  const data = useMemo(() => Data);
+  const data = useMemo(() => Data.Data);
 
   // create a table instance
   const {
@@ -146,7 +145,7 @@ export const FieldsTable = () => {
       <div className="mt-3 mb-3">
         <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
       </div>
-      <div className="text-center mt-3">
+      <div className="text-center mt-3 table_scroll">
         <table {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (

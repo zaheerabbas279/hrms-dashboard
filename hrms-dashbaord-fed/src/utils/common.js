@@ -13,5 +13,10 @@ export const RouteStrings = {
   createrole: "createrole",
   payslips: "payslips",
   fields: "fields",
+  userprofile: "userprofile",
+  employeeLeaveCount: "employeeLeaveCount",
+  udpateEmployeeDependants: "udpateEmployeeDependants",
+  createshift: "createshift",
+  employeetype: "employeetype",
   404: "*",
 };

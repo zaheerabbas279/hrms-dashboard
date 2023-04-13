@@ -5,6 +5,9 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
+.table_scroll {
+  overflow-x: scroll;
+}
 
 table td,
 table th {
@@ -37,7 +40,7 @@ table td {
 .searchInput {
   border: none;
   outline: none;
-  width: 80%;
+  width: 100%;
   z-index: 2;
   color: $default_black;
   position: relative;
@@ -92,7 +95,7 @@ table td {
 }
 
 .searchDiv {
-  width: 16%;
+  width: 20%;
   border-bottom: 2px solid $default_white;
 }
 
@@ -127,4 +130,13 @@ table td {
     height: 70px;
     outline: none;
   }
+}
+
+
+.sick_leave_inp_div{
+  width: 50%;
+}
+
+.update_emp_dependants_inp_div{
+  width: 100%;
 }

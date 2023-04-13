@@ -4,12 +4,14 @@ import viewIcon from "../assets/view.png";
 import hamburger from "../assets/menu.png";
 import userIcon from "../assets/user.png";
 import notFound from "../assets/404.jpg";
+import dblogo from "../assets/db_logo.png"
 
 export const Images = {
-  editLogo: editLogo,
-  deleteLogo: deleteLogo,
+  editLogo,
+  deleteLogo,
   viewIcon,
   hamburger,
   userIcon,
   notFound,
+  dblogo
 };

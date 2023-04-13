@@ -1,0 +1,27 @@
+@import "../../style/theme.style";
+
+.shift_style {
+  max-width: 850px;
+  margin: 50px auto 30px auto;
+  .table_shift_div {
+    max-width: 600px;
+    margin: auto;
+    .table_shift {
+      background-color: $card_background;
+
+      th,
+      td {
+        color: $default_white !important;
+        text-align: center;
+        background-color: $card_background !important;
+      }
+    }
+  }
+  .shift_form {
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 6px;
+    background-color: $card_background;
+  }
+}

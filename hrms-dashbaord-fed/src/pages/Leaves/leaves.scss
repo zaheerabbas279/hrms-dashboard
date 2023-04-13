@@ -1,13 +1,21 @@
 @import "../../style/theme.style";
 
 .leves_style {
-  max-width: 750px;
+  max-width: 950px;
   margin: 30px auto;
+  .leave_div {
+    max-width: 700px;
+    margin: 0px auto;
+    background-color: $card_background;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 6px;
+  }
   .half_day {
     background-image: linear-gradient(
       to right,
-      $card_background 50%,
-      #d8fbfe 55%
+      $card_background 40%,
+      #d8fbfe 50%
     );
     padding: 4px 12px;
     color: $default_white;
