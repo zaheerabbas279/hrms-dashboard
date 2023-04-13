@@ -1,4 +1,44 @@
 @import "../../style/theme.style";
 
+
 .employeetype_style {
+    margin: 30px auto;
+    max-width: 700px;
+
+    .table_div {
+        max-width: 600px;
+        margin: 0 auto;
+
+        .table_assignrole {
+            background-color: $card_background;
+
+            .edit_role {
+                background: transparent;
+                border: 0;
+                padding: 0;
+            }
+        }
+    }
+
+    .role_div {
+        max-width: 600px;
+        margin: 0 auto;
+
+        .roles {
+            max-width: 200px;
+            margin: 0 auto;
+        }
+    }
+
+    th,
+    td {
+        color: $default_white !important;
+        text-align: center;
+        background-color: $card_background !important;
+    }
+
+    .del_logo {
+        height: 20px;
+        width: 20px;
+    }
 }
