@@ -7,14 +7,20 @@ import { RouteStrings } from "../../utils/common";
 export const DashBoardhome = () => {
   const navigate = useNavigate();
   const navigatetoCreateSubAdmin = () => {
-    navigate(RouteStrings.subAdminSignUp);
+    navigate(RouteStrings.createEmployee);
   };
 
   return (
     <div className="container dashbaord-body my-4">
       <h4 className="header_color">Dashboard</h4>
       <div className="text-end mb-3">
-        <button type="button" className="btn btn-primary" onClick={navigatetoCreateSubAdmin}>Create Subadmin</button>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={navigatetoCreateSubAdmin}
+        >
+          Create Subadmin
+        </button>
       </div>
       <div className="my-3">
         <div className="row">
