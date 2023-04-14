@@ -114,7 +114,7 @@ export const EmployeeTable = () => {
 
     return (
         <>
-            <div className="mt-5 mb-2 d-flex justify-content-between">
+            <div className="mt-4 mb-2 d-flex justify-content-between">
                 <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
                 <div>
                     <select

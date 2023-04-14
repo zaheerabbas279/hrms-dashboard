@@ -8,6 +8,10 @@ import dblogo from "../assets/db_logo.png";
 import right from "../assets/next.png";
 import down from "../assets/down-arrow.png";
 import left from "../assets/left-arrow.png";
+
+// excel file
+import excel_file from "../assets/EmplistFormat.xlsx";
+
 export const Images = {
   editLogo,
   deleteLogo,
@@ -19,4 +23,5 @@ export const Images = {
   right,
   down,
   left,
+  excel_file,
 };
