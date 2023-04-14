@@ -56,7 +56,7 @@ export const Sidebar = () => {
           </Accordion.Item>
           <div>
             <NavLink to={RouteStrings.companydetails} activeclassname="active" className="sidebar_link" onClick={handleClickLink}>
-              Company Details
+              Company Profile
             </NavLink>
           </div>
           <Accordion.Item eventKey="2">

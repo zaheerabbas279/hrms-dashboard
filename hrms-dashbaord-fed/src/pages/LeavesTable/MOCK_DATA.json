@@ -1,30 +1,69 @@
 [
     {
         "emp_id": "DB001",
-        "name":"John Doe",
-        "leave_type": "Paid leave",
-        "from": "4/29/2023",
-        "to": "4/29/2023",
-        "num_day": 1,
-        "status": "pending"
+        "name": "John Doe",
+        "leves_container": [
+            {
+                "leave_type": "Paid leave",
+                "from": "4/29/2023",
+                "to": "4/29/2023",
+                "num_day": 1,
+                "status": "pending"
+            }
+        ]
     },
     {
         "emp_id": "DB002",
-        "name":"John Doe",
-        "leave_type": "Sick leave",
-        "from": "4/29/2023",
-        "to": "--",
-        "num_day": "Half day",
-        "status": "pending"
+        "name": "John Doe",
+        "leves_container": [
+            {
+                "leave_type": "Paid leave",
+                "from": "4/29/2023",
+                "to": "4/29/2023",
+                "num_day": 1,
+                "status": "pending"
+            },
+            {
+                "leave_type": "Sick leave",
+                "from": "4/29/2023",
+                "to": "4/29/2023",
+                "num_day": 1,
+                "status": "pending"
+            },
+            {
+                "leave_type": "Sick leave",
+                "from": "4/29/2023",
+                "to": "4/29/2023",
+                "num_day": 1,
+                "status": "pending"
+            },
+            {
+                "leave_type": "Paid leave",
+                "from": "4/29/2023",
+                "to": "4/29/2023",
+                "num_day": 1,
+                "status": "pending"
+            }
+        ]
     },
     {
         "emp_id": "DB003",
-        "name":"John Doe",
-        "leave_type": "Casual leave",
-        "from": "4/23/2023",
-        "to": "4/25/2023",
-        "num_day": "3",
-        "status": "pending"
+        "name": "Don Jon",
+        "leves_container": [
+            {
+                "leave_type": "Paid leave",
+                "from": "4/29/2023",
+                "to": "4/29/2023",
+                "num_day": 1,
+                "status": "pending"
+            },
+            {
+                "leave_type": "Sick leave",
+                "from": "4/29/2023",
+                "to": "4/29/2023",
+                "num_day": 1,
+                "status": "pending"
+            }
+        ]
     }
-    
 ]

@@ -14,10 +14,20 @@ const handleValidation = yup.object().shape({
   info: yup.array().of(
     yup.object().shape({
       name: yup.string().required("This field is required"),
-      type: yup.string().required("Please enter the type"),
+      type: yup.string().required("Select the Type"),
       length: yup
         .number()
-        .required("Please enter the length of the string here"),
+        .required("enter the length of the string"),
+      required: yup.string().required("Select Field"),
+      dropdown_options: yup.string().test('dropdown_options', (value, context) => {
+        if (context.parent?.type == "select") {
+          if (!context.parent?.dropdown_options) {
+            return context.createError({ message: "Enter dropdown Values" })
+          }
+        }
+        return true
+      })
+
     })
   ),
 });
@@ -29,6 +39,8 @@ const initialValues = {
       name: "",
       type: "",
       length: "",
+      required: "",
+      dropdown_options: ""
     },
   ],
 };
@@ -37,6 +49,7 @@ const removeFromList = (i, values, setValues) => {
   const info = [...values.info];
   info.splice(i, 1);
   setValues({ ...values, info });
+
 };
 
 const updateForm = (values, setValues) => {
@@ -45,6 +58,8 @@ const updateForm = (values, setValues) => {
     name: "",
     type: "",
     length: "",
+    required: "",
+    dropdown_options: ""
   });
   setValues({ ...values, info });
 };
@@ -58,6 +73,17 @@ const AdminFields = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleOptionClick = (e, i) => {
+    let optionSelected = e.target.value;
+    let selectedOption = document.getElementById(`options_value${i}`)
+    if (optionSelected == "select") {
+      selectedOption.removeAttribute("disabled", "")
+    } else {
+      selectedOption.setAttribute("disabled", "")
+    }
+  }
+
   return (
     <>
       <div className="container">
@@ -68,7 +94,7 @@ const AdminFields = () => {
           </button>
         </div>
         <div className="w-100 d-flex justify-content-center">
-          <div className="fieldsDetails w-50">
+          <div className="fieldsDetails">
             <FieldsTable Data={Data} />
           </div>
         </div>
@@ -93,33 +119,75 @@ const AdminFields = () => {
                           return (
                             <div key={i}>
                               <div className="d-flex align-items-center justify-content-between">
-                                <CustomInput
-                                  label="Field Name"
-                                  name={`info.${i}.name`}
-                                  placeholder="Field name"
-                                  className="customInp"
-                                />
-                                <CustomInput
-                                  label="Field Type"
-                                  name={`info.${i}.type`}
-                                  placeholder="Field type"
-                                  className="customInp"
-                                />
-                                <CustomInput
-                                  label="Field Length"
-                                  name={`info.${i}.length`}
-                                  placeholder="Field Length"
-                                />
-                                {values.info.length > 1 && (
-                                  <img
-                                    src={Images.deleteLogo}
-                                    alt=""
-                                    onClick={() =>
-                                      removeFromList(i, values, setValues)
-                                    }
-                                    className="deleteLogo"
-                                  />
-                                )}
+                                <div className="row no-gutters">
+                                  <div className="col-md-4">
+                                    <CustomInput
+                                      label="Field Label Name"
+                                      name={`info.${i}.name`}
+                                      placeholder="Field name"
+                                    />
+                                  </div>
+                                  <div className="col-md-4">
+
+                                    <CustomInput
+                                      as="select"
+                                      label="Field Input Type"
+                                      name={`info.${i}.type`}
+                                      placeholder="Field type"
+                                      // onChange={handleOptionClick}
+                                      onClick={(e) => handleOptionClick(e, i)}
+                                      options={<>
+                                        <option value="" disabled selected>select</option>
+                                        <option value="text">text</option>
+                                        <option value="email">email</option>
+                                        <option value="number">number</option>
+                                        <option value="textarea">textarea</option>
+                                        <option value="select">Dropdown</option>
+                                      </>}
+                                    />
+                                  </div>
+                                  <div className="col-md-4">
+                                    <CustomInput
+                                      label="Input Length"
+                                      name={`info.${i}.length`}
+                                      placeholder="Field Length"
+                                    />
+                                  </div>
+                                  <div className="col-md-4">
+                                    <CustomInput
+                                      as="select"
+                                      label="Field Required"
+                                      name={`info.${i}.required`}
+                                      placeholder="Field required"
+                                      options={<>
+                                        <option value="" disabled selected>select</option>
+                                        <option value="true">Mandatory</option>
+                                        <option value="false">Optional</option>
+                                      </>}
+                                    />
+                                  </div>
+                                  <div className="col-md-4">
+                                    <CustomInput
+                                      label="values for Dropdown"
+                                      name={`info.${i}.dropdown_options`}
+                                      placeholder="Field Length"
+                                      disabled
+                                      id={`options_value${i}`}
+                                    />
+                                  </div>
+                                </div>
+                                <div>
+                                  {values.info.length > 1 && (
+                                    <img
+                                      src={Images.deleteLogo}
+                                      alt=""
+                                      onClick={() =>
+                                        removeFromList(i, values, setValues)
+                                      }
+                                      className="deleteLogo"
+                                    />
+                                  )}
+                                </div>
                               </div>
                             </div>
                           );
@@ -153,6 +221,12 @@ const AdminFields = () => {
       </div>
     </>
   );
+};
+
+const errorMessage = {
+  color: "#e35050",
+  position: "absolute",
+  fontSize: "12px",
 };
 
 const CompanyFields = () => {

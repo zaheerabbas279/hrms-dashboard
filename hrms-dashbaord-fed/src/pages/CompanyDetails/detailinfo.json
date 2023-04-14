@@ -1,73 +1,151 @@
 [
     {
-        "title": "Name and address",
+        "title": "Basic Deatils",
         "fields": [
             {
                 "name": "company_name",
-                "field_name": "company name",
+                "field_name": "Company name",
                 "feild_type": "text",
                 "isRequired":true
             },
             {
-                "name": "company_address",
-                "field_name": "company address",
+                "name": "website",
+                "field_name": "Website",
+                "feild_type": "text",
+                "isRequired":true
+            },
+            {
+                "name": "contact_person",
+                "field_name": "Contact Person Name",
+                "feild_type": "text",
+                "isRequired":true
+            },
+            {
+                "name": "registration_number",
+                "field_name": "Registration Number",
                 "feild_type": "text",
                 "isRequired":true
             },
             {
                 "name": "email",
-                "field_name": "email",
+                "field_name": "e-Mail Id",
                 "feild_type": "email",
                 "isRequired":true
+            },
+            {
+                "name": "hsn_sac_code",
+                "field_name": "HSA/SAC Code",
+                "feild_type": "text",
+                "isRequired":true
+            },
+            {
+                "name": "currency_type",
+                "field_name": "Currency",
+                "feild_type": "select",
+                "isRequired":true,
+                "field_values":[
+                    {
+                    "name":"Indian Rupee",
+                    "value":"1"
+                    
+                    },
+                    {
+                    "name":"Euros-AS(EUR)",
+                    "value":"2"
+                    },
+                    {
+                    "name":"USD-GU(USD)",
+                    "value":"3"
+                    }
+                ]
+            },
+            {
+                "name": "company_logo",
+                "field_name": "Logo",
+                "feild_type": "file",
+                "isRequired":false
             }
         ]
     },
     {
-        "title": "Tax Setup",
+        "title": "Company Address",
         "fields": [
             {
-                "name": "company_pan",
-                "field_name": "company pan",
+                "name": "address_building",
+                "field_name": "Building",
+                "feild_type": "text",
+                "isRequired":false
+            },
+            {
+                "name": "address_street",
+                "field_name": "Street",
+                "feild_type": "text",
+                "isRequired":true
+            },
+            {
+                "name": "address_city",
+                "field_name": "City",
+                "feild_type": "text",
+                "isRequired":true
+            },
+            {
+                "name": "address_pincode",
+                "field_name": "Pincode",
                 "feild_type": "number",
                 "isRequired":true
             },
             {
-                "name": "company_tan",
-                "field_name": "company tan",
-                "feild_type": "number",
-                "isRequired":false
-            },
-            {
-                "name": "company_gstin",
-                "field_name": "company gstin",
-                "feild_type": "number",
+                "name": "address_state",
+                "field_name": "State",
+                "feild_type": "text",
                 "isRequired":true
             },
             {
-                "name": "company_gstin3",
-                "field_name": "company gstin.....",
-                "feild_type": "number",
-                "isRequired":false
+                "name": "address_country",
+                "field_name": "Country",
+                "feild_type": "text",
+                "isRequired":true
             }
         ]
     },
     {
-        "title": "PF Setup",
+        "title": "Bank Information",
         "fields": [
-            {
-                "name": "pf_status",
-                "field_name": "pf status",
-                "feild_type": "text"
+           {
+                "name": "bank_name",
+                "field_name": "Bank Name",
+                "feild_type": "text",
+                "isRequired":true
             },
             {
-                "name": "esi_status",
-                "field_name": "esi status",
-                "feild_type": "text"
+               "name": "bank_branch",
+                "field_name": "Branch",
+                "feild_type": "text",
+                "isRequired":true
             },
             {
-                "name": "pt_status",
-                "field_name": "pt status",
-                "feild_type": "text"
+                "name": "bank_beneficiary",
+                "field_name": "Beneficiary",
+                "feild_type": "text",
+                "isRequired":true
+            },
+            {
+                "name": "bank_account_no",
+                "field_name": "Account No",
+                "feild_type": "text",
+                "isRequired":true
+            },
+            {
+                "name": "bank_ifsc_code",
+                "field_name": "IFSC",
+                "feild_type": "text",
+                "isRequired":true
+            },
+            {
+                "name": "bank_swift_code",
+                "field_name": "Swift code",
+                "feild_type": "text",
+                "isRequired":true
             }
         ]
     }
