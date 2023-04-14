@@ -20,12 +20,11 @@
     padding: 4px 12px;
     color: $default_white;
     border-radius: 15px;
+    margin: 0;
   }
-  .more_day {
-    background-color: $card_background;
-    padding: 4px 12px;
-    color: $default_white;
-    border-radius: 15px;
+  .chip_div {
+    background: #fff;
+    border-radius: 6px;
   }
 }
 .react-datepicker__day--selected {

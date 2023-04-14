@@ -25,6 +25,6 @@
         "field_type": "select",
         "input_length": "50",
         "field_required":"Optional",
-        "select_options":["HR","Manger","Employee"]
+        "select_options":"HR, Manger, Employee, HR, Manger, Employee"
     }
 ]

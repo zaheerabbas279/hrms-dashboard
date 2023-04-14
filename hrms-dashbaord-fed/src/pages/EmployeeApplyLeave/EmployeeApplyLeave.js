@@ -59,14 +59,6 @@ export const EmployeeApplyLeave = () => {
     setStartDate(date);
   };
 
-  const xyz = ["a", "", "v", "sad", ""];
-  console.log("🚀 ~ file: Leaves.js:48 ~ Leaves ~ dateArray:", xyz);
-  // let { ...obj } = xyz
-  // console.log("🚀 ~ file: Leaves.js:48 ~ Leaves ~ obj:", obj)
-
-  let jgj = JSON.parse(JSON.stringify(xyz));
-  console.log("🚀 ~ file: Leaves.js:54 ~ Leaves ~ jgj:", jgj);
-
   const handlelistHolidays = (date) => {
     let selectedDate = new Date(date).toDateString();
     let items = [...dateArray];
@@ -191,204 +183,197 @@ export const EmployeeApplyLeave = () => {
             <div className="leave_div">
               <h4 className="mb-4 font_color">Apply for Leave</h4>
               <Form onSubmit={formik.handleSubmit} autoComplete="off">
-                <Input_element
-                  type="text"
-                  name="emp_id"
-                  input_label="Emp. Id"
-                  lableClass="font_color"
-                  placeholder="Enter field"
-                  handleBlur={formik.handleBlur}
-                  handleChange={formik.handleChange}
-                  disabled={true}
-                  value={formik.values.emp_id}
-                  formikValidation={
-                    formik.touched.emp_id && formik.errors.emp_id ? (
-                      <small className="text-danger">
-                        {formik.errors.emp_id}
-                      </small>
-                    ) : null
-                  }
-                />
-                <Selectelement
-                  select_Label="Leave Type"
-                  name="leavetype"
-                  lableClass="font_color"
-                  handleBlur={formik.handleBlur}
-                  handleChange={formik.handleChange}
-                  optionArray={
-                    <>
-                      {leaveTypeArray.map((leave, i) => {
-                        return (
-                          <option key={i} value={leave}>
-                            {leave}
-                          </option>
-                        );
-                      })}
-                    </>
-                  }
-                  formikValidation={
-                    formik.touched.leavetype && formik.errors.leavetype ? (
-                      <small className="text-danger">
-                        {formik.errors.leavetype}
-                      </small>
-                    ) : null
-                  }
-                />
-                <Selectelement
-                  select_Label="To"
-                  name="send_to"
-                  lableClass="font_color"
-                  handleBlur={formik.handleBlur}
-                  handleChange={formik.handleChange}
-                  optionArray={
-                    <>
-                      {sendArray.map((send, i) => {
-                        return (
-                          <option key={i} value={send}>
-                            {send}
-                          </option>
-                        );
-                      })}
-                    </>
-                  }
-                  formikValidation={
-                    formik.touched.send_to && formik.errors.send_to ? (
-                      <small className="text-danger">
-                        {formik.errors.send_to}
-                      </small>
-                    ) : null
-                  }
-                />
-                {/* <Selectelement
-                select_Label="CC"
-                name="send_cc"
-                lableClass="font_color"
-                handleBlur={formik.handleBlur}
-                handleChange={formik.handleChange}
-                optionArray={
-                  <>
-                    {sendArray.map((send, i) => {
-                      return (
-                        <option key={i} value={send}>
-                          {send}
-                        </option>
-                      );
-                    })}
-                  </>
-                }
-                formikValidation={
-                  formik.touched.send_cc && formik.errors.send_cc ? (
-                    <small className="text-danger">
-                      {formik.errors.send_cc}
-                    </small>
-                  ) : null
-                }
-              /> */}
-                <div className="mb-2">
-                  <label htmlFor="" className="text-light">
-                    CC
-                  </label>
-                  <Select
-                    // defaultValue={[options[2], options[3]]}
-                    isMulti
-                    name="send_cc"
-                    options={options}
-                    onBlur={formik.handleBlur}
-                    onChange={(selectedOption) =>
-                      formik.setFieldValue("send_cc", selectedOption.value)
-                    }
-                    className="basic-multi-select"
-                    classNamePrefix="select"
-                    value={formik.values.send_cc}
-                  />
-                  {formik.touched.send_cc && formik.errors.send_cc ? (
-                    <small className="text-danger">
-                      {formik.errors.send_cc}
-                    </small>
-                  ) : null}
-                </div>
-                <Form.Group className="mb-2">
-                  <Form.Label className="font_color">
-                    Reason for Leave
-                  </Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    placeholder="Enter field"
-                    style={{ minHeight: "80px" }}
-                    name="reason_leave"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                  />
-                  {formik.touched.reason_leave && formik.errors.reason_leave ? (
-                    <small className="text-danger">
-                      {formik.errors.reason_leave}
-                    </small>
-                  ) : null}
-                </Form.Group>
-
-                <Form.Group className="mb-2">
-                  <Form.Label className="font_color">
-                    Select leave Dates
-                  </Form.Label>
-                  <div className="mb-2 d-flex align-items-center">
-                    <Form.Label
-                      className={`me-3 font_color ${
-                        holidays ? "half_day" : ""
-                      }`}
-                    >
-                      Half{" "}
-                      <span className={`me-3 ${holidays ? "text-dark" : ""}`}>
-                        Day
-                      </span>{" "}
-                    </Form.Label>
-                    <Form.Check
-                      type="switch"
-                      id="custom-switch"
-                      onChange={handleSwitchChange}
+                <div className="row">
+                  {/* <div className="col-md-6">
+                    <Input_element
+                      type="text"
+                      name="emp_id"
+                      input_label="Emp. Id"
+                      lableClass="font_color"
+                      placeholder="Enter field"
+                      handleBlur={formik.handleBlur}
+                      handleChange={formik.handleChange}
+                      disabled={true}
+                      value={formik.values.emp_id}
+                      formikValidation={
+                        formik.touched.emp_id && formik.errors.emp_id ? (
+                          <small className="text-danger">
+                            {formik.errors.emp_id}
+                          </small>
+                        ) : null
+                      }
+                    />
+                  </div> */}
+                  <div className="col-md-6">
+                    <Selectelement
+                      select_Label="Leave Type"
+                      name="leavetype"
+                      lableClass="font_color"
+                      handleBlur={formik.handleBlur}
+                      handleChange={formik.handleChange}
+                      optionArray={
+                        <>
+                          {leaveTypeArray.map((leave, i) => {
+                            return (
+                              <option key={i} value={leave}>
+                                {leave}
+                              </option>
+                            );
+                          })}
+                        </>
+                      }
+                      formikValidation={
+                        formik.touched.leavetype && formik.errors.leavetype ? (
+                          <small className="text-danger">
+                            {formik.errors.leavetype}
+                          </small>
+                        ) : null
+                      }
                     />
                   </div>
-                  <DatePicker
-                    shouldCloseOnSelect={false}
-                    selected={startDate}
-                    onChange={holidays ? handleHalfHoliday : handlelistHolidays}
-                    highlightDates={dateArray2}
-                    calendarClassName={
-                      holidays
-                        ? "datepicker-calendar halfday"
-                        : " datepicker-calendar"
-                    }
-                    minDate={new Date()}
-                    // filterDate={isWeekday}
-                    onClickOutside={handleFocus}
-                    onKeyDown={(e) => {
-                      e.preventDefault();
-                    }}
-                  />
-                  <div
-                    className="my-3"
-                    name="holidays_list"
-                    onChange={formik.handleChange}
-                  >
-                    {dateArray2.length == 0 ? null : "Selected Date :"}{" "}
-                    {dateArray2.map((date, i) => {
-                      return (
-                        <Chip
-                          key={date}
-                          className="mx-2"
-                          color="primary"
-                          id={i}
-                          label={
-                            new Date(date)?.toISOString()?.split("T")[0] || ""
-                          }
-                          onDelete={handleDelete}
-                        />
-                      );
-                    })}
+                  <div className="col-md-6">
+                    <Selectelement
+                      select_Label="To"
+                      name="send_to"
+                      lableClass="font_color"
+                      handleBlur={formik.handleBlur}
+                      handleChange={formik.handleChange}
+                      optionArray={
+                        <>
+                          {sendArray.map((send, i) => {
+                            return (
+                              <option key={i} value={send}>
+                                {send}
+                              </option>
+                            );
+                          })}
+                        </>
+                      }
+                      formikValidation={
+                        formik.touched.send_to && formik.errors.send_to ? (
+                          <small className="text-danger">
+                            {formik.errors.send_to}
+                          </small>
+                        ) : null
+                      }
+                    />
                   </div>
-                  {dayError ? (
-                    <small className="text-danger">Select Date</small>
-                  ) : null}
-                </Form.Group>
+                  <div className="col-md-12">
+                    <div className="mb-2">
+                      <label htmlFor="" className="text-light">
+                        CC
+                      </label>
+                      <Select
+                        isMulti
+                        name="send_cc"
+                        options={options}
+                        onBlur={formik.handleBlur}
+                        onChange={(selectedOption) =>
+                          formik.setFieldValue("send_cc", selectedOption.value)
+                        }
+                        className="basic-multi-select"
+                        classNamePrefix="select"
+                        value={formik.values.send_cc}
+                      />
+                      {formik.touched.send_cc && formik.errors.send_cc ? (
+                        <small className="text-danger">
+                          {formik.errors.send_cc}
+                        </small>
+                      ) : null}
+                    </div>
+                  </div>
+                  <div className="col-md-12">
+                    <Form.Group className="mb-2">
+                      <Form.Label className="font_color">
+                        Reason for Leave
+                      </Form.Label>
+                      <Form.Control
+                        as="textarea"
+                        placeholder="Enter field"
+                        style={{ minHeight: "80px" }}
+                        name="reason_leave"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                      />
+                      {formik.touched.reason_leave && formik.errors.reason_leave ? (
+                        <small className="text-danger">
+                          {formik.errors.reason_leave}
+                        </small>
+                      ) : null}
+                    </Form.Group>
+                  </div>
+                  <div className="col-md-4">
+                    <Form.Group className="mb-2">
+                      <Form.Label className="font_color">
+                        Select leave Dates
+                      </Form.Label>
+                      <div className="mb-2 d-flex align-items-center">
+                        <Form.Label
+                          className={`me-3 font_color ${holidays ? "half_day" : ""
+                            }`}
+                        >
+                          Half{" "}
+                          <span className={`me-3 ${holidays ? "text-dark" : ""}`}>
+                            Day
+                          </span>{" "}
+                        </Form.Label>
+                        <Form.Check
+                          type="switch"
+                          id="custom-switch"
+                          onChange={handleSwitchChange}
+                        />
+                      </div>
+                      <DatePicker
+                        shouldCloseOnSelect={false}
+                        selected={startDate}
+                        onChange={holidays ? handleHalfHoliday : handlelistHolidays}
+                        highlightDates={dateArray2}
+                        calendarClassName={
+                          holidays
+                            ? "datepicker-calendar halfday"
+                            : " datepicker-calendar"
+                        }
+                        minDate={new Date()}
+                        // filterDate={isWeekday}
+                        onClickOutside={handleFocus}
+                        onKeyDown={(e) => {
+                          e.preventDefault();
+                        }}
+                      />
+                      {dayError ? (
+                        <small className="text-danger">Select Date</small>
+                      ) : null}
+                    </Form.Group>
+                  </div>
+                  <div className="col-md- my-auto">
+                    <div>
+                      <label className="font_color mb-2">{dateArray2.length == 0 ? null : "Selected Date"}{" "}</label>
+                      <div className="chip_div">
+                        {dateArray2.map((date, i) => {
+                          return (
+                            <Chip
+                              key={date}
+                              className="mx-2 my-2"
+                              color="primary"
+                              id={i}
+                              label={
+                                new Date(date)?.toISOString()?.split("T")[0] || ""
+                              }
+                              onDelete={handleDelete}
+                            />
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
 
                 <div className="text-end mt-4">
                   <Button type="submit" onClick={triggerError}>

@@ -21,7 +21,7 @@
       display: block;
     }
     .sidebar_link.active {
-      color: #00ffff;
+      background-color: #00ffff96;
     }
     .accordion-item {
       background-color: transparent !important;
@@ -35,9 +35,6 @@
       font-weight: 600;
       padding: 5px 15px !important;
     }
-    .accordion-collapse {
-      height: auto !important;
-    }
     .accordion-button:after {
       width: 15px !important;
       height: 15px !important;
@@ -50,12 +47,19 @@
       transform: rotate(0deg);
     }
     .accordion-body {
-      padding: 0 !important;
+      padding: 1px 0 !important;
+      background-color: $default_white;
+      margin: 5px 15px;
+      border-radius: 6px;
       .sidebar_link {
         font-size: 15px;
-        margin: 0px 15px 5px 20px;
-        padding: 0 !important;
-        font-weight: 400;
+        padding: 8px 5px 8px 10px !important;
+        color: #575151;
+        line-height: 1.2;
+      }
+      .sidebar_link.active {
+        color: $card_background;
+        border-radius: 6px;
       }
     }
   }

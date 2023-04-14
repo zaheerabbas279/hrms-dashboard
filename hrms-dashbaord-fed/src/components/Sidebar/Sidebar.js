@@ -15,7 +15,7 @@ export const Sidebar = () => {
   return (
     <div className={`sidebar ${isSidebarOpen ? '' : 'close'}`}>
       <div className="sidebar_options">
-        <Accordion alwaysOpen>
+        <Accordion>
           <div>
             <NavLink to={RouteStrings.dashboard} activeclassname="active" className="sidebar_link" onClick={handleClickLink}>
               Dashboard
