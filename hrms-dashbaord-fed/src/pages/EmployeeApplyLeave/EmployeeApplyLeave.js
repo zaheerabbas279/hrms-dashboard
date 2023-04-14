@@ -9,6 +9,7 @@ import { useFormik } from "formik";
 import { LeavesTable } from "../LeavesTable/LeavesTable";
 import { Selectelement } from "../../components/Select_field/Selectelement";
 import { AllLeavesTable } from "./allLeavesTable";
+import Select from "react-select";
 
 export const EmployeeApplyLeave = () => {
   const [holidays, setHolidays] = useState(false);
@@ -19,6 +20,17 @@ export const EmployeeApplyLeave = () => {
   const [addleave, setAddleave] = useState(false);
 
   let emptyday = [];
+
+  // ! react multiselect options
+  const options = [
+    { value: "hr@dollarbirdinc.com", label: "HR" },
+    { value: "devopsmanager@dollarbirdinc.com", label: "Dev Ops Manager" },
+    {
+      value: "asstdevopsmanager@dollarbirdinc.com",
+      label: "Asst Dev Ops Manager",
+    },
+    { value: "devopsteamlead@dollarbirdinc.com", label: "Dev Team Lead" },
+  ];
 
   const isWeekday = (date) => {
     const day = date.getDay();
@@ -115,6 +127,8 @@ export const EmployeeApplyLeave = () => {
     "Loss of Pay(LOP) / Leave Without Pay",
   ];
 
+  const sendArray = ["HR", "Manager", "Team Lead"];
+
   const formik = useFormik({
     initialValues: {
       emp_id: "DB001",
@@ -174,12 +188,14 @@ export const EmployeeApplyLeave = () => {
       <div>
         <>
           {addleave ? (
-            <>
+            <div className="leave_div">
+              <h4 className="mb-4 font_color">Apply for Leave</h4>
               <Form onSubmit={formik.handleSubmit} autoComplete="off">
                 <Input_element
                   type="text"
                   name="emp_id"
                   input_label="Emp. Id"
+                  lableClass="font_color"
                   placeholder="Enter field"
                   handleBlur={formik.handleBlur}
                   handleChange={formik.handleChange}
@@ -196,6 +212,7 @@ export const EmployeeApplyLeave = () => {
                 <Selectelement
                   select_Label="Leave Type"
                   name="leavetype"
+                  lableClass="font_color"
                   handleBlur={formik.handleBlur}
                   handleChange={formik.handleChange}
                   optionArray={
@@ -217,8 +234,83 @@ export const EmployeeApplyLeave = () => {
                     ) : null
                   }
                 />
+                <Selectelement
+                  select_Label="To"
+                  name="send_to"
+                  lableClass="font_color"
+                  handleBlur={formik.handleBlur}
+                  handleChange={formik.handleChange}
+                  optionArray={
+                    <>
+                      {sendArray.map((send, i) => {
+                        return (
+                          <option key={i} value={send}>
+                            {send}
+                          </option>
+                        );
+                      })}
+                    </>
+                  }
+                  formikValidation={
+                    formik.touched.send_to && formik.errors.send_to ? (
+                      <small className="text-danger">
+                        {formik.errors.send_to}
+                      </small>
+                    ) : null
+                  }
+                />
+                {/* <Selectelement
+                select_Label="CC"
+                name="send_cc"
+                lableClass="font_color"
+                handleBlur={formik.handleBlur}
+                handleChange={formik.handleChange}
+                optionArray={
+                  <>
+                    {sendArray.map((send, i) => {
+                      return (
+                        <option key={i} value={send}>
+                          {send}
+                        </option>
+                      );
+                    })}
+                  </>
+                }
+                formikValidation={
+                  formik.touched.send_cc && formik.errors.send_cc ? (
+                    <small className="text-danger">
+                      {formik.errors.send_cc}
+                    </small>
+                  ) : null
+                }
+              /> */}
+                <div className="mb-2">
+                  <label htmlFor="" className="text-light">
+                    CC
+                  </label>
+                  <Select
+                    // defaultValue={[options[2], options[3]]}
+                    isMulti
+                    name="send_cc"
+                    options={options}
+                    onBlur={formik.handleBlur}
+                    onChange={(selectedOption) =>
+                      formik.setFieldValue("send_cc", selectedOption.value)
+                    }
+                    className="basic-multi-select"
+                    classNamePrefix="select"
+                    value={formik.values.send_cc}
+                  />
+                  {formik.touched.send_cc && formik.errors.send_cc ? (
+                    <small className="text-danger">
+                      {formik.errors.send_cc}
+                    </small>
+                  ) : null}
+                </div>
                 <Form.Group className="mb-2">
-                  <Form.Label>Reason for Leave</Form.Label>
+                  <Form.Label className="font_color">
+                    Reason for Leave
+                  </Form.Label>
                   <Form.Control
                     as="textarea"
                     placeholder="Enter field"
@@ -235,26 +327,25 @@ export const EmployeeApplyLeave = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-2">
-                  <Form.Label>Select leave Dates</Form.Label>
+                  <Form.Label className="font_color">
+                    Select leave Dates
+                  </Form.Label>
                   <div className="mb-2 d-flex align-items-center">
-                    {/* <Form.Label className={`ms-3 ${holidays ? "more_day" : ""}`}>
-                  One or More Days
-                </Form.Label> */}
                     <Form.Label
-                      className={`me-3 ${holidays ? "half_day" : ""}`}
+                      className={`me-3 font_color ${
+                        holidays ? "half_day" : ""
+                      }`}
                     >
-                      Half <span className="text-dark">Day</span>{" "}
+                      Half{" "}
+                      <span className={`me-3 ${holidays ? "text-dark" : ""}`}>
+                        Day
+                      </span>{" "}
                     </Form.Label>
                     <Form.Check
                       type="switch"
                       id="custom-switch"
                       onChange={handleSwitchChange}
-                    // defaultChecked="checked"
                     />
-
-                    {/* <Form.Label className={`me-3 ${holidays ? "" : "half_day"}`}>
-                  Half <span className="text-dark">Day</span>{" "}
-                </Form.Label> */}
                   </div>
                   <DatePicker
                     shouldCloseOnSelect={false}
@@ -267,7 +358,7 @@ export const EmployeeApplyLeave = () => {
                         : " datepicker-calendar"
                     }
                     minDate={new Date()}
-                    filterDate={isWeekday}
+                    // filterDate={isWeekday}
                     onClickOutside={handleFocus}
                     onKeyDown={(e) => {
                       e.preventDefault();
@@ -305,7 +396,7 @@ export const EmployeeApplyLeave = () => {
                   </Button>
                 </div>
               </Form>
-            </>
+            </div>
           ) : (
             <>
               <AllLeavesTable />

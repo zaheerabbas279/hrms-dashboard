@@ -8,7 +8,8 @@ import Chip from "@mui/material/Chip";
 import { useFormik } from "formik";
 import { LeavesTable } from "../LeavesTable/LeavesTable";
 import { Selectelement } from "../../components/Select_field/Selectelement";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import Select from "react-select";
 
 export const Leaves = () => {
   const [holidays, setHolidays] = useState(false);
@@ -17,8 +18,20 @@ export const Leaves = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [dayError, setDayError] = useState(false);
   const [addleave, setAddleave] = useState(false);
+  const [selected, setSelected] = useState(null);
 
   let emptyday = [];
+
+    // ! react multiselect options
+    const options = [
+      { value: "hr@dollarbirdinc.com", label: "HR" },
+      { value: "devopsmanager@dollarbirdinc.com", label: "Dev Ops Manager" },
+      {
+        value: "asstdevopsmanager@dollarbirdinc.com",
+        label: "Asst Dev Ops Manager",
+      },
+      { value: "devopsteamlead@dollarbirdinc.com", label: "Dev Team Lead" },
+    ];
 
   // const isWeekday = (date) => {
   //   const day = date.getDay();
@@ -107,7 +120,7 @@ export const Leaves = () => {
     "Loss of Pay(LOP) / Leave Without Pay",
   ];
 
-  const sendArray = ["HR", "Manager", "Team Lead"]
+  const sendArray = ["HR", "Manager", "Team Lead"];
 
   const formik = useFormik({
     initialValues: {
@@ -116,7 +129,7 @@ export const Leaves = () => {
       leavetype: "",
       holidays_list: dateArray2,
       send_to: "",
-      send_cc: ""
+      send_cc: "",
     },
     validate: (values) => {
       let errors = {};
@@ -142,6 +155,7 @@ export const Leaves = () => {
         const value2 = { ...value, holidays_list: dateArray };
         console.log(value2);
       }
+      console.log("🚀 ~ file: Leaves.js:160 ~ Leaves ~ value:", value);
     },
   });
 
@@ -157,6 +171,11 @@ export const Leaves = () => {
     }
   };
 
+  const handleChange = (selectedOption) => {
+    setSelected(selectedOption);
+    console.log(`Option selected:`, selectedOption);
+  };
+
   return (
     <div className="leves_style">
       <div className="d-flex justify-content-between mt-4">
@@ -165,7 +184,9 @@ export const Leaves = () => {
         </div>
       </div>
       <div className="text-end">
-        <Link to="/" className="goback">Back to Dashboard</Link>
+        <Link to="/" className="goback">
+          Back to Dashboard
+        </Link>
         <Button
           variant="primary"
           onClick={() => {
@@ -193,7 +214,9 @@ export const Leaves = () => {
                 value={formik.values.emp_id}
                 formikValidation={
                   formik.touched.emp_id && formik.errors.emp_id ? (
-                    <small className="text-danger">{formik.errors.emp_id}</small>
+                    <small className="text-danger">
+                      {formik.errors.emp_id}
+                    </small>
                   ) : null
                 }
               />
@@ -247,7 +270,7 @@ export const Leaves = () => {
                   ) : null
                 }
               />
-              <Selectelement
+              {/* <Selectelement
                 select_Label="CC"
                 name="send_cc"
                 lableClass="font_color"
@@ -271,7 +294,28 @@ export const Leaves = () => {
                     </small>
                   ) : null
                 }
-              />
+              /> */}
+              <div className="mb-2">
+                <label htmlFor="" className="text-light">
+                  CC
+                </label>
+                <Select
+                  // defaultValue={[options[2], options[3]]}
+                  isMulti
+                  name="send_cc"
+                  options={options}
+                  onBlur={formik.handleBlur}
+                  onChange={(selectedOption) =>
+                    formik.setFieldValue("send_cc", selectedOption.value)
+                  }
+                  className="basic-multi-select"
+                  classNamePrefix="select"
+                  value={formik.values.send_cc}
+                />
+                {formik.touched.send_cc && formik.errors.send_cc ? (
+                  <small className="text-danger">{formik.errors.send_cc}</small>
+                ) : null}
+              </div>
               <Form.Group className="mb-2">
                 <Form.Label className="font_color">Reason for Leave</Form.Label>
                 <Form.Control
@@ -290,10 +334,17 @@ export const Leaves = () => {
               </Form.Group>
 
               <Form.Group className="mb-2">
-                <Form.Label className="font_color">Select leave Dates</Form.Label>
+                <Form.Label className="font_color">
+                  Select leave Dates
+                </Form.Label>
                 <div className="mb-2 d-flex align-items-center">
-                  <Form.Label className={`me-3 font_color ${holidays ? "half_day" : ""}`}>
-                    Half <span className={`me-3 ${holidays ? "text-dark" : ""}`}>Day</span>{" "}
+                  <Form.Label
+                    className={`me-3 font_color ${holidays ? "half_day" : ""}`}
+                  >
+                    Half{" "}
+                    <span className={`me-3 ${holidays ? "text-dark" : ""}`}>
+                      Day
+                    </span>{" "}
                   </Form.Label>
                   <Form.Check
                     type="switch"
@@ -331,7 +382,9 @@ export const Leaves = () => {
                         className="mx-2"
                         color="primary"
                         id={i}
-                        label={new Date(date)?.toISOString()?.split("T")[0] || ""}
+                        label={
+                          new Date(date)?.toISOString()?.split("T")[0] || ""
+                        }
                         onDelete={handleDelete}
                       />
                     );
